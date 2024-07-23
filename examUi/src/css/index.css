@@ -1,0 +1,29 @@
+body {
+  width: 100vw;
+  overflow-y: auto;
+}
+
+/* main page content */
+#main_content {
+  height: 98vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main_content .main_content_bg {
+  width: 200px;
+  height: 100%;
+  /*background-image: url("../img/dogFoot2.png");*/
+  /*background-size: contain;*/
+  /*background-repeat: space;*/
+}
+
+#main_content .main_content__img {
+  width: 100%;
+  height: 100%;
+  font-size: 37px;
+  text-align: center;
+  background-image: url("../img/dogs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
