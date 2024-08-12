@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+  background-color: #f7f7f7;
+}
+
+#main-container {
+  display: flex;
+}
+
+#main-container .error-msg {
+  margin-left: 20px;
+}

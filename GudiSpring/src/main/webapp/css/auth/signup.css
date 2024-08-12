@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbit&display=swap');
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap');
+
+input{
+	width: 230px;
+	height: 40px;
+	border: none;
+	background-color: #bfdaf1;
+	border-radius: 5px;
+	
+}
+
+.errorMessage{
+	color: red;
+	font-size: 13px;
+}
+input:focus{
+	outline-color: #5daaf0;
+}
+
+input[type="button"],.signup_btn{
+	width: 76px;
+}
+
+input[type="button"]:hover{
+	background-color: #5daaf0;
+}
+
+.signup_btn:hover{
+	background-color: #0e85f1;
+}
+
+.signUp_content_element--signUpBtn{
+	margin: 20px 200px;
+}
+
+.main_signUp {
+	margin-top: 90px;
+
+}
+.main_signUp_content_form{
+    width: 500px;
+    height: 620px;
+/* 	display: flex; */
+/*     justify-content: center; */
+/*     align-items: center; */
+    margin: auto;
+}
+
+
+.main_signUp {
+	margin-top: 128px;
+}
+
+.main_signUp--title {
+	width: 500px;
+	margin: 20px auto;
+	text-align: center;
+	font-family: "Black Han Sans", sans-serif;
+	font-size: 30px;
+}
+
+.main_signUp_content_form {
+	border: 2px solid #5daaf0;
+	border-radius: 5px;
+	background-image: url("../../img/auth/su.png");
+}
+.main_signUp_content__item{
+	margin-top: 30px;
+}
+
+.signUp_content_element--textBox{
+	margin-top: 10px;
+}
+.main_signUp_content_element{
+	margin:20px 120px;
+}
+
+.signup_inputHidden {
+	border: 1px solid green;
+}
+
+.nicknameCheckBox, .idCheckBox{
+	width: 150px;
+}

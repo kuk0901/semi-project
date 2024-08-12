@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+#main-container {
+  margin-top: 100px;
+}
+
+#main-container h1 {
+  color: darksalmon;
+  font-size: 55px;
+  margin-left: 30px;
+}

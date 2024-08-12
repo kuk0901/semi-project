@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+#main-container {
+  display: flex;
+  margin-left: 320px;
+}
+
+#main-container .main-container__content {
+  width: 83vw;
+}
+
+/* place search */
+#main-container .main-container__content .place__select {
+  height: 45px;
+  margin: 20px 15px 35px;
+}
+
+#main-container .main-container__content .place__select form {
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#main-container .main-container__content .place__select form .place__select--title
+  {
+  height: 45px;
+  font-size: 20px;
+  color: #000;
+  line-height: 45px;
+}
+
+#main-container .main-container__content .place__select form input {
+  height: 45px;
+  display: inline-block;
+  width: 450px;
+  font-size: 20px;
+  line-height: 45px;
+  margin: 0;
+  margin-left: 10px;
+  color: #000;
+}
+
+#main-container .main-container__content .place__select form .btn,
+  #main-container .main-container__content .category-container form .btn
+  {
+  height: 45px;
+  display: inline-block;
+  color: #fff;
+  background-color: #212c40;
+  border: 1px solid #212c40;
+  margin: 0;
+  margin-left: 10px;
+  transition: .2s;
+}
+
+#main-container .main-container__content .place__select form .btn:hover
+  {
+  text-decoration: none;
+  box-shadow: inset 0 0 8.5px #778899;
+}
+
+#main-container .main-container__content .category-container {
+  display: flex;
+  margin: auto 8px 10px;
+}
+
+#main-container .main-container__content .category-container form {
+  width: 100px;
+}
+
+/* place add btn */
+#main-container .main-container__content .category-container .place__add--btn .btn--add {
+  width: 85px;
+  position: absolute;
+  top: 110px;
+  right: 110px;
+}
+
+/* place list */
+#main-container .main-container__content .place__list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#main-container .main-container__content .place__list .place__list--btn
+  {
+  position: absolute;
+  top: -45px;
+  right: 16px;
+}
+
+#main-container .main-container__content .place__list .place__list--btn .btn--remove
+  {
+  width: 85px;
+}
+
+#main-container .main-container__content .place__list ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container .main-container__content .place__list ul li.place__list--error
+  {
+  margin: 0 10px 0;
+  height: 60px;
+  text-align: cneter;
+  color: #000;
+  font-size: 20px;
+  line-height: 60px;
+}
+
+#main-container .main-container__content .place__list ul li .text--black
+  {
+  background-color: #fff;
+  width: 150px;
+  height: 60px;
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  line-height: 60px;
+  margin: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+#main-container .main-container__content .place__list ul li .text--black input
+  {
+  width: 20px;
+  height: 20px;
+}
+
+#main-container .main-container__content .place__list ul li .place__list--col
+  {
+  color: #838383;
+}
+
+#main-container .main-container__content .place__list ul li .width--sm {
+  width: 90px;
+}
+
+#main-container .main-container__content .place__list ul li .width--md {
+  width: 220px;
+}
+
+#main-container .main-container__content .place__list ul li .width--lg {
+  width: 760px;
+}

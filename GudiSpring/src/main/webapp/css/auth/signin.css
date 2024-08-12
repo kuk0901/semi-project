@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbit&display=swap');
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap');
+
+input{
+	width: 230px;
+	height: 40px;
+	border: none;
+	background-color: #bfdaf1;
+	border-radius: 5px;
+}
+
+input:focus{
+	outline-color: #5daaf0;
+}
+.main_signIn {
+	margin-top: 128px;
+	
+}
+
+.main_signIn--title {
+	width: 500px;
+	margin: 20px auto;
+	text-align: center;
+	font-family: "Black Han Sans", sans-serif;
+	font-size: 30px;
+}
+
+.main_signIn_content_form {
+	border: 2px solid #5daaf0;
+	border-radius: 5px;
+	width: 500px;
+	height: 620px;
+	margin: auto;
+}
+.main_signIn_content__items{
+	margin: 185px 100px;
+}
+
+.signIn_content--item{
+	margin: 30px;
+}
+
+.signIn_content--item .signup_btn{
+ 	margin-top: 15px;
+}
+
+.signup_btn:hover{
+	background-color: #5daaf0;
+}
+
+.signIn_content_element--textBox{
+	margin-top: 10px;	
+}
