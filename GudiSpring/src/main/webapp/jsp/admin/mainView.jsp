@@ -74,7 +74,7 @@
             <c:forEach var="userDto" items="${userList}">
               <li>
                 <div class="text--black">${userDto.name}</div>
-                <div class="text--black">${userDto.nickName}</div>
+                <div class="text--black">${userDto.nickname}</div>
                 <div class="text--black">${userDto.id}</div>
                 <div class="text--black width--lg">${userDto.creDate}</div>
                 <div class="text--black">${userDto.postCount}</div>

@@ -4,9 +4,9 @@ public class UserDto {
 
 	private int userNo;
 	private String name;
-	private String nickName;
+	private String nickname;
 	private String id;
-	private String pwd;
+	private String password;
 	private String phone;
 	private String creDate;
 	private String upDate;
@@ -19,37 +19,37 @@ public class UserDto {
 		super();
 	}
 
-	public UserDto(int userNo, String id, String pwd, String authority) {
+	public UserDto(int userNo, String id, String password, String authority) {
 		super();
 		this.userNo = userNo;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.authority = authority;
 	}
 
-	public UserDto(int userNo, String name, String id, String pwd, String authority) {
+	public UserDto(int userNo, String name, String id, String password, String authority) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.authority = authority;
 	}
 
-	public UserDto(String userName, String nickName, String id, String pwd, String userPhone) {
+	public UserDto(String userName, String nickname, String id, String password, String userPhone) {
 		this.name = userName;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.phone = userPhone;
 	}
 
-	public UserDto(int userNo, String name, String nickName, String id, String creDate, String authority,
+	public UserDto(int userNo, String name, String nickname, String id, String creDate, String authority,
 	    String userLeave, int postCount, int commentCount) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.id = id;
 		this.creDate = creDate;
 		this.authority = authority;
@@ -58,14 +58,14 @@ public class UserDto {
 		this.commentCount = commentCount;
 	}
 
-	public UserDto(int userNo, String name, String nickName, String id, String pwd, String phone, String creDate,
+	public UserDto(int userNo, String name, String nickname, String id, String password, String phone, String creDate,
 	    String upDate, String authority, String userLeave, int postCount, int commentCount) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.phone = phone;
 		this.creDate = creDate;
 		this.upDate = upDate;
@@ -91,12 +91,12 @@ public class UserDto {
 		this.name = name;
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getId() {
@@ -107,12 +107,12 @@ public class UserDto {
 		this.id = id;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getPhone() {
@@ -173,7 +173,7 @@ public class UserDto {
 
 	@Override
 	public String toString() {
-		return "UserDto [userNo=" + userNo + ", name=" + name + ", nickName=" + nickName + ", id=" + id + ", pwd=" + pwd
+		return "UserDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", password=" + password
 		    + ", phone=" + phone + ", creDate=" + creDate + ", upDate=" + upDate + ", authority=" + authority
 		    + ", userLeave=" + userLeave + ", postCount=" + postCount + ", commentCount=" + commentCount + "]";
 	}

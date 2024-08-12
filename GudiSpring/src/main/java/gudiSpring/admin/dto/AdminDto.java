@@ -3,9 +3,9 @@ package gudiSpring.admin.dto;
 public class AdminDto {
 	private int userNo;
 	private String name;
-	private String nickName;
+	private String nickname;
 	private String id;
-	private String pwd;
+	private String password;
 	private String phone;
 	private String creString;
 	private String upString;
@@ -15,23 +15,23 @@ public class AdminDto {
 		super();
 	}
 
-	public AdminDto(int userNo, String name, String id, String pwd, String authority) {
+	public AdminDto(int userNo, String name, String id, String password, String authority) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.authority = authority;
 	}
 
-	public AdminDto(int userNo, String name, String nickName, String id, String pwd, String phone, String creString,
+	public AdminDto(int userNo, String name, String nickname, String id, String password, String phone, String creString,
 	    String upString, String authority) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.phone = phone;
 		this.creString = creString;
 		this.upString = upString;
@@ -54,12 +54,12 @@ public class AdminDto {
 		this.name = name;
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getId() {
@@ -70,12 +70,12 @@ public class AdminDto {
 		this.id = id;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getPhone() {
@@ -112,7 +112,7 @@ public class AdminDto {
 
 	@Override
 	public String toString() {
-		return "AdminDto [userNo=" + userNo + ", name=" + name + ", nickName=" + nickName + ", id=" + id + ", pwd=" + pwd
+		return "AdminDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", password=" + password
 		    + ", phone=" + phone + ", creString=" + creString + ", upString=" + upString + ", authority=" + authority + "]";
 	}
 }

@@ -32,9 +32,9 @@ public class UserDao {
 			pstmt = connection.prepareStatement(sql);
 
 			String name = userDto.getName();
-			String nickname = userDto.getNickName();
+			String nickname = userDto.getNickname();
 			String id = userDto.getId();
-			String password = userDto.getPwd();
+			String password = userDto.getPassword();
 			String phone = userDto.getPhone();
 
 			pstmt.setString(1, name);

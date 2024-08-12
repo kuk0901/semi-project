@@ -40,9 +40,9 @@ public class AdminSigninController extends HttpServlet {
 			adminDao.setConnection(conn);
 			
 			String id = req.getParameter("id");
-			String pwd = req.getParameter("pwd");
+			String password = req.getParameter("pwd");
 			
-			AdminDto adminDto = adminDao.adminExist(id, pwd);
+			AdminDto adminDto = adminDao.adminExist(id, password);
 						
 			// 관리자 로그인 실패시 관련 UI를 화면에 띄움
 			if (adminDto == null) {

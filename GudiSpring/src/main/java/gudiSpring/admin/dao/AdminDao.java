@@ -48,13 +48,13 @@ public class AdminDao {
 				id = rs.getString("ID");
 				pwd = rs.getString("PASSWORD");
 				String name = rs.getString("NAME");
-				String nickName = rs.getString("NICKNAME");
+				String nickname = rs.getString("NICKNAME");
 				String phone = rs.getString("PHONE");
 				String cerDate = rs.getString("FM_CRE_DATE");
 				String upDate = rs.getString("FM_UP_DATE");
 				String authority = rs.getString("AUTHORITY");
 
-				AdminDto adminDto = new AdminDto(userNo, id, pwd, name, nickName, phone, cerDate, upDate, authority);
+				AdminDto adminDto = new AdminDto(userNo, id, pwd, name, nickname, phone, cerDate, upDate, authority);
 
 				return adminDto;
 			}
