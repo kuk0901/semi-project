@@ -47,13 +47,13 @@
   ```
   - 팔공힐링펜션, 대구광역시, 대구 군위군 부계면 한티로 1751
 
-  - 010-7124-6994, https://www.instagram.com/gout__cafe/
+  - 010-7124-6994, http://jhealing.creatorlink.net/
   ```
 
   ```
   - 스테이 소화, 대구광역시, 대구 남구 봉덕로9길 10 (봉덕동)
 
-  - 010-6556-3401, http://jhealing.creatorlink.net/
+  - 010-6556-3401, https://blog.naver.com/dobogy45
   ```
 
 <br />

@@ -27,7 +27,7 @@
   ```
   - 콩밭매는 댕댕이 펜션, 충청남도, 충남 청양군 대치면 까치내로 1067-81 콩밭매는 댕댕이 펜션
 
-  - 010-9048-3274, https://booking.naver.com/booking/3/bizes/871777
+  - 010-9048-3274, http://farmingpuppies.com
   ```
 
   ```
@@ -209,7 +209,7 @@
   ```
   - 점선 에스프레소바, 충청북도, 충북 청주시 흥덕구 강서동 546
 
-  - 0507-1352-9367, https://www.instagram.com/p/CmNg6iEPxUm/?igshid=YmMyMTA2M2Y=
+  - 0507-1352-9367, https://www.instagram.com/dotlineespressobar
   ```
 
   ```

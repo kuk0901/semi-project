@@ -83,10 +83,6 @@
 - 제주시
 
   ```
-
-  ```
-
-  ```
   - 만월당, 제주도, 제주 제주시 구좌읍 월정1길 56
 
   - 0507-1381-5911, https://www.instagram.com/manwoldanginjeju/
