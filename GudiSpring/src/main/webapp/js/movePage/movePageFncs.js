@@ -5,11 +5,27 @@ function moveMainPageFnc(path) {
 
 // admin
 function moveAdminMainPageFnc(port) {
-	location.href = `http://localhost:${port}/Test/admin/main`;
+	location.href = `http://localhost:${port}/GudiSpring/admin/main`;
+}
+
+function moveAdminPlaceListPageFnc(path) {
+	location.href = `${path}/admin/place/list`;
 }
 
 function moveAdminAddPlacePageFnc(path) {
 	location.href = `${path}/admin/place/add`;
+}
+
+function moveAdminEventListPageFnc(path) {
+	location.href = `${path}/admin/event/list`;
+}
+
+function moveAdminAddEventPageFnc(path) {
+	location.href = `${path}/admin/event/add`;
+}
+
+function moveAdminListPageFnc(path) {
+	location.href = `${path}/admin/list`;
 }
 
 // signin, signup, signout
@@ -23,6 +39,10 @@ function moveSignupPageFnc(path) {
 
 function moveLogoutPageFnc(path) {
 	location.href = `${path}/auth/signout`;
+}
+
+function moveUserDetailPageFnc(path, userNo){
+	location.href = `${path}/user/detail?userNo=` + userNo;
 }
 
 // category
@@ -63,3 +83,7 @@ function moveNoticeAddFnc(path) {
 	location.href = `${path}/board/notice/add`;
 }
 
+// event
+function moveEventListPageFnc(path) {
+	location.href = `${path}/event/list`;
+}

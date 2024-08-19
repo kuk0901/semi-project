@@ -1,0 +1,49 @@
+#main-container {
+    padding: 20px;
+     margin-left: 20vw;
+        
+}
+#main-container * {
+    color: black; /* main-container 내부의 모든 요소를 검정색으로 */
+}
+#detailTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#detailTable th, #detailTable td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+#detailTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.detail-actions {
+    margin-top: 20px;
+}
+
+.detail-actions .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.detail-actions .btn:hover {
+    background-color: #45a049;
+}
+
+.detail-actions .delete-btn {
+    background-color: #f44336;
+}
+
+.detail-actions .delete-btn:hover {
+    background-color: #d32f2f;
+}

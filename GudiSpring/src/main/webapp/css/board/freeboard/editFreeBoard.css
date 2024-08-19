@@ -1,31 +1,36 @@
 @charset "UTF-8";
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+#main-container {
+    margin: 120px auto 0;
+    padding: 20px;
+    max-width: 600px;
     background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.title {
     color: #333;
     margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
 }
 
-form {
+.edit-form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
 }
 
-label {
+.form-label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
 }
 
-input[type="text"], textarea, input[type="file"] {
+.form-input,
+.form-textarea,
+.form-file-input {
     width: 100%;
     padding: 8px;
     margin-bottom: 12px;
@@ -33,7 +38,7 @@ input[type="text"], textarea, input[type="file"] {
     border-radius: 4px;
 }
 
-input[type="submit"] {
+.submit-button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -42,18 +47,18 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.submit-button:hover {
     background-color: #45a049;
 }
 
-a {
+.back-link {
     display: inline-block;
     margin-top: 20px;
     text-decoration: none;
     color: #4CAF50;
 }
 
-a:hover {
+.back-link:hover {
     text-decoration: underline;
 }
 
@@ -63,7 +68,7 @@ a:hover {
     color: #d9534f;
 }
 
-.delete-file input[type="checkbox"] {
+.delete-checkbox {
     margin-right: 8px;
 }
 

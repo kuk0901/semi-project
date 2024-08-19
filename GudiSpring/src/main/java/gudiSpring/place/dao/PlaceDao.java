@@ -9,7 +9,7 @@ import java.util.List;
 
 import gudiSpring.place.dto.PlaceDto;
 
-public class PlaceDao {
+public class PlaceDao  {
 
 	private Connection connection;
 
@@ -18,48 +18,44 @@ public class PlaceDao {
 	}
 
 	// 사용자 ui용 place list
-	public List<PlaceDto> selectPlaceList() {
+	public List<PlaceDto> selectPlaceList(int start, int pageSize) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
-		try {
-
+		ArrayList<PlaceDto> placeList = new ArrayList<>();
+		
+		try {			
 			String sql = "";
-			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
+			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
+			sql += " , GEN_RESERVATION, RECO_RESERVATION";
+			sql += " FROM (SELECT p.*, ROWNUM rnum";
+			sql += " FROM (SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
 			sql += " FROM PLACE";
+			sql += " ORDER BY PLACE_NO) p";
+			sql += " WHERE ROWNUM <= ?)";
+			sql += " WHERE rnum > ?";
 
 			pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, start + pageSize); // 시작 인덱스 + 페이지 크기
+      pstmt.setInt(2, start); // 시작 인덱스
 
-			rs = pstmt.executeQuery();
-
-			int placeNo = 0;
-			String category = "";
-			String placeName = "";
-			String plAddress = "";
-			String plPhone = "";
-			String plWebsite = "";
-			int genReservation = 0;
-			int recoReservation = 0;
-
-			ArrayList<PlaceDto> placeList = new ArrayList<>();
+      rs = pstmt.executeQuery();
 
 			PlaceDto placeDto = null;
 
 			while (rs.next()) {
-				placeNo = rs.getInt("PLACE_NO");
-				category = rs.getString("CATEGORY");
-				placeName = rs.getString("PLACE_NAME");
-				plAddress = rs.getString("PL_ADDRESS");
-				plPhone = rs.getString("PL_PHONE");
-				plWebsite = rs.getString("PL_WEBSITE");
-				genReservation = rs.getInt("GEN_RESERVATION");
-				recoReservation = rs.getInt("RECO_RESERVATION");
-
-				placeDto = new PlaceDto(placeNo, category, placeName, plAddress, plPhone, plWebsite, genReservation,
-				    recoReservation);
-
-				placeList.add(placeDto);
-			}
+         placeDto = new PlaceDto(
+            rs.getInt("PLACE_NO"),
+            rs.getString("CATEGORY"),
+            rs.getString("PLACE_NAME"),
+            rs.getString("PL_ADDRESS"),
+            rs.getString("PL_PHONE"),
+            rs.getString("PL_WEBSITE"),
+            rs.getInt("GEN_RESERVATION"),
+            rs.getInt("RECO_RESERVATION")
+        );
+        
+        placeList.add(placeDto);
+    }
 
 			return placeList;
 
@@ -94,36 +90,31 @@ public class PlaceDao {
 		try {
 			String sql = "";
 
-			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
-			sql += " FROM PLACE";
-			sql += " WHERE PLACE_NO = ?";
+			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
+			sql += " , GEN_RESERVATION, RECO_RESERVATION, PLACE_IMG_PATH, AREA_NAME";
+			sql += " FROM PLACE P, AREA A";
+			sql += " WHERE P.AREA_NO = A.AREA_NO";
+			sql += " AND PLACE_NO = ?";
 
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, placeNo);
 
 			rs = pstmt.executeQuery();
 
-			String category = "";
-			String placeName = "";
-			String plAddress = "";
-			String plPhone = "";
-			String plWebsite = "";
-			int genReservation = 0;
-			int recoReservation = 0;
-
 			while (rs.next()) {
 
-				placeNo = rs.getInt("PLACE_NO");
-				category = rs.getString("CATEGORY");
-				placeName = rs.getString("PLACE_NAME");
-				plAddress = rs.getString("PL_ADDRESS");
-				plPhone = rs.getString("PL_PHONE");
-				plWebsite = rs.getString("PL_WEBSITE");
-				genReservation = rs.getInt("GEN_RESERVATION");
-				recoReservation = rs.getInt("RECO_RESERVATION");
-
-				placeDto = new PlaceDto(placeNo, category, placeName, plAddress, plPhone, plWebsite, genReservation,
-				    recoReservation);
+				placeDto = new PlaceDto(
+						rs.getInt("PLACE_NO"), 
+						rs.getString("CATEGORY"), 
+						rs.getString("PLACE_NAME"), 
+						rs.getString("PL_ADDRESS"), 
+						rs.getString("PL_PHONE"), 
+						rs.getString("PL_WEBSITE"),
+						rs.getInt("GEN_RESERVATION"),
+						rs.getInt("RECO_RESERVATION"),
+						rs.getString("PLACE_IMG_PATH"),
+						rs.getString("AREA_NAME")
+					);
 			}
 
 		} catch (Exception e) {
@@ -135,12 +126,12 @@ public class PlaceDao {
 	}
 
 	// admin placeList select
-	public List<PlaceDto> searchPlaceList(String placeName) {
+	public List<PlaceDto> searchPlaceList(String placeName, int start, int pageSize) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		PlaceDto placeDto = null;
+		
 		ArrayList<PlaceDto> placeList = new ArrayList<>();
 
 		try {
@@ -148,32 +139,33 @@ public class PlaceDao {
 			String sql = "";
 
 			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, GEN_RESERVATION, RECO_RESERVATION";
+			sql += " FROM (SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, GEN_RESERVATION, RECO_RESERVATION, ROWNUM rnum";
 			sql += " FROM PLACE";
-			sql += " WHERE PLACE_NAME = ?";
+			sql += " WHERE PLACE_NAME LIKE UPPER(?)";
+			sql += " AND ROWNUM <= ?)";
+			sql += "  WHERE rnum > ?";
 
 			pstmt = connection.prepareStatement(sql);
-			pstmt.setString(1, placeName);
+			
+      pstmt.setString(1, "%" + placeName + "%"); // 검색어 설정
+      pstmt.setInt(2, start + pageSize); // start + pageSize로 전체 개수를 가져옴
+      pstmt.setInt(3, start); // 시작 인덱스 설정
 
-			rs = pstmt.executeQuery();
+      rs = pstmt.executeQuery();
 
-			int placeNo = 0;
-			String category = "";
-			String plAddress = "";
-			String plPhone = "";
-			int genReservation = 0;
-			int recoReservation = 0;
-
+      PlaceDto placeDto = null;
+      
 			while (rs.next()) {
 
-				placeNo = rs.getInt("PLACE_NO");
-				category = rs.getString("CATEGORY");
-				placeName = rs.getString("PLACE_NAME");
-				plAddress = rs.getString("PL_ADDRESS");
-				plPhone = rs.getString("PL_PHONE");
-				genReservation = rs.getInt("GEN_RESERVATION");
-				recoReservation = rs.getInt("RECO_RESERVATION");
-
-				placeDto = new PlaceDto(placeNo, category, placeName, plAddress, plPhone, genReservation, recoReservation);
+				placeDto = new PlaceDto(
+		        rs.getInt("PLACE_NO"),
+		        rs.getString("CATEGORY"),
+		        rs.getString("PLACE_NAME"),
+		        rs.getString("PL_ADDRESS"),
+		        rs.getString("PL_PHONE"),
+		        rs.getInt("GEN_RESERVATION"),
+		        rs.getInt("RECO_RESERVATION")
+		    );
 
 				placeList.add(placeDto);
 			}
@@ -181,7 +173,6 @@ public class PlaceDao {
 			return placeList;
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			try {
@@ -200,6 +191,72 @@ public class PlaceDao {
 		return placeList;
 	}
 
+	// place count
+	public int placeTotalCount() {
+		int totalCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT COUNT(*) FROM PLACE";
+      pstmt = connection.prepareStatement(sql);
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+      	totalCount = rs.getInt(1); // 첫 번째 칼럼
+      }
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally 종료
+		
+		return totalCount;
+	}
+	
+	public int searchTotalCount(String placeName) {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+        String sql = "SELECT COUNT(*) FROM PLACE WHERE PLACE_NAME LIKE ?";
+        pstmt = connection.prepareStatement(sql);
+        pstmt.setString(1, "%" + placeName + "%"); // 검색어 설정
+
+        rs = pstmt.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1); // 첫 번째 칼럼의 값을 반환
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    return 0; // 기본값
+	}
+	
 	// admin insert place
 	public int placeInsert(PlaceDto placeDto) {
 		int result = 0;
@@ -209,8 +266,8 @@ public class PlaceDao {
 
 			String sql = "";
 			sql += "INSERT INTO PLACE";
-			sql += " (PLACE_NO, CATEGORY, AREA_NO, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE)";
-			sql += " VALUES (PLACE_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+			sql += " (PLACE_NO, CATEGORY, AREA_NO, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, PLACE_IMG_PATH)";
+			sql += " VALUES (PLACE_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 
 			int colIndex = 1;
 
@@ -220,6 +277,7 @@ public class PlaceDao {
 			String plAddress = placeDto.getPlAddress();
 			String plPhone = placeDto.getPlPhone();
 			String plWebsite = placeDto.getPlWebsite();
+			String placeImgPath = placeDto.getPlaceImgPath();
 
 			pstmt = connection.prepareStatement(sql);
 
@@ -228,12 +286,13 @@ public class PlaceDao {
 			pstmt.setString(colIndex++, placeName);
 			pstmt.setString(colIndex++, plAddress);
 			pstmt.setString(colIndex++, plPhone);
-			pstmt.setString(colIndex, plWebsite);
+			pstmt.setString(colIndex++, plWebsite);
+			pstmt.setString(colIndex, placeImgPath);
 
 			result = pstmt.executeUpdate();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			try {
 				if (pstmt != null) {
@@ -256,8 +315,7 @@ public class PlaceDao {
 
 			String sql = "";
 			sql += "UPDATE PLACE";
-			sql += " SET PLACE_NAME = ?, PL_ADDRESS = ?, PL_PHONE = ?";
-			sql += " , PL_WEBSITE = ?";
+			sql += " SET PLACE_NAME = ?, PL_ADDRESS = ?, PL_PHONE = ?, PL_WEBSITE = ?, PLACE_IMG_PATH = ?";
 			sql += " WHERE PLACE_NO = ?";
 
 			int colIndex = 1;
@@ -268,6 +326,7 @@ public class PlaceDao {
 			pstmt.setString(colIndex++, placeDto.getPlAddress());
 			pstmt.setString(colIndex++, placeDto.getPlPhone());
 			pstmt.setString(colIndex++, placeDto.getPlWebsite());
+			pstmt.setString(colIndex++, placeDto.getPlaceImgPath());
 			pstmt.setInt(colIndex, placeDto.getPlaceNo());
 
 			result = pstmt.executeUpdate();
@@ -292,19 +351,16 @@ public class PlaceDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "";
+		String sql = "DELETE FROM PLACE WHERE PLACE_NO = ?";
 
 		try {
 
-			for (int i = 0; i < removePlaceNoList.size(); i++) {
-				sql += "DELETE FROM PLACE";
-				sql += " WHERE PLACE_NO = ?";
+			pstmt = connection.prepareStatement(sql);
 
-				pstmt = connection.prepareStatement(sql);
-				pstmt.setInt(1, removePlaceNoList.get(i));
-			}
-
-			result = pstmt.executeUpdate();
+      for (Integer placeNo : removePlaceNoList) {
+          pstmt.setInt(1, placeNo);
+          result += pstmt.executeUpdate();
+      }
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import gudiSpring.place.dto.PlaceDto;
 import gudiSpring.place.dto.cafe.CafeDto;
 
 public class CafeDao {
@@ -17,18 +18,22 @@ public class CafeDao {
 		this.connection = connection;
 	}
 
-	// user
-	public List<CafeDto> selectCafeList(int areaNo) throws Exception {
+	// user cafe list
+	public List<CafeDto> selectCafeList(int areaNo, int startRow, int endRow) throws Exception {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "";
 
-		sql += "SELECT PLACE_NAME, PLACE_NO";
-		sql += " FROM PLACE P, AREA A";
-		sql += " WHERE P.AREA_NO = A.AREA_NO";
-		sql += " AND P.CATEGORY = '카페'";
-		sql += " AND A.AREA_NO = ?";
+		sql += "SELECT rnum, PLACE_NAME, PLACE_NO, PLACE_IMG_PATH FROM ( ";
+		sql += "   SELECT ROWNUM AS rnum, P.PLACE_NAME, P.PLACE_NO, P.PLACE_IMG_PATH ";
+		sql += "   FROM PLACE P, AREA A ";
+		sql += "   WHERE P.AREA_NO = A.AREA_NO ";
+		sql += "   AND P.CATEGORY = '카페' ";
+		sql += "   AND A.AREA_NO = ? ";
+		sql += "   ORDER BY P.PLACE_NO ";
+		sql += ") ";
+		sql += "WHERE rnum BETWEEN ? AND ?";
 
 		ArrayList<CafeDto> cafeList = new ArrayList<>();
 
@@ -37,19 +42,23 @@ public class CafeDao {
 			pstmt = connection.prepareStatement(sql);
 
 			pstmt.setInt(1, areaNo);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+
+			pstmt.setInt(1, areaNo);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				String placeName = rs.getString("PLACE_NAME");
 				int placeNo = rs.getInt("PLACE_NO");
-				CafeDto cafeDto = new CafeDto(placeName, placeNo);
+				String plImgPath = rs.getString("PLACE_IMG_PATH");
+				CafeDto cafeDto = new CafeDto(placeName, placeNo, plImgPath);
 
 				cafeList.add(cafeDto);
 			}
 			return cafeList;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			try {
@@ -60,7 +69,6 @@ public class CafeDao {
 					pstmt.close();
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -68,20 +76,58 @@ public class CafeDao {
 		return cafeList;
 	}
 
-	// cafe detail
-	public CafeDto selectCafeInfomation(int placeNo) throws Exception {
+	// user 카페 총 개수 조회
+	public int getTotalCount(int areaNo) throws SQLException {
+		int result = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "";
+		try  {
+			String sql = "";
+			sql += "SELECT COUNT(PLACE_NO)";
+			sql += " FROM PLACE P, AREA A";
+			sql += " WHERE P.AREA_NO = A.AREA_NO";
+			sql += " AND P.CATEGORY = '카페' AND A.AREA_NO = ?";
+			
+			pstmt = connection.prepareStatement(sql);
+			
+			pstmt.setInt(1, areaNo);
+			rs = pstmt.executeQuery();
+				
+			if (rs.next()) {
+					result = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 
-		sql += "SELECT PLACE_NO, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
-		sql += " FROM PLACE";
-		sql += " WHERE CATEGORY = '카페'";
-		sql += " AND PLACE_NO = ?";
-
+	// 카페 정보
+	public CafeDto selectCafeInfomation(int placeNo) throws Exception {
 		CafeDto cafeDto = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
 		try {
+			String sql = "";
+			sql += "SELECT PLACE_NO, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, PLACE_IMG_PATH, GEN_RESERVATION, RECO_RESERVATION";
+			sql += " FROM PLACE";
+			sql += " WHERE CATEGORY = '카페'";
+			sql += " AND PLACE_NO = ?";
 
 			pstmt = connection.prepareStatement(sql);
 
@@ -94,12 +140,13 @@ public class CafeDao {
 				String plAddress = rs.getString("PL_ADDRESS");
 				String plPhone = rs.getString("PL_PHONE");
 				String plWebsite = rs.getString("PL_WEBSITE");
+				String plImgPath = rs.getString("PLACE_IMG_PATH");
+				int genReservation = rs.getInt("GEN_RESERVATION");
 
-				cafeDto = new CafeDto(placeName, plAddress, plPhone, plWebsite);
+				cafeDto = new CafeDto(placeName, plAddress, plPhone, plWebsite, plImgPath, genReservation);
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			try {
@@ -110,12 +157,105 @@ public class CafeDao {
 					pstmt.close();
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		}
 		return cafeDto;
+	}
+
+	// GEN_RESERVATION 값을 증가시키는 메서드
+	public void incrementReservation(int placeNo) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "";
+			sql += "UPDATE PLACE SET GEN_RESERVATION = GEN_RESERVATION + 1 WHERE PLACE_NO = ?";
+
+			pstmt = connection.prepareStatement(sql);
+			
+			pstmt.setInt(1, placeNo);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	// 랜덤 카페 추천
+	public CafeDto getRandomCafe() throws SQLException {
+		CafeDto cafeDto = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "";
+			sql += "SELECT PLACE_NO, PLACE_NAME, CATEGORY, PL_ADDRESS, PL_PHONE, PL_WEBSITE, PLACE_IMG_PATH, RECO_RESERVATION";
+			sql += " FROM( ";
+			sql += " 	SELECT PLACE_NO, PLACE_NAME, CATEGORY, PL_ADDRESS, PL_PHONE, PL_WEBSITE, PLACE_IMG_PATH, RECO_RESERVATION";
+			sql += " 	FROM PLACE ";
+			sql += " 	ORDER BY DBMS_RANDOM.RANDOM ";
+			sql += ")";
+			sql += " WHERE ROWNUM = 1";
+			sql += " AND CATEGORY = '카페'";
+			
+			pstmt = connection.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				int placeNo = rs.getInt("PLACE_NO");
+				String placeName = rs.getString("PLACE_NAME");
+				String category = rs.getString("CATEGORY");
+				String plAddress = rs.getString("PL_ADDRESS");
+				String plPhone = rs.getString("PL_PHONE");
+				String plWebsite = rs.getString("PL_WEBSITE");
+				String plImgPath = rs.getString("PLACE_IMG_PATH");
+				int recoReservation = rs.getInt("RECO_RESERVATION");
+
+				cafeDto = new CafeDto(placeNo, placeName, category, plAddress, plPhone, plWebsite, plImgPath, recoReservation);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return cafeDto;
+	}
+
+	// RECO_RESERVATION 값을 증가시키는 메서드
+	public void incrementRecoReservation(int placeNo) throws SQLException {
+		String sql = "UPDATE PLACE SET RECO_RESERVATION = RECO_RESERVATION + 1 WHERE PLACE_NO = ?";
+
+		try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+			pstmt.setInt(1, placeNo);
+			pstmt.executeUpdate();
+		}
 	}
 
 	// admin
@@ -168,7 +308,49 @@ public class CafeDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally 종료
 
+		return null;
+	}
+
+	public List<PlaceDto> searchCafeList(String placeName, int start, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	// cafe count
+	public int cafeTotalCount() {
+		int totalCount = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "";
+			sql += "SELECT COUNT(PLACE_NO)";
+			sql += " FROM PLACE";
+			sql += " WHERE CATEGORY = '카페'";
+
+			pstmt = connection.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				totalCount = rs.getInt(1); // 첫 번째 칼럼
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			try {
 				if (rs != null) {
 					rs.close();
@@ -182,7 +364,7 @@ public class CafeDao {
 			}
 		} // finally 종료
 
-		return null;
+		return totalCount;
 	}
 
 }

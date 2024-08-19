@@ -1,61 +1,73 @@
 @charset "UTF-8";
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap')
+  ;
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbit&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbit&display=swap')
+  ;
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap')
+  ;
 
-input{
-	width: 230px;
-	height: 40px;
-	border: none;
-	background-color: #bfdaf1;
-	border-radius: 5px;
+#main-container {
+  margin-top: 200px;
 }
 
-input:focus{
-	outline-color: #5daaf0;
+.signIn_content--item input {
+  width: 230px;
+  height: 40px;
+  border: none;
+  background-color: #bfdaf1;
+  border-radius: 5px;
 }
+
+.signIn_content--item input:focus {
+  outline-color: #5daaf0;
+}
+
 .main_signIn {
-	margin-top: 128px;
-	
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main_signIn--title {
-	width: 500px;
-	margin: 20px auto;
-	text-align: center;
-	font-family: "Black Han Sans", sans-serif;
-	font-size: 30px;
+  width: 500px;
+  height: 620px;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 30px;
+  border: 2px solid #bfdaf1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main_signIn_content_form {
-	border: 2px solid #5daaf0;
-	border-radius: 5px;
-	width: 500px;
-	height: 620px;
-	margin: auto;
-}
-.main_signIn_content__items{
-	margin: 185px 100px;
+  width: 500px;
+  height: 620px;
+  background-color: #fafaeb;
+  background-image: url("../../img/auth/su.png");
 }
 
-.signIn_content--item{
-	margin: 30px;
+.main_signIn_content__items {
+  padding: 140px;
 }
 
-.signIn_content--item .signup_btn{
- 	margin-top: 15px;
+.signIn_content--item {
+  margin-top: 30px;
 }
 
-.signup_btn:hover{
-	background-color: #5daaf0;
+.signIn_content--item .signup_btn {
+  margin-top: 15px;
 }
 
-.signIn_content_element--textBox{
-	margin-top: 10px;	
+.signup_btn:hover {
+  background-color: #5daaf0;
+}
+
+.signIn_content_element--textBox {
+  margin-top: 10px;
 }

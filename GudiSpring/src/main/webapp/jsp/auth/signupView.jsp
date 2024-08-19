@@ -23,7 +23,14 @@
   <div id="main-container">
 
     <div class="main_signUp">
-      <h1 class="main_signUp--title">SIGN UP</h1>
+      <h1 class="main_signUp--title">
+		<span>S</span>
+		<span>I</span>
+		<span>G</span>
+		<span>N</span>
+		<span>U</span>
+		<span>P</span>
+       </h1>
       <div class="main_signUp_content_form">
         <!-- signup form -->
         <form id="mainSignupForm" action="./signup" method="post"
@@ -44,13 +51,11 @@
               <label for="userNickname">닉네임</label>
               <c:choose>
                 <c:when test="${nickResult==1}">
-                  <span class="errorMessage"
-                    onblur="this.placeholder='Google 검색 및 URL 입력'">중복된
+                  <span class="errorMessage">중복된
                     닉네임입니다</span>
                   <script>
-                                      document.getElementById("userNickname")
-                                          .focus();
-                                    </script>
+                         document.getElementById("userNickname").focus();
+                  </script>
                 </c:when>
                 <c:when test="${nickResult==-1}">
                   <span class="errorMessage">사용가능한 닉네임입니다</span>
@@ -60,7 +65,7 @@
                 <input id="userNickname" type="text"
                   value="${userDto.nickname}" class="nicknameCheckBox"
                   name="nickname"> <input type="button"
-                  value="중복확인" onclick="nicknameCheckAndSubmit(event);" />
+                  value="중복확인" onclick="nicknameCheckAndSubmit();" />
               </div>
             </div>
 
@@ -71,8 +76,8 @@
                 <c:when test="${idResult==1}">
                   <span class="errorMessage">중복된 아이디입니다</span>
                   <script>
-                                      document.getelementbyid("userid").focus();
-                                    </script>
+                      document.getelementbyid("userid").focus();
+                  </script>
                 </c:when>
                 <c:when test="${idResult==-1}">
                   <span class="errorMessage">사용가능한 아이디입니다</span>
@@ -130,29 +135,22 @@
 
       <!-- 닉네임 유효성 검사 -->
       <form id="duplicateNicknameForm" action="./signup" method="get">
-        <input type="hidden" name="checkFrm" value="nickname"
-          id="checkNickname"> <input type="hidden"
-          name="checkUserName" value="userName" id="checkUserNameForNn">
-        <input type="hidden" name="checkNickname" value="userNickname"
-          id="checkNicknameForNn"> <input type="hidden"
-          name="checkId" value="userId" id="checkUserIdForNn"> <input
-          type="hidden" name="checkUserPassword" value="userPassword"
-          id="checkUserPasswordForNn"> <input type="hidden"
-          name="checkUserPhone" value="userPhone"
-          id="checkUserPhoneForNn">
+        <input type="hidden" name="checkFrm" value="nickname" id="checkNickname"> 
+        <input type="hidden" name="checkUserName" value="userName" id="checkUserNameForNn">
+        <input type="hidden" name="checkNickname" value="userNickname" id="checkNicknameForNn"> 
+        <input type="hidden" name="checkId" value="userId" id="checkUserIdForNn"> 
+        <input type="hidden" name="checkUserPassword" value="userPassword" id="checkUserPasswordForNn"> 
+        <input type="hidden" name="checkUserPhone" value="userPhone" id="checkUserPhoneForNn">
       </form>
 
       <!-- 아이디 유효성 검사 -->
       <form id="duplicateIdForm" action="./signup" method="get">
         <input type="hidden" name="checkFrm" value="id" id="checkUserId">
-        <input type="hidden" name="checkUserName" value="username"
-          id="checkUserNameForId"> <input type="hidden"
-          name="checkNickname" value="nickname" id="checkNicknameForId">
+        <input type="hidden" name="checkUserName" value="username" id="checkUserNameForId"> 
+        <input type="hidden" name="checkNickname" value="nickname" id="checkNicknameForId">
         <input type="hidden" name="checkId" id="checkUserIdForId">
-        <input type="hidden" name="checkUserPassword"
-          value="userpassword" id="checkUserPasswordForId"> <input
-          type="hidden" name="checkUserPhone" value="userphone"
-          id="checkUserPhoneForId">
+        <input type="hidden" name="checkUserPassword" value="userpassword" id="checkUserPasswordForId"> 
+        <input type="hidden" name="checkUserPhone" value="userphone" id="checkUserPhoneForId">
       </form>
     </div>
     <!-- main_signUp -->

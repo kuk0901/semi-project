@@ -1,5 +1,7 @@
 package gudiSpring.user.dto;
 
+import java.sql.Date;
+
 public class UserDto {
 
 	private int userNo;
@@ -12,6 +14,13 @@ public class UserDto {
 	private String upDate;
 	private String authority;
 	private String userLeave;
+	
+	//마이페이지 조회 전용
+	private int contentNo;
+	private String contentSubject; 
+	private Date contentCreDate;
+	
+	// 관리자 페이지 전용
 	private int postCount;
 	private int commentCount;
 
@@ -27,6 +36,15 @@ public class UserDto {
 		this.authority = authority;
 	}
 
+	public UserDto(String userName, String nickname, String id, String userPassWord, String userPhone) {
+		super();
+		this.name = userName;
+		this.nickname = nickname;
+		this.id = id;
+		this.password = userPassWord;
+		this.phone = userPhone;
+	}
+	
 	public UserDto(int userNo, String name, String id, String password, String authority) {
 		super();
 		this.userNo = userNo;
@@ -36,14 +54,19 @@ public class UserDto {
 		this.authority = authority;
 	}
 
-	public UserDto(String userName, String nickname, String id, String password, String userPhone) {
-		this.name = userName;
+	public UserDto(int userNo, String name, String nickname, String id, String password, String phone,
+			String authority, String userLeave) {
+		super();
+		this.userNo = userNo;
+		this.name = name;
 		this.nickname = nickname;
 		this.id = id;
 		this.password = password;
-		this.phone = userPhone;
+		this.phone = phone;
+		this.authority = authority;
+		this.userLeave = userLeave;
 	}
-
+	
 	public UserDto(int userNo, String name, String nickname, String id, String creDate, String authority,
 	    String userLeave, int postCount, int commentCount) {
 		super();
@@ -58,14 +81,14 @@ public class UserDto {
 		this.commentCount = commentCount;
 	}
 
-	public UserDto(int userNo, String name, String nickname, String id, String password, String phone, String creDate,
+	public UserDto(int userNo, String name, String nickname, String id, String pwd, String phone, String creDate,
 	    String upDate, String authority, String userLeave, int postCount, int commentCount) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
 		this.nickname = nickname;
 		this.id = id;
-		this.password = password;
+		this.password = pwd;
 		this.phone = phone;
 		this.creDate = creDate;
 		this.upDate = upDate;
@@ -106,6 +129,7 @@ public class UserDto {
 	public void setId(String id) {
 		this.id = id;
 	}
+
 
 	public String getPassword() {
 		return password;
@@ -155,6 +179,30 @@ public class UserDto {
 		this.userLeave = userLeave;
 	}
 
+	public int getContentNo() {
+		return contentNo;
+	}
+
+	public void setContentNo(int contentNo) {
+		this.contentNo = contentNo;
+	}
+
+	public String getContentSubject() {
+		return contentSubject;
+	}
+
+	public void setContentSubject(String contentSubject) {
+		this.contentSubject = contentSubject;
+	}
+
+	public Date getContentCreDate() {
+		return contentCreDate;
+	}
+
+	public void setContentCreDate(Date contentCreDate) {
+		this.contentCreDate = contentCreDate;
+	}
+
 	public int getPostCount() {
 		return postCount;
 	}
@@ -173,9 +221,15 @@ public class UserDto {
 
 	@Override
 	public String toString() {
-		return "UserDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", password=" + password
-		    + ", phone=" + phone + ", creDate=" + creDate + ", upDate=" + upDate + ", authority=" + authority
-		    + ", userLeave=" + userLeave + ", postCount=" + postCount + ", commentCount=" + commentCount + "]";
+		return "UserDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", password="
+		    + password + ", phone=" + phone + ", creDate=" + creDate + ", upDate=" + upDate + ", authority=" + authority
+		    + ", userLeave=" + userLeave + ", contentNo=" + contentNo + ", contentSubject=" + contentSubject
+		    + ", contentCreDate=" + contentCreDate + ", postCount=" + postCount + ", commentCount=" + commentCount + "]";
 	}
+	
+	//글 작성 권한이 있는지 확인하는 메서드
+  public boolean hasAdminPermission() {
+      return "admin".equals(this.authority);
+  }
 
 }

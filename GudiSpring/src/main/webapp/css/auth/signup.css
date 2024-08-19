@@ -1,93 +1,147 @@
 @charset "UTF-8";
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap')
+  ;
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbit&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbit&display=swap')
+  ;
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap')
+  ;
 
-input{
-	width: 230px;
-	height: 40px;
-	border: none;
-	background-color: #bfdaf1;
-	border-radius: 5px;
-	
+input {
+  width: 230px;
+  height: 40px;
+  border: none;
+  background-color: #bfdaf1;
+  border-radius: 5px;
 }
 
-.errorMessage{
-	color: red;
-	font-size: 13px;
-}
-input:focus{
-	outline-color: #5daaf0;
+#main-container {
+  margin-top: 200px;
 }
 
-input[type="button"],.signup_btn{
-	width: 76px;
+.errorMessage {
+  color: red;
+  font-size: 13px;
 }
 
-input[type="button"]:hover{
-	background-color: #5daaf0;
+input:focus {
+  outline-color: #5daaf0;
 }
 
-.signup_btn:hover{
-	background-color: #0e85f1;
+input[type="button"], .signup_btn {
+  width: 76px;
 }
 
-.signUp_content_element--signUpBtn{
-	margin: 20px 200px;
+input[type="button"]:hover {
+  background-color: #5daaf0;
+}
+
+.signup_btn:hover {
+  background-color: #0e85f1;
+}
+
+.signUp_content_element--signUpBtn {
+  margin: 20px 200px;
 }
 
 .main_signUp {
-	margin-top: 90px;
-
-}
-.main_signUp_content_form{
-    width: 500px;
-    height: 620px;
-/* 	display: flex; */
-/*     justify-content: center; */
-/*     align-items: center; */
-    margin: auto;
-}
-
-
-.main_signUp {
-	margin-top: 128px;
-}
-
-.main_signUp--title {
-	width: 500px;
-	margin: 20px auto;
-	text-align: center;
-	font-family: "Black Han Sans", sans-serif;
-	font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main_signUp_content_form {
-	border: 2px solid #5daaf0;
-	border-radius: 5px;
-	background-image: url("../../img/auth/su.png");
-}
-.main_signUp_content__item{
-	margin-top: 30px;
-}
-
-.signUp_content_element--textBox{
-	margin-top: 10px;
-}
-.main_signUp_content_element{
-	margin:20px 120px;
+  width: 500px;
+  height: 620px;
+  /* 	background-color: #fafaeb; */
+  border-radius: 5px;
+  background-image: url("../../img/auth/su.png");
+  padding: 9px;
 }
 
-.signup_inputHidden {
-	border: 1px solid green;
+.main_signUp--title {
+  width: 500px;
+  height: 620px;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 30px;
+  border: 5px solid #bfdaf1;
+  background-color: #fafaeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nicknameCheckBox, .idCheckBox{
-	width: 150px;
+.main_signUp_content__item {
+  margin-top: 30px;
+}
+
+.signUp_content_element--textBox {
+  margin-top: 10px;
+}
+
+.main_signUp_content_element {
+  margin: 20px 120px;
+}
+
+.nicknameCheckBox, .idCheckBox {
+  width: 150px;
+}
+
+.main_signUp--title h1 {
+  height: 100px;
+}
+
+h1 span {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce .3s ease infinite alternate;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 80px;
+  color: #bfdaf1;
+  text-shadow: 0 1px 0 white, 0 2px 0 white, 0 3px 0 white, 0 4px 0 white,
+    0 5px 0 white, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0
+    transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .4);
+}
+
+h1 span:nth-child(2) {
+  animation-delay: .1s;
+}
+
+h1 span:nth-child(3) {
+  animation-delay: .2s;
+}
+
+h1 span:nth-child(4) {
+  animation-delay: .3s;
+}
+
+h1 span:nth-child(5) {
+  animation-delay: .4s;
+}
+
+h1 span:nth-child(6) {
+  animation-delay: .5s;
+}
+
+h1 span:nth-child(7) {
+  animation-delay: .6s;
+}
+
+h1 span:nth-child(8) {
+  animation-delay: .7s;
+}
+
+@keyframes bounce { 
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 white, 0 2px 0 white, 0 3px 0 white, 0 4px 0 white,
+      0 5px 0 white, 0 6px 0 white, 0 7px 0 white, 0 8px 0 white, 0 9px 0
+      white, 0 50px 25px rgba(0, 0, 0, .2);
+  }
 }

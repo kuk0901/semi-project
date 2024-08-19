@@ -67,3 +67,40 @@
 .swiper-button-next {
   right: 120px;
 }
+
+/* event */
+#main-container .main-container__event {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#main-container .main-container__event .event__main {
+  width: 600px;
+  height: 400px;
+}
+
+#main-container .main-container__event .event__main .event__main-box {
+  height: 400px;
+  border: 1px solid black;
+  font-size: 25px;
+  text-align: center;
+  line-height: 400px;
+  cursor: pointer;
+  background-color: #fddada;
+}
+
+#main-container .main-container__event .event__personality-quiz {
+  width: 800px;
+}
+
+#main-container .main-container__event .event__personality-quiz .event__personality-quiz--fir {
+  height: 400px;
+  border: 1px solid black;
+  font-size: 25px;
+  text-align: center;
+  line-height: 400px;
+  background-color: #fddada;
+  cursor: pointer;
+}

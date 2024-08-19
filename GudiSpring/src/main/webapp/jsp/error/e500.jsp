@@ -14,9 +14,12 @@ https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
 </head>
 <body>
 <jsp:include page="/jsp/common/errorHeader.jsp"/>
-<h1>
-  Sorry..<br />
-  Internal Server Error
-</h1>
+<div id="main-container">
+  <h1>
+    Sorry..<br />
+    Internal Server Error
+  </h1>
+</div>
+
 </body>
 </html>

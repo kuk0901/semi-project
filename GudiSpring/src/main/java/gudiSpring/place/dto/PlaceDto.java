@@ -11,14 +11,36 @@ public class PlaceDto implements Place {
 	private String plAddress;
 	private String plPhone;
 	private String plWebsite;
-	private int genRerervation;
-	private int recoRerervation;
+	private int genReservation;
+	private int recoReservation;
+	private String placeImgPath;
+	
+	// admin 전용
+	private String areaName;
 	
 	public PlaceDto() {
 		super();
 	}
 	
-	public PlaceDto(String category, int areaNo, String placeName, String plAddress, String plPhone, String plWebsite) {
+	public PlaceDto(int placeNo, String category, String areaName) {
+		super();
+		this.placeNo = placeNo;
+		this.category = category;
+		this.areaName = areaName;
+	}
+
+	public PlaceDto(int placeNo, String placeName, String plAddress, String plPhone, String plWebsite,
+	    String placeImgPath) {
+		super();
+		this.placeNo = placeNo;
+		this.placeName = placeName;
+		this.plAddress = plAddress;
+		this.plPhone = plPhone;
+		this.plWebsite = plWebsite;
+		this.placeImgPath = placeImgPath;
+	}
+	
+	public PlaceDto(String category, int areaNo, String placeName, String plAddress, String plPhone, String plWebsite, String placeImgPath) {
 		super();
 		this.category = category;
 		this.areaNo = areaNo;
@@ -26,22 +48,23 @@ public class PlaceDto implements Place {
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
 		this.plWebsite = plWebsite;
+		this.placeImgPath = placeImgPath;
 	}
-	
-	public PlaceDto(int placeNo, String category, String placeName, String plAddress, String plPhone, int genRerervation,
-	    int recoRerervation) {
+
+	public PlaceDto(int placeNo, String category, String placeName, String plAddress, String plPhone, int genReservation,
+	    int recoReservation) {
 		super();
 		this.placeNo = placeNo;
 		this.category = category;
 		this.placeName = placeName;
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
-		this.genRerervation = genRerervation;
-		this.recoRerervation = recoRerervation;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
 	}
 
 	public PlaceDto(int placeNo, String category, String placeName, String plAddress, String plPhone, String plWebsite,
-	    int genRerervation, int recoRerervation) {
+	    int genReservation, int recoReservation) {
 		super();
 		this.placeNo = placeNo;
 		this.category = category;
@@ -49,12 +72,27 @@ public class PlaceDto implements Place {
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
 		this.plWebsite = plWebsite;
-		this.genRerervation = genRerervation;
-		this.recoRerervation = recoRerervation;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
+	}
+
+	public PlaceDto(int placeNo, String category, String placeName, String plAddress, String plPhone, String plWebsite,
+	    int genReservation, int recoReservation, String placeImgPath, String areaName) {
+		super();
+		this.placeNo = placeNo;
+		this.category = category;
+		this.placeName = placeName;
+		this.plAddress = plAddress;
+		this.plPhone = plPhone;
+		this.plWebsite = plWebsite;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
+		this.placeImgPath = placeImgPath;
+		this.areaName = areaName;
 	}
 
 	public PlaceDto(int placeNo, String category, int areaNo, String placeName, String plAddress, String plPhone,
-	    String plWebsite, int genRerervation, int recoRerervation) {
+	    String plWebsite, int genReservation, int recoReservation, String placeImgPath, String areaName) {
 		super();
 		this.placeNo = placeNo;
 		this.category = category;
@@ -63,8 +101,10 @@ public class PlaceDto implements Place {
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
 		this.plWebsite = plWebsite;
-		this.genRerervation = genRerervation;
-		this.recoRerervation = recoRerervation;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
+		this.placeImgPath = placeImgPath;
+		this.areaName = areaName;
 	}
 
 	public int getPlaceNo() {
@@ -121,29 +161,46 @@ public class PlaceDto implements Place {
 
 	public void setPlWebsite(String plWebsite) {
 		this.plWebsite = plWebsite;
+	}	
+	
+	public int getGenReservation() {
+		return genReservation;
 	}
 
-	public int getGenRerervation() {
-		return genRerervation;
+	public void setGenReservation(int genReservation) {
+		this.genReservation = genReservation;
 	}
 
-	public void setGenRerervation(int genRerervation) {
-		this.genRerervation = genRerervation;
+	public int getRecoReservation() {
+		return recoReservation;
 	}
 
-	public int getRecoRerervation() {
-		return recoRerervation;
+	public void setRecoReservation(int recoReservation) {
+		this.recoReservation = recoReservation;
 	}
 
-	public void setRecoRerervation(int recoRerervation) {
-		this.recoRerervation = recoRerervation;
+	public String getPlaceImgPath() {
+		return placeImgPath;
+	}
+
+	public void setPlaceImgPath(String placeImgPath) {
+		this.placeImgPath = placeImgPath;
+	}
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 
 	@Override
 	public String toString() {
 		return "PlaceDto [placeNo=" + placeNo + ", category=" + category + ", areaNo=" + areaNo + ", placeName=" + placeName
-		    + ", plAddress=" + plAddress + ", plPhone=" + plPhone + ", phWebsite=" + plWebsite + ", genRerervation="
-		    + genRerervation + ", recoRerervation=" + recoRerervation + "]";
+		    + ", plAddress=" + plAddress + ", plPhone=" + plPhone + ", plWebsite=" + plWebsite + ", genReservation="
+		    + genReservation + ", recoReservation=" + recoReservation + ", placeImgPath=" + placeImgPath + ", areaName="
+		    + areaName + "]";
 	}
 	
 }

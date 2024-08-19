@@ -5,37 +5,63 @@ public class AdminDto {
 	private String name;
 	private String nickname;
 	private String id;
-	private String password;
+	private String pwd;
 	private String phone;
-	private String creString;
-	private String upString;
+	private String creDate;
+	private String upDate;
 	private String authority;
 
+	//관리자 페이지 전용
+	private int postCount;
+	private int commentCount;
+	
 	public AdminDto() {
 		super();
 	}
 
-	public AdminDto(int userNo, String name, String id, String password, String authority) {
+	public AdminDto(int userNo, String id, String pwd) {
+		super();
+		this.userNo = userNo;
+		this.id = id;
+		this.pwd = pwd;
+	}
+
+	public AdminDto(int userNo, String name, String id, String pwd, String authority) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
 		this.id = id;
-		this.password = password;
+		this.pwd = pwd;
 		this.authority = authority;
 	}
-
-	public AdminDto(int userNo, String name, String nickname, String id, String password, String phone, String creString,
-	    String upString, String authority) {
+	
+	public AdminDto(int userNo, String name, String nickname, String id, String creDate, String authority,
+	    int postCount, int commentCount) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
 		this.nickname = nickname;
 		this.id = id;
-		this.password = password;
-		this.phone = phone;
-		this.creString = creString;
-		this.upString = upString;
+		this.creDate = creDate;
 		this.authority = authority;
+		this.postCount = postCount;
+		this.commentCount = commentCount;
+	}
+	
+	public AdminDto(int userNo, String name, String nickname, String id, String pwd, String phone, String creDate,
+	    String upDate, String authority, int postCount, int commentCount) {
+		super();
+		this.userNo = userNo;
+		this.name = name;
+		this.nickname = nickname;
+		this.id = id;
+		this.pwd = pwd;
+		this.phone = phone;
+		this.creDate = creDate;
+		this.upDate = upDate;
+		this.authority = authority;
+		this.postCount = postCount;
+		this.commentCount = commentCount;
 	}
 
 	public int getUserNo() {
@@ -70,12 +96,12 @@ public class AdminDto {
 		this.id = id;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPwd() {
+		return pwd;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 
 	public String getPhone() {
@@ -86,20 +112,20 @@ public class AdminDto {
 		this.phone = phone;
 	}
 
-	public String getCreString() {
-		return creString;
+	public String getCreDate() {
+		return creDate;
 	}
 
-	public void setCreString(String creString) {
-		this.creString = creString;
+	public void setCreDate(String creDate) {
+		this.creDate = creDate;
 	}
 
-	public String getUpString() {
-		return upString;
+	public String getUpDate() {
+		return upDate;
 	}
 
-	public void setUpString(String upString) {
-		this.upString = upString;
+	public void setUpDate(String upDate) {
+		this.upDate = upDate;
 	}
 
 	public String getAuthority() {
@@ -109,10 +135,27 @@ public class AdminDto {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
+	
+	public int getPostCount() {
+		return postCount;
+	}
+
+	public void setPostCount(int postCount) {
+		this.postCount = postCount;
+	}
+
+	public int getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
+	}
 
 	@Override
 	public String toString() {
-		return "AdminDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", password=" + password
-		    + ", phone=" + phone + ", creString=" + creString + ", upString=" + upString + ", authority=" + authority + "]";
+		return "AdminDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", pwd=" + pwd
+		    + ", phone=" + phone + ", creDate=" + creDate + ", upDate=" + upDate + ", authority=" + authority
+		    + ", postCount=" + postCount + ", commentCount=" + commentCount + "]";
 	}
 }

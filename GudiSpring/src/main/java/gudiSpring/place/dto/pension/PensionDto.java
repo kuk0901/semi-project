@@ -11,18 +11,20 @@ public class PensionDto extends PlaceDto {
 	private String plAddress;
 	private String plPhone;
 	private String plWebsite;
-	private int genRerervation;
-	private int recoRerervation;
+	private String plImgPath;
+	private int genReservation;
+	private int recoReservation;
 
 	public PensionDto() {
 		super();
 	}
 
-	public PensionDto(String placeName, int placeNo) {
+	public PensionDto(String placeName, int placeNo, String plImgPath) {
 		this.placeName = placeName;
 		this.placeNo = placeNo;
+		this.plImgPath = plImgPath;
 	}
-
+	
 	public PensionDto(String placeName, String plAddress, String plPhone, String plWebsite) {
 		super();
 		this.placeName = placeName;
@@ -31,20 +33,43 @@ public class PensionDto extends PlaceDto {
 		this.plWebsite = plWebsite;
 	}
 
+	public PensionDto(int placeNo, String placeName, String plAddress, String category, String plPhone, String plWebsite,
+			String plImgPath, int recoReservation) {
+		super();
+		this.placeNo = placeNo;
+		this.placeName = placeName;
+		this.plAddress = plAddress;
+		this.category = category;
+		this.plPhone = plPhone;
+		this.plWebsite = plWebsite;
+		this.plImgPath = plImgPath;
+		this.recoReservation = recoReservation;
+	}
+	
+	public PensionDto(String placeName, String plAddress, String plPhone, String plWebsite, String plImgPath, int genReservation) {
+		super();
+		this.placeName = placeName;
+		this.plAddress = plAddress;
+		this.plPhone = plPhone;
+		this.plWebsite = plWebsite;
+		this.plImgPath = plImgPath;
+		this.genReservation = genReservation;
+	}	
+	
 	public PensionDto(String category, String placeName, String plAddress, String plPhone, String plWebsite,
-	    int genRerervation, int recoRerervation) {
+	    int genReservation, int recoReservation) {
 		super();
 		this.category = category;
 		this.placeName = placeName;
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
 		this.plWebsite = plWebsite;
-		this.genRerervation = genRerervation;
-		this.recoRerervation = recoRerervation;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
 	}
 
 	public PensionDto(int placeNo, String category, String placeName, String plAddress, String plPhone, String plWebsite,
-	    int genRerervation, int recoRerervation) {
+	    int genReservation, int recoReservation) {
 		super();
 		this.placeNo = placeNo;
 		this.category = category;
@@ -52,12 +77,12 @@ public class PensionDto extends PlaceDto {
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
 		this.plWebsite = plWebsite;
-		this.genRerervation = genRerervation;
-		this.recoRerervation = recoRerervation;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
 	}
 
 	public PensionDto(int placeNo, String category, int areaNo, String placeName, String plAddress, String plPhone,
-	    String plWebsite, int genRerervation, int recoRerervation) {
+	    String plWebsite, String plImgPath, int genReservation, int recoReservation) {
 		super();
 		this.placeNo = placeNo;
 		this.category = category;
@@ -66,8 +91,9 @@ public class PensionDto extends PlaceDto {
 		this.plAddress = plAddress;
 		this.plPhone = plPhone;
 		this.plWebsite = plWebsite;
-		this.genRerervation = genRerervation;
-		this.recoRerervation = recoRerervation;
+		this.plImgPath = plImgPath;
+		this.genReservation = genReservation;
+		this.recoReservation = recoReservation;
 	}
 
 	public int getPlaceNo() {
@@ -126,27 +152,35 @@ public class PensionDto extends PlaceDto {
 		this.plWebsite = plWebsite;
 	}
 
-	public int getGenRerervation() {
-		return genRerervation;
+	public String getPlImgPath() {
+		return plImgPath;
 	}
 
-	public void setGenRerervation(int genRerervation) {
-		this.genRerervation = genRerervation;
+	public void setPlImgPath(String plImgPath) {
+		this.plImgPath = plImgPath;
 	}
 
-	public int getRecoRerervation() {
-		return recoRerervation;
+	public int getGenReservation() {
+		return genReservation;
 	}
 
-	public void setRecoRerervation(int recoRerervation) {
-		this.recoRerervation = recoRerervation;
+	public void setGenReservation(int genReservation) {
+		this.genReservation = genReservation;
+	}
+
+	public int getRecoReservation() {
+		return recoReservation;
+	}
+
+	public void setRecoReservation(int recoReservation) {
+		this.recoReservation = recoReservation;
 	}
 
 	@Override
 	public String toString() {
 		return "PensionDto [placeNo=" + placeNo + ", category=" + category + ", areaNo=" + areaNo + ", placeName="
-		    + placeName + ", plAddress=" + plAddress + ", plPhone=" + plPhone + ", plWebsite=" + plWebsite
-		    + ", genRerervation=" + genRerervation + ", recoRerervation=" + recoRerervation + "]";
+		    + placeName + ", plAddress=" + plAddress + ", plPhone=" + plPhone + ", plWebsite=" + plWebsite + ", plImgPath="
+		    + plImgPath + ", genReservation=" + genReservation + ", recoReservation=" + recoReservation + "]";
 	}
 
 }

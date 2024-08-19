@@ -1,17 +1,20 @@
-@charset "UTF-8";
-
-       body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+#main-container {
+    margin: 120px auto 0;
+    padding: 20px;
+    max-width: 1000px;
     background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.title {
     color: #333;
     margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
 }
 
-table {
+.board-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -19,31 +22,70 @@ table {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+.table-header {
+    background-color: #5c6bc0;
+    color: white;
     padding: 12px;
     text-align: left;
+}
+
+.table-row {
     border-bottom: 1px solid #ddd;
 }
 
-th {
-    background-color: #5c6bc0;
-    color: white;
+.table-cell {
+    padding: 12px;
+    text-align: left;
 }
 
-a {
+.table-link {
     color: #5c6bc0;
     text-decoration: none;
 }
 
-a:hover {
+.table-link:hover {
     text-decoration: underline;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.pagination-link {
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.pagination-link.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination-link:hover {
+    background-color: #ddd;
+}
+
+.current-page {
+    margin: 0 5px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
 }
 
 .button-container {
     margin-top: 20px;
+    text-align: center;
 }
 
-.button-container button {
+.action-button {
     padding: 10px 15px;
     background-color: #5c6bc0;
     color: white;
@@ -53,29 +95,6 @@ a:hover {
     margin-right: 10px;
 }
 
-.button-container button:hover {
+.action-button:hover {
     background-color: #3949ab;
 }
-       
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .pagination a {
-            margin: 0 5px;
-            padding: 8px 16px;
-            text-decoration: none;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-        .pagination a.active {
-            background-color: #4CAF50;
-            color: white;
-            border: 1px solid #4CAF50;
-        }
-        .pagination a:hover {
-            background-color: #ddd;
-        }
-       
-  

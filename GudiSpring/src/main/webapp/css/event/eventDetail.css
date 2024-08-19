@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/* event__all-select */
+#main-container {
+  height: 400px;
+  margin-top: 150px;
+}
+
+#main-container .main-container__content .event__all-select {
+  width: 87px;
+  position: absolute;
+  top: 130px;
+  left: 346px;
+}
+
+#main-container .main-container__content .event__all-select .btn {
+  width: 87px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 3px;
+  text-align: center;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* event */
+#main-container .main-container__content .event {
+  width: 63vw;
+  margin: 0 auto 40px;
+}
+
+#main-container .main-container__content .event .event--title
+  {
+  font-weight: 700;
+}
+
+#main-container .main-container__content .event .event--title,
+  #main-container .main-container__content .event .event--content
+  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+#main-container
+  .main-container__content
+  .event
+  .event--title
+  .event--col, #main-container
+  .main-container__content
+  .event
+  .event--content
+  div {
+  width: 250px;
+  text-align: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+#main-container
+  .main-container__content
+  .event
+  .event--col.width--lg, #main-container
+  .main-container__content
+  .event
+  .event--content
+  div.width--lg {
+  width: 405px;
+}
+
+#main-container .main-container__content .event .event--content {
+  display: flex;
+}
+
+/* site-guidelines */ 
+.site-guidelines {
+  width: 800px;
+  margin: 20px auto;
+}
+
+.site-guidelines .site-guidelines--title {
+  font-size: 20px;
+  margin: 20px auto;
+}
+
+.site-guidelines .site-guidelines__list {
+  margin: 0 auto;
+  list-style: inside;
+}
+
+.site-guidelines .site-guidelines__list .site-guidelines__list--content
+  {
+  margin: 10px auto;
+  list-style: none;
+  position: relative;
+}
+
+.site-guidelines .site-guidelines__list .site-guidelines__list--content::after
+  {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 9px;
+  border-radius: 50%;
+  background-color: #000;
+  content: "";
+}
+
+.site-guidelines .site-guidelines__list .site-guidelines__list--content span
+  {
+  display: block;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -.65px;
+  padding-left: 12px;
+}

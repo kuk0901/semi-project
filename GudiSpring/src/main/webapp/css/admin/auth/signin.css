@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+body {
+  background-color: #FFFFE0;
+}
+
+label, input {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#main-container {
+  width: 100vw;
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* 이미지 */
+#main-container .main-container__img {
+  width: 500px;
+  height: 600px;
+  background-image: url("../../../img/admin/manAndDog.png");
+  background-size: 500px 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#main-container .main-container__content {
+  width: 700px;
+  height: 600px;
+  border: 2px solid #e0865b;
+  border-radius: 7px;
+  box-shadow: 5px 7px 12px #e0865b;
+  margin-left: -185px;
+  position: relative;
+}
+
+#main-container .main-container__content .content__title {
+  height: 40px;
+  font-size: 37px;
+  text-align: center;
+  margin: 30px auto 10px;
+  line-height: 40px;
+}
+
+#main-container .main-container__content .content__guideline {
+  font-size: 19.5px;
+  text-align: center;
+  margin: 30px auto 10px;
+  line-height: 18px;
+}
+
+#main-container .main-container__content .signin-form {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+#main-container .main-container__content .signin-form .signin-form__content:last-child
+  {
+  margin-top: 30px;
+}
+
+#main-container .main-container__content .signin-form .signin-form__content label
+  {
+  font-size: 22px;
+  text-align: center;
+}
+
+#main-container .main-container__content .signin-form .signin-form__content input
+  {
+  width: 350px;
+  font-size: 24px;
+  border-radius: 3px;
+  border: 2px solid #e0865b;
+}
+
+#main-container .main-container__content .signin-form .signin-form__content input:focus
+  {
+  outline-color: #e0865b;
+}
+
+#main-container .main-container__content .signin-form .signin-form__content .btn
+  {
+  width: 350px;
+  height: 46px;
+  font-size: 19px;
+  display: block;
+}
+
+#main-container .main-container__content .signin-form .signin-form__content .btn:hover
+  {
+  text-decoration: none;
+}
+
+#main-container .main-container__content .signin-form .error-msg {
+  position: absolute;
+  bottom: 75px; 
+  left : 185px; 
+  text-align : center;
+  color: red;
+  text-decoration: underline;
+  text-align: center;
+  left: 185px;
+}

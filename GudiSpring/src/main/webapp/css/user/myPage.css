@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Orbit&display=swap');
+
+#main-container{
+	height: 1000px;
+  margin-top: 200px;
+}
+
+.main-container--displayForm{
+	display: flex;
+	align-items: center;
+    justify-content: center;
+}
+
+.main-container_updateForm{
+	height: 650px;
+	width: 900px;
+	border: 2px solid #9dccdf;
+	background-color: #ffffe561;
+	border-radius: 10px;
+}
+
+.main-container_updateForm--title{
+	margin: 30px 300px;
+    text-align: center;
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 37px;
+}
+
+.errorMessage{
+	color: red;
+}
+
+.main-container--items{
+	margin-top: 10px;
+}
+
+.main-container--item{
+	margin-top: 20px;
+}
+
+.main-container--checkSubmitBtn{
+	width: 145px;
+	height: 50px;
+	background-color: #bfdaf1;
+	border-radius: 10px;
+}
+.main-container--checkSubmitBtn:hover{
+	background-color: #5e9bcf;
+}
+
+.main-container--submitBtn{
+	margin-top: 30px;
+	width: 400px;
+	height: 50px;
+	background-color: #bfdaf1;
+	border-radius: 10px;
+	border: none;
+}
+
+.main-container--submitBtn:hover{
+	background-color: #5e9bcf;
+}
+
+.updateForm{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container_myPost{
+	margin-top: 100px;
+}
+
+#main-container input{
+	border: none;
+}
+
+.userInfo{
+	margin-top: 10px;
+	width: 400px;
+	height: 50px;
+	background-color: #bfdaf1;
+	border-radius: 10px;
+	font-size: 16px;
+}
+
+.userInfo--check{
+	margin-top: 10px;
+	width: 250px;
+	height: 50px;
+	background-color: #bfdaf1;
+	border-radius: 10px;
+}
+.main-container_myPost--title{
+	text-align: center;
+	font-size: 37px;
+	background-color: #bfdaf1;
+}
+
+.main-container_myPost--items{
+	margin-top: 30px;
+	
+}
+
+.main-container_myPost--items li{
+	 list-style-type: none;
+	 display: flex;
+	 border-bottom: 1px solid;
+}
+
+.myPost--li{
+	border-top: 1px solid;
+	border-collapse: collapse;
+}

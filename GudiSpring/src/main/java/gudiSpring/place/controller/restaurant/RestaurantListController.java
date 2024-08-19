@@ -23,6 +23,12 @@ public class RestaurantListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		int recordsPerPage = 6; // 한 페이지에 보여줄 게시글 수
+        int page = req.getParameter("page") != null ? Integer.parseInt(req.getParameter("page")) : 1; // 현재 페이지
+        int startRow = (page - 1) * recordsPerPage + 1; // 시작 행 번호
+        int endRow = page * recordsPerPage; // 끝 행 번호
+        
 		Connection conn = null;
 
 		try {
@@ -44,7 +50,15 @@ public class RestaurantListController extends HttpServlet {
 			RestaurantDao restaurantDao = new RestaurantDao();
 			restaurantDao.setConnection(conn);
 
-			ArrayList<RestaurantDto> restaurantList = (ArrayList<RestaurantDto>) restaurantDao.selectRestaurantList(areaNo);
+			ArrayList<RestaurantDto> restaurantList = (ArrayList<RestaurantDto>) restaurantDao
+					.selectRestaurantList(areaNo, startRow, endRow);
+			
+			 // 총 개수 조회
+            int totalRecords = restaurantDao.getTotalCount(areaNo);
+            int totalPages = (int) Math.ceil(totalRecords * 1.0 / recordsPerPage);
+            req.setAttribute("totalPages", totalPages);
+            req.setAttribute("currentPage", page);
+            
 			req.setAttribute("restaurantList", restaurantList);
 
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/place/restaurant/restaurantListView.jsp");
