@@ -25,9 +25,9 @@
 			<ul class="area-list-box">
 				<c:forEach var="areaDto" items="${areaList}">
 					<li class="area-list-box__li">
-						<a href="/Test/area/place/cafe?areaNo=${areaDto.areaNo}" class="area--list">
+						<a href="${pageContext.request.contextPath}/area/place/cafe?areaNo=${areaDto.areaNo}" class="area--list">
 						<img src="${pageContext.request.contextPath}/imgEx/2.jpg" alt="이미지 준비중" class="area--img" /> 
-						<span class="area--title"> ${areaDto.areaName} 
+						<span class="area--title"> ${areaDto.areaName} </span>
 						</a>
 					</li>
 				</c:forEach>

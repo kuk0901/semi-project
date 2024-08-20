@@ -49,11 +49,11 @@
 
     <!-- 댓글 입력 폼 -->
     <div class="comment-form">
-      <form action="${pageContext.request.contextPath}/" method="post">
+      <form>
         <input type="hidden" name="placeNo" value="${cafe.placeNo}" />
         <textarea class="commentContents" placeholder="댓글을 입력하시오"
           required></textarea>
-        <button class="comment-upload" type="submit">댓글 등록하기</button>
+        <button class="comment-upload" onclick="location.reload(true);">댓글 등록하기</button>
       </form>
     </div>
 
