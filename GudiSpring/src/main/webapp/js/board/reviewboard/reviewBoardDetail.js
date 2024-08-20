@@ -3,7 +3,7 @@
  */
   function confirmDelete(commentNo, contentNo, boardType) {
         if (confirm("정말로 이 댓글을 삭제하시겠습니까?")) {
-            window.location.href = '<%= request.getContextPath() %>/deleteComment?commentNo=' + commentNo + '&contentNo=' + contentNo + '&boardType=' + boardType;
+            window.location.href = contextPath+'/comment/delete?commentNo=' + commentNo + '&contentNo=' + contentNo + '&boardType=' + boardType;
         }
     }
         function validateForm(form) {
@@ -20,6 +20,6 @@
         }
         function confirmDeletePost(contentNo) {
             if (confirm("정말로 이 게시글을 삭제하시겠습니까?")) {
-                window.location.href = '<%= request.getContextPath() %>/review/deletePost?contentNo=' + contentNo;
+                window.location.href = contextPath+'/review/deletePost?contentNo=' + contentNo;
             }
         }

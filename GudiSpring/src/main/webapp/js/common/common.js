@@ -1,11 +1,23 @@
 /**
  * 
  */
-function deletePlaceConfirm() {
-	confirm("삭제하시겠습니까?");
+document.addEventListener("DOMContentLoaded", () => {
+	const toastEl = document.getElementById("toast");
+	const msg = toastEl.getAttribute("data-message");
 	
-	const formName = document.getElementById(); // form id
+	// 메시지가 있는 경우 토스트 메시지 표시
+	if (msg) {
+		showToast(msg);
+	}
+});
+
+function showToast(msg) {
+	const toastEl = document.getElementById("toast");
+	toastEl.innerHTML = msg;
+	toastEl.className = "toast show";
 	
-	// form tag submit() call
+	setTimeout(() => {
+		toastEl.classList.remove("show");
+	}, 3000); // 3초 후 자동 완료
 }
 

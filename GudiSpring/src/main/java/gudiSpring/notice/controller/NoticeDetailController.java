@@ -20,11 +20,11 @@ public class NoticeDetailController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		  String contentNoParam = req.getParameter("	");
-		    System.out.println("Received contentNoParam: '" + contentNoParam + "'"); // 디버깅을 위해 출력
+		 
 		    // 나머지 코드  
 		
 		int contentNo = Integer.parseInt(req.getParameter("contentNo"));
-		   	System.out.println(contentNo);
+		  
 	        Connection conn = (Connection) getServletContext().getAttribute("conn");
 	        NoticeDao noticeDao = new NoticeDao();
 	        noticeDao.setConnection(conn);

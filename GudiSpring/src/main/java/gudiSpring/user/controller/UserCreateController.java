@@ -98,9 +98,9 @@ public class UserCreateController extends HttpServlet {
 
 			UserDto userDto = new UserDto();
 			userDto.setName(nameStr);
-			userDto.setNickName(nicknameStr);
+			userDto.setNickname(nicknameStr);
 			userDto.setId(idStr);
-			userDto.setPwd(passwordStr);
+			userDto.setPassword(passwordStr);
 			userDto.setPhone(phoneStr);
 
 			ServletContext sc = this.getServletContext();

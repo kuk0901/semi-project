@@ -1,17 +1,26 @@
 package gudiSpring.user.dto;
 
+import java.sql.Date;
+
 public class UserDto {
 
 	private int userNo;
 	private String name;
-	private String nickName;
+	private String nickname;
 	private String id;
-	private String pwd;
+	private String password;
 	private String phone;
 	private String creDate;
 	private String upDate;
 	private String authority;
 	private String userLeave;
+	
+	//마이페이지 조회 전용
+	private int contentNo;
+	private String contentSubject; 
+	private Date contentCreDate;
+	
+	// 관리자 페이지 전용
 	private int postCount;
 	private int commentCount;
 
@@ -19,37 +28,51 @@ public class UserDto {
 		super();
 	}
 
-	public UserDto(int userNo, String id, String pwd, String authority) {
+	public UserDto(int userNo, String id, String password, String authority) {
 		super();
 		this.userNo = userNo;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.authority = authority;
 	}
 
-	public UserDto(int userNo, String name, String id, String pwd, String authority) {
+	public UserDto(String userName, String nickname, String id, String userPassWord, String userPhone) {
+		super();
+		this.name = userName;
+		this.nickname = nickname;
+		this.id = id;
+		this.password = userPassWord;
+		this.phone = userPhone;
+	}
+	
+	public UserDto(int userNo, String name, String id, String password, String authority) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = password;
 		this.authority = authority;
 	}
 
-	public UserDto(String userName, String nickName, String id, String pwd, String userPhone) {
-		this.name = userName;
-		this.nickName = nickName;
+	public UserDto(int userNo, String name, String nickname, String id, String password, String phone,
+			String authority, String userLeave) {
+		super();
+		this.userNo = userNo;
+		this.name = name;
+		this.nickname = nickname;
 		this.id = id;
-		this.pwd = pwd;
-		this.phone = userPhone;
+		this.password = password;
+		this.phone = phone;
+		this.authority = authority;
+		this.userLeave = userLeave;
 	}
-
-	public UserDto(int userNo, String name, String nickName, String id, String creDate, String authority,
+	
+	public UserDto(int userNo, String name, String nickname, String id, String creDate, String authority,
 	    String userLeave, int postCount, int commentCount) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.id = id;
 		this.creDate = creDate;
 		this.authority = authority;
@@ -58,14 +81,14 @@ public class UserDto {
 		this.commentCount = commentCount;
 	}
 
-	public UserDto(int userNo, String name, String nickName, String id, String pwd, String phone, String creDate,
+	public UserDto(int userNo, String name, String nickname, String id, String pwd, String phone, String creDate,
 	    String upDate, String authority, String userLeave, int postCount, int commentCount) {
 		super();
 		this.userNo = userNo;
 		this.name = name;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.id = id;
-		this.pwd = pwd;
+		this.password = pwd;
 		this.phone = phone;
 		this.creDate = creDate;
 		this.upDate = upDate;
@@ -91,12 +114,12 @@ public class UserDto {
 		this.name = name;
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getId() {
@@ -107,12 +130,13 @@ public class UserDto {
 		this.id = id;
 	}
 
-	public String getPwd() {
-		return pwd;
+
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getPhone() {
@@ -155,6 +179,30 @@ public class UserDto {
 		this.userLeave = userLeave;
 	}
 
+	public int getContentNo() {
+		return contentNo;
+	}
+
+	public void setContentNo(int contentNo) {
+		this.contentNo = contentNo;
+	}
+
+	public String getContentSubject() {
+		return contentSubject;
+	}
+
+	public void setContentSubject(String contentSubject) {
+		this.contentSubject = contentSubject;
+	}
+
+	public Date getContentCreDate() {
+		return contentCreDate;
+	}
+
+	public void setContentCreDate(Date contentCreDate) {
+		this.contentCreDate = contentCreDate;
+	}
+
 	public int getPostCount() {
 		return postCount;
 	}
@@ -173,9 +221,15 @@ public class UserDto {
 
 	@Override
 	public String toString() {
-		return "UserDto [userNo=" + userNo + ", name=" + name + ", nickName=" + nickName + ", id=" + id + ", pwd=" + pwd
-		    + ", phone=" + phone + ", creDate=" + creDate + ", upDate=" + upDate + ", authority=" + authority
-		    + ", userLeave=" + userLeave + ", postCount=" + postCount + ", commentCount=" + commentCount + "]";
+		return "UserDto [userNo=" + userNo + ", name=" + name + ", nickname=" + nickname + ", id=" + id + ", password="
+		    + password + ", phone=" + phone + ", creDate=" + creDate + ", upDate=" + upDate + ", authority=" + authority
+		    + ", userLeave=" + userLeave + ", contentNo=" + contentNo + ", contentSubject=" + contentSubject
+		    + ", contentCreDate=" + contentCreDate + ", postCount=" + postCount + ", commentCount=" + commentCount + "]";
 	}
+	
+	//글 작성 권한이 있는지 확인하는 메서드
+  public boolean hasAdminPermission() {
+      return "admin".equals(this.authority);
+  }
 
 }

@@ -1,75 +1,184 @@
 @charset "UTF-8";
 
-       
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
+#header-spacer {
+  height: 50px; /* 헤더와 본문 사이에 50px의 간격을 줍니다. */
+  width: 100%; /* 페이지 전체 너비를 차지하도록 설정합니다. */
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+h2 {
+  color: #333;
+  margin-bottom: 20px;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.board-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-th {
-    background-color: #5c6bc0;
-    color: white;
+.board-info-table th, .board-info-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-ul.comments {
-    list-style-type: none;
-    padding: 0;
+.board-info-table th {
+  background-color: #5c6bc0;
+  color: white;
+  text-align: center;
 }
 
-li.comment {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #e8eaf6;
-    border-radius: 5px;
+.board-info-table td {
+  background-color: #e0e7ff;
+  color: #333;
+}
+
+.board-info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.board-content {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.board-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto; /* 이미지 위아래에 여백을 주고 가운데 정렬 */
+  max-height: 400px; /* 이미지의 최대 높이를 제한 */
+  border-radius: 5px; /* 모서리를 둥글게 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* 이미지에 그림자 효과 추가 */
+}
+
+.board-content .content-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 15px;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: right; /* 버튼을 오른쪽으로 정렬 */
 }
 
 button {
-    background-color: #5c6bc0;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 5px;
+  background-color: #5c6bc0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #3949ab;
+  background-color: #3949ab;
+}
+
+.comments {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .edit-form {
-    display: none;
-    margin-top: 5px;
-}
-
-.edit-form textarea {
-    width: 100%;
-    box-sizing: border-box;
+  display: none;
+  margin-top: 10px;
 }
 
 .back-link {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #5c6bc0;
-    font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #5c6bc0;
+  text-decoration: none;
 }
 
 .back-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-  
+
+.notice {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  color: #856404;
+  font-size: 14px;
+}
+
+#wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-container {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin: 120px auto 0;
+}
+
+footer {
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 20px 0;
+}
+
+
+.comment-content {
+    font-weight: bold; /* 굵게 강조 */
+    color: #333; /* 텍스트 색상 */
+    background-color: white; /* 배경색 추가 */
+    padding: 5px; /* 내용 부분에 여백 추가 */
+    border-radius: 5px; /* 모서리 둥글게 */
+}
+* 버튼들을 오른쪽 끝으로 이동시키기 위한 스타일 */
+.comment-buttons {
+    display: flex;
+    justify-content: flex-end; /* 버튼들을 오른쪽으로 정렬 */
+    gap: 10px; /* 버튼 간격 */
+    margin-top: 10px; /* 위와의 간격 */
+}
+
+/* 삭제 및 수정 버튼 스타일 */
+.deleteButton {
+    padding: 5px 10px;
+    background-color: #ff4d4d; /* 삭제 버튼은 빨간색으로 */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editButton {
+    padding: 5px 10px;
+    background-color: #4CAF50; /* 수정 버튼은 초록색으로 */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}

@@ -1,81 +1,94 @@
 @charset "UTF-8";
 
-       body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f9;
+#main-container {
+  margin: 120px auto 0;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
+.title {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.subtitle {
+  color: #333;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-th {
-    background-color: #5c6bc0;
-    color: white;
+.table-header {
+  background-color: #5c6bc0;
+  color: white;
+  padding: 12px;
+  text-align: left;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #5c6bc0;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
+.table-cell {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-button:hover {
-    background-color: #3949ab;
+.action-button {
+  padding: 10px 15px;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.action-button:hover {
+  background-color: #3949ab;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-textarea, .edit-textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  padding: 10px 15px;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #3949ab;
 }
 
 .comments {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
-.comments .comment {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #e8eaf6;
-    border-radius: 5px;
+.comment {
+  margin-top: 10px;
+  padding: 10px;
 }
-
-.edit-form {
-    display: none;
-    margin-top: 5px;
-}
-
-.edit-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #5c6bc0;
-    font-weight: bold;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-       
-  

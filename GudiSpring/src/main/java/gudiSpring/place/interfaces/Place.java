@@ -16,9 +16,9 @@ public interface Place {
 	void setPlPhone(String plPhone);
 	String getPlWebsite();
 	void setPlWebsite(String plWebsite);
-	int getGenRerervation();
-	void setGenRerervation(int genRerervation);
-	int getRecoRerervation();
-	void setRecoRerervation(int recoRerervation);
+	int getGenReservation();
+	void setGenReservation(int genRerervation);
+	int getRecoReservation();
+	void setRecoReservation(int recoRerervation);
 	
 }

@@ -22,7 +22,8 @@
 		<param-value>1234</param-value>
 	</context-param>
   
-  <filter>
+  <!-- 첫 번째 필터 -->
+	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>gudiSpring.util.filter.CharacterEncodingFilter</filter-class>
 
@@ -31,9 +32,20 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-
+	
 	<filter-mapping>
 		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 두 번째 필터 -->
+	<filter>
+		<filter-name>URLNormalizationFilter</filter-name>
+		<filter-class>gudiSpring.util.filter.URLNormalizationFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>URLNormalizationFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 

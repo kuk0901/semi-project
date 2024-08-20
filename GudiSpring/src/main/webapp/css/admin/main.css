@@ -1,0 +1,175 @@
+@charset "UTF-8";
+
+body {
+  background-color: #f7f7f7;
+}
+
+/* user__select */
+#main-container .main-container__content .user__select {
+  height: 45px;
+  margin: 20px 40px 35px;
+  display: flex;
+}
+
+#main-container .main-container__content .user__select form {
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#main-container .main-container__content .user__select form .user__select--title {
+  height: 45px;
+  font-size: 20px;
+  color: #000;
+  line-height: 45px;
+}
+
+#main-container .main-container__content .user__select form input {
+  height: 45px;
+  display: inline-block;
+  width: 450px;
+  font-size: 20px;
+  line-height: 45px;
+  margin: 0;
+  margin-left: 10px;
+  color: #000;
+}
+
+#main-container .main-container__content .user__select form .btn,
+#main-container .main-container__content .btn-container .btn {
+  height: 45px;
+  display: inline-block;
+  color: #fff;
+  background-color: #212c40;
+  border: 1px solid #212c40;
+  margin: 0;
+  margin-left: 10px;
+  transition: .2s;
+}
+
+#main-container .main-container__content .user__select form .btn:hover,
+#main-container .main-container__content .btn-container .btn:hover {
+  text-decoration: none;
+  box-shadow: inset 0 0 8.5px #778899;
+}
+
+/* btn-container */ 
+#main-container .main-container__content .btn-container {
+  width: 300px;
+  margin: 10px 51px;
+}
+
+#main-container .main-container__content .btn-container .btn {
+  margin-left: 0;
+}
+
+/* user__list */
+#main-container .main-container__content .user__list {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-container .main-container__content .user__list .user__list--btn {
+  position: relative;
+}
+
+#main-container .main-container__content .user__list .user__list--btn .btn--remove {
+  width: 85px;
+  position: absolute;
+  right: 52px;
+  bottom: 10px; 
+}
+
+#main-container .main-container__content .user__list ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container .main-container__content .user__list ul li.user__list--error {
+  margin: 0 10px 0;
+  height: 60px;
+  text-align: cneter;
+  color: #000;
+  font-size: 20px;
+  line-height: 60px;
+}
+
+#main-container .main-container__content .user__list ul li .text--black {
+  background-color: #fff;
+  width: 150px;
+  height: 60px;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  line-height: 60px;
+  margin: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+#main-container .main-container__content .user__list ul li .text--black input {
+  width: 20px;
+  height: 20px;
+}
+
+#main-container .main-container__content .user__list ul li .user__list--col {
+  color: #838383;
+}
+
+#main-container .main-container__content .user__list ul li .width--sm {
+  width: 100px;
+}
+
+#main-container .main-container__content .user__list ul li .width--m {
+  width: 150px;
+}
+
+#main-container .main-container__content .user__list ul li .width--md {
+  width: 270px;
+}
+
+#main-container .main-container__content .user__list ul li .width--lg {
+  width: 300px;
+}
+
+/* pagination */
+#main-container .main-container__content .pagination {
+  width: 500px;
+  margin: 20px auto;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container .main-container__content .pagination .pagination-prev,
+#main-container .main-container__content .pagination .pagination--cur-page,
+#main-container .main-container__content .pagination .pagination--page,
+#main-container .main-container__content .pagination .pagination--next {
+  display: block;
+  height: 30px;
+  margin: 10px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+#main-container .main-container__content .pagination .pagination-prev,
+#main-container .main-container__content .pagination .pagination--next {
+  width: 70px;
+  color: black;
+}
+
+#main-container .main-container__content .pagination .pagination--page,
+#main-container .main-container__content .pagination .pagination--cur-page {
+  width: 22px;
+}
+
+#main-container .main-container__content .pagination .pagination--cur-page {
+  color: green;
+}
+
+#main-container .main-container__content .pagination .pagination--page {
+  color: blue;
+}
+

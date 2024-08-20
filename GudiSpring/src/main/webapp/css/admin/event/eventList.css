@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+body {
+  background-color: #f7f7f7;
+}
+
+/* event__select */
+#main-container .main-container__content .event__select {
+  height: 45px;
+  margin: 45px 15px 35px;
+}
+
+#main-container .main-container__content .event__select form {
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#main-container .main-container__content .event__select form .event__select--title {
+  height: 45px;
+  font-size: 20px;
+  color: #000;
+  line-height: 45px;
+}
+
+#main-container .main-container__content .event__select form input {
+  height: 45px;
+  display: inline-block;
+  width: 450px;
+  font-size: 20px;
+  line-height: 45px;
+  margin: 0;
+  margin-left: 10px;
+  color: #000;
+}
+
+#main-container .main-container__content .event__select form .btn,
+#main-container .main-container__content .btn-container .btn {
+  height: 45px;
+  display: inline-block;
+  color: #fff;
+  background-color: #212c40;
+  border: 1px solid #212c40;
+  margin: 0;
+  margin-left: 10px;
+  transition: .2s;
+}
+
+#main-container .main-container__content .event__select form .btn:hover,
+#main-container .main-container__content .btn-container .btn:hover {
+  text-decoration: none;
+  box-shadow: inset 0 0 8.5px #778899;
+}
+
+/* btn-container */ 
+#main-container .main-container__content .btn-container {
+  width: 300px;
+  margin: 10px 22px;
+}
+
+#main-container .main-container__content .btn-container .btn {
+  margin-left: 0;
+}
+
+/* event__list */
+#main-container .main-container__content .event__list {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-container .main-container__content .event__list .event__list--btn {
+  position: relative;
+}
+
+#main-container .main-container__content .event__list .event__list--btn .btn--remove {
+  width: 85px;
+  position: absolute;
+  right: 52px;
+  bottom: 10px; 
+}
+
+#main-container .main-container__content .event__list ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container .main-container__content .event__list ul li.event__list--error {
+  margin: 0 10px 0;
+  height: 60px;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  line-height: 60px;
+}
+
+#main-container .main-container__content .event__list ul li .text--black {
+  background-color: #fff;
+  width: 150px;
+  height: 60px;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  line-height: 60px;
+  margin: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+#main-container .main-container__content .event__list ul li .text--black input {
+  width: 20px;
+  height: 20px;
+}
+
+#main-container .main-container__content .event__list ul li .user__list--col {
+  color: #838383;
+}
+
+#main-container .main-container__content .event__list ul li .width--md {
+  width: 200px;
+}
+
+#main-container .main-container__content .event__list ul li .width--lg {
+  width: 350px;
+}
+
+#main-container .main-container__content .event__list .Event__add--btn {
+  width: 85px;
+  position: absolute;
+  top: 137.5px;
+  right: 155px;
+}
+
+#main-container .main-container__content .event__list .Event__add--btn .btn {
+  width: 85px;
+}

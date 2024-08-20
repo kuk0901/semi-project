@@ -2,6 +2,7 @@ package gudiSpring.place.controller.cafe;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import gudiSpring.place.dao.cafe.CafeDao;
 import gudiSpring.place.dto.cafe.CafeDto;
@@ -30,7 +31,6 @@ public class CafeInfomationController extends HttpServlet {
 			conn = (Connection) sc.getAttribute("conn");
 
 			String placeNoParam = req.getParameter("placeNo");
-
 			int placeNo = -1;
 
 			if (placeNoParam != null && !placeNoParam.isEmpty()) {
@@ -40,15 +40,21 @@ public class CafeInfomationController extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+
 			CafeDao cafeDao = new CafeDao();
 			cafeDao.setConnection(conn);
 
+			// 카페 정보를 조회합니다.
 			CafeDto cafe = cafeDao.selectCafeInfomation(placeNo);
+
+				
 
 			req.setAttribute("cafe", cafe);
 
+			// JSP 페이지로 포워딩
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/place/cafe/cafeInfomationView.jsp");
 			dispatcher.forward(req, res);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

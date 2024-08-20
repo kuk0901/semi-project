@@ -22,7 +22,9 @@
 
   <div id="main-container">
 		<div class="main_signIn">
-			<h1 class="main_signIn--title">SIGN IN</h1>
+			<div class="main_signIn--title">
+				<h1>SIGN IN</h1>
+			</div>
 			<div class="main_signIn_content_form">
 				<form id="loginForm" action="signin" method="post" class="main_signIn_content">
 					<div class="main_signIn_content__items">

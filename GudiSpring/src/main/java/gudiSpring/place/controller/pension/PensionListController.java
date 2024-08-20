@@ -23,6 +23,12 @@ public class PensionListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		int recordsPerPage = 6; // 한 페이지에 보여줄 게시글 수
+        int page = req.getParameter("page") != null ? Integer.parseInt(req.getParameter("page")) : 1; // 현재 페이지
+        int startRow = (page - 1) * recordsPerPage + 1; // 시작 행 번호
+        int endRow = page * recordsPerPage; // 끝 행 번호
+		
 		Connection conn = null;
 
 		try {
@@ -44,7 +50,15 @@ public class PensionListController extends HttpServlet {
 			PensionDao pensionDao = new PensionDao();
 			pensionDao.setConnection(conn);
 
-			ArrayList<PensionDto> pensionList = (ArrayList<PensionDto>) pensionDao.selectPensionList(areaNo);
+			ArrayList<PensionDto> pensionList = (ArrayList<PensionDto>) pensionDao.selectPensionList(areaNo, startRow, endRow);
+			
+			// 총 개수 조회
+            int totalRecords = pensionDao.getTotalCount(areaNo);
+            int totalPages = (int) Math.ceil(totalRecords * 1.0 / recordsPerPage);
+            req.setAttribute("totalPages", totalPages);
+            req.setAttribute("currentPage", page);
+			
+			
 			req.setAttribute("pensionList", pensionList);
 
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/place/pension/pensionListView.jsp");
