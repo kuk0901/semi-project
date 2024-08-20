@@ -17,8 +17,7 @@
   <div class="board-container">
     <button onclick="moveFreeBoardListPageFnc('${pageContext.request.contextPath}');" class="btn">게시판</button>
   </div>
-  
-  <c:out value="${sessionScope.userDto}" />
+ 
   
   <c:if test="${sessionScope.userDto == null}">
     <div class="auth-container">
