@@ -47,7 +47,8 @@ public class ReviewBoardDetailController extends HttpServlet {
         
             ReviewBoardDto boardDto = boardDao.selectOne(contentNo);
             
-           
+            // 닉네임 조회 및 설정
+            
           
             String content = boardDto.getContentText();
 
@@ -93,7 +94,7 @@ public class ReviewBoardDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		   System.out.println("doPost method called");
+		  doGet(req, res);
 	}//dopost종료
 	
 	

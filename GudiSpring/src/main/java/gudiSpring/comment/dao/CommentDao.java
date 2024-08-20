@@ -60,7 +60,7 @@ public class CommentDao {
 	public List<CommentDto> getCommentsByContentNo(int contentNo) 
 	        throws SQLException {
 	    String sql = "SELECT c.COMMENT_NO, c.CONTENT_NO, c.CONTENT_COMMENT, "
-	    		+ "c.COMMENT_CRE_DATE, c.COMMENT_UPDATE_DATE, u.NICKNAME " +
+	    		+ "c.COMMENT_CRE_DATE, c.COMMENT_UPDATE_DATE, c.USER_NO,u.NICKNAME " +
 	                 "FROM BOARD_CONTENT_COMMENT c " +
 	                 "JOIN USER_INFO u ON c.USER_NO = u.USER_NO " +
 	                 "WHERE c.CONTENT_NO = ? " +
@@ -83,6 +83,7 @@ public class CommentDao {
 	            commentDto.setContentComment(rs.getString("CONTENT_COMMENT"));
 	            commentDto.setCommentCreDate(rs.getDate("COMMENT_CRE_DATE"));
 	            commentDto.setCommentUpdateDate(rs.getDate("COMMENT_UPDATE_DATE"));
+	            commentDto.setUserNo(rs.getInt("USER_NO"));  // 사용자 번호 설정
 	            commentDto.setNickname(rs.getString("NICKNAME")); // NICKNAME 설정
 	            
 	            comments.add(commentDto);

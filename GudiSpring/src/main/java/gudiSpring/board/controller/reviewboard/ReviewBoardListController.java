@@ -45,9 +45,7 @@ public class ReviewBoardListController extends HttpServlet {
 			 // 게시글 목록 조회
 			List<ReviewBoardDto> boardList = boardDao.selectList(start, end);
 			
-			for (ReviewBoardDto board : boardList) {
-			    
-			} 	
+		
 			
 			for (ReviewBoardDto board : boardList) {
 				// 게시판 이름 설정

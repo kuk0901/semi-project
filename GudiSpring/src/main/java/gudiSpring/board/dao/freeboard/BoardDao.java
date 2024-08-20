@@ -262,7 +262,8 @@ public class BoardDao {
 	// 게시글 총 개수 조회 (페이징을 위해 필요)
 	public int getTotalCount() throws SQLException {
 		String sql = "SELECT COUNT(*) FROM BOARD_CONTENT";
-		try (PreparedStatement pstmt = connection.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
+		try (PreparedStatement pstmt = connection.prepareStatement(sql); 
+				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
 				return rs.getInt(1);
 			}

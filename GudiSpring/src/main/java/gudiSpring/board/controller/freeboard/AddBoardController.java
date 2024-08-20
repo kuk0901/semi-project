@@ -58,8 +58,7 @@ public class AddBoardController extends HttpServlet {
     	res.setContentType("text/html; charset=UTF-8");
     	req.setCharacterEncoding(CHARSET);
     	
-    	System.out.println("Request is multipart: " + JakartaServletFileUpload.isMultipartContent(req));
-    	// DiskFileItemFactory 설정-업로드기능
+  	// DiskFileItemFactory 설정-업로드기능
         DiskFileItemFactory factory = DiskFileItemFactory.builder()
             .setPath(Paths.get(UPLOAD_DIRECTORY)) // 임시 저장소 디렉토리 설정
             .get();
@@ -141,10 +140,7 @@ public class AddBoardController extends HttpServlet {
                     }
                 }
             }
-         // 디버그 로그 추가
-            System.out.println("Subject: " + subject);
-            System.out.println("Text: " + text);
-            System.out.println("File Path: " + filePath);
+
 
           
 

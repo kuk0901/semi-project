@@ -141,7 +141,19 @@ public class ReviewBoardDto {
 			this.boardInfoName = boardInfoName;
 		}
 
-		
+		public ReviewBoardDto(int contentNo, String contentSubject, String contentText, List<String> contentFiles,
+				int contentBoardInfoNo, Date contentCreDate, Date contentUpdateDate, int userNo, String nickname) {
+			super();
+			this.contentNo = contentNo;
+			this.contentSubject = contentSubject;
+			this.contentText = contentText;
+			this.contentFiles = contentFiles;
+			this.contentBoardInfoNo = contentBoardInfoNo;
+			this.contentCreDate = contentCreDate;
+			this.contentUpdateDate = contentUpdateDate;
+			this.userNo = userNo;
+			this.nickname = nickname;
+		}
 	
 
 }

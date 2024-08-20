@@ -13,14 +13,14 @@ document.getElementById('file').addEventListener('change', handleFileSelect);
 //URL.createObjectURL or filereader 중 filereader선택->작은거에좋다
 function handleFileSelect(event) {
     const files = Array.from(event.target.files); // 선택된 파일을 배열로 변환
-     console.log('Selected files:', files); // 선택된 파일 출력
+    // 선택된 파일 출력
 
     files.forEach((file) => {
 		 // filesArray에 새로운 파일 추가
 		 
 		  const currentIndex = filesArray.length; //현재 filesArray의 길이로 인덱스 설정
         filesArray.push(file); // 새로운 파일을 filesArray에 추가
-          console.log('Stored file at index', currentIndex, ':', file);
+          
         const fileItem = document.createElement('div');
         fileItem.className = 'image-preview';
 
@@ -90,8 +90,6 @@ document.querySelector('form').addEventListener('submit', function(event) {
         return;
     }
 
-    console.log('Setting contentSubject:', subjectElement.value); // 디버깅용 로그
-    console.log('Setting contentText:', contentTextElement.innerHTML); // 디버깅용 로그
 
     // 내용이 사라지지 않도록 hidden 필드에 설정
     hiddenContentTextInput.value = contentTextElement.innerHTML;
@@ -104,14 +102,14 @@ document.querySelector('form').addEventListener('submit', function(event) {
 // 본문에 선택된 이미지를 삽입하는 함수1checkbox에 해당하는 이미지를 본문에 삽입하는 역할을 합니다.
 function insertImageFromInput() {
     const selectedCheckboxes = document.querySelectorAll('input[name="selectedFiles"]:checked');
-     console.log('Selected checkboxes:', selectedCheckboxes);  // 디버깅용 로그
+    
      
     if (selectedCheckboxes.length > 0) {
         selectedCheckboxes.forEach((checkbox) => {
             const selectedIndex = checkbox.value;
-             console.log('Selected index:', selectedIndex); // 선택된 인덱스 출력
+             // 선택된 인덱스 출력
             const file = filesArray[selectedIndex];
-              console.log('Selected file:', file); // 선택된 파일 객체 확인
+              // 선택된 파일 객체 확인
 			
 			 
 			 

@@ -57,7 +57,7 @@ public class ReviewDeletePostController extends HttpServlet {
 
 			boardDao.setConnection(conn);
 			List<String> filePaths = boardDao.getFilePathsByContentNo(contentNo);
-			System.out.println("filePaths" + filePaths);
+			
 
 			// 파일 삭제
 			for (String filePath : filePaths) {

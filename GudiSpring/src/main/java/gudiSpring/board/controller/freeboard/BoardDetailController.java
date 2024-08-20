@@ -81,7 +81,7 @@ public class BoardDetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		   System.out.println("doPost method called");
+		 doGet(req,res);
 	}//dopost종료
 	
 	

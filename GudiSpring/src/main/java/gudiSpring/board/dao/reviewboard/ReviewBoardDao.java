@@ -100,10 +100,13 @@ public class ReviewBoardDao {
     }
 
    
-	//게시글 상세 조회 
+  //게시글 상세 조회 
     public ReviewBoardDto selectOne(int contentNo) throws SQLException {
-        String sql = "SELECT CONTENT_NO, CONTENT_SUBJECT, CONTENT_TEXT, CONTENT_BOARD_INFO_NO, CONTENT_CRE_DATE, CONTENT_UPDATE_DATE, USER_NO "
-                   + "FROM BOARD_CONTENT WHERE CONTENT_NO = ?";
+    	 String sql = "SELECT b.CONTENT_NO, b.CONTENT_SUBJECT, b.CONTENT_TEXT, b.CONTENT_BOARD_INFO_NO, " +
+                 "b.CONTENT_CRE_DATE, b.CONTENT_UPDATE_DATE, b.USER_NO, u.NICKNAME " +
+                 "FROM BOARD_CONTENT b " +
+                 "JOIN USER_INFO u ON b.USER_NO = u.USER_NO " +
+                 "WHERE b.CONTENT_NO = ?";
 
         String imgSql = "SELECT CONTENT_IMG_PATH FROM BOARD_CONTENT_IMG WHERE CONTENT_NO = ?";
         
@@ -117,6 +120,7 @@ public class ReviewBoardDao {
                     Date contentCreDate = rs.getDate("CONTENT_CRE_DATE");
                     Date contentUpdateDate = rs.getDate("CONTENT_UPDATE_DATE");
                     int userNo = rs.getInt("USER_NO");
+                    String nickname = rs.getString("NICKNAME"); 
 
                     List<String> contentFiles = new ArrayList<>();
                     try (PreparedStatement imgPstmt = connection.prepareStatement(imgSql)) {
@@ -128,7 +132,9 @@ public class ReviewBoardDao {
                         }
                     }
 
-                    return new ReviewBoardDto(contentNo, contentSubject, contentText, contentFiles, contentBoardInfoNo, contentCreDate, contentUpdateDate, userNo);
+                    return new ReviewBoardDto(contentNo, contentSubject,
+                    		contentText, contentFiles, contentBoardInfoNo,
+                    		contentCreDate, contentUpdateDate, userNo,nickname);
                 }
             }
         } catch (SQLException e) {
@@ -154,7 +160,7 @@ public class ReviewBoardDao {
 		        pstmt.setInt(3, reviewboardDto.getUserNo());
 
 		        int rowsAffected = pstmt.executeUpdate();
-		        System.out.println("Rows affected: " + rowsAffected);
+		       
 
 		        // CONTENT_NO 값 수동 조회
 		        String generatedKeyQuery = "SELECT CONTENT_NO_SEQ.CURRVAL FROM DUAL";
@@ -162,7 +168,7 @@ public class ReviewBoardDao {
 		             ResultSet rs = keyPstmt.executeQuery()) {
 		            if (rs.next()) {
 		                int contentNo = rs.getInt(1);
-		                System.out.println("Generated CONTENT_NO: " + contentNo);
+		              
 
 		                // 이미지 파일 경로들을 DB에 삽입
 		                for (String filePath : reviewboardDto.getContentFiles()) {

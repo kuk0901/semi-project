@@ -147,3 +147,38 @@ footer {
   background-color: #f1f1f1;
   padding: 20px 0;
 }
+
+
+.comment-content {
+    font-weight: bold; /* 굵게 강조 */
+    color: #333; /* 텍스트 색상 */
+    background-color: white; /* 배경색 추가 */
+    padding: 5px; /* 내용 부분에 여백 추가 */
+    border-radius: 5px; /* 모서리 둥글게 */
+}
+* 버튼들을 오른쪽 끝으로 이동시키기 위한 스타일 */
+.comment-buttons {
+    display: flex;
+    justify-content: flex-end; /* 버튼들을 오른쪽으로 정렬 */
+    gap: 10px; /* 버튼 간격 */
+    margin-top: 10px; /* 위와의 간격 */
+}
+
+/* 삭제 및 수정 버튼 스타일 */
+.deleteButton {
+    padding: 5px 10px;
+    background-color: #ff4d4d; /* 삭제 버튼은 빨간색으로 */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editButton {
+    padding: 5px 10px;
+    background-color: #4CAF50; /* 수정 버튼은 초록색으로 */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}

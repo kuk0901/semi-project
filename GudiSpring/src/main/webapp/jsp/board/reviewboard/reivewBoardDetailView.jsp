@@ -18,10 +18,10 @@
   href="${pageContext.request.contextPath}/css/board/reviewboard/reviewBoardDetail.css">
 <script defer
   src="${pageContext.request.contextPath}/js/movePage/movePageFncs.js"></script>
-<style>
-</style>
-<script>
-  
+  <script defer
+  src="${pageContext.request.contextPath}/js/board/reviewboard/reviewBoardDetail.js"></script>
+ <script>
+        var contextPath = '<%= request.getContextPath() %>';
     </script>
 </head>
 <body>
@@ -55,7 +55,7 @@
           <th>수정일</th>
           <td><%=boardDto.getContentUpdateDate()%></td>
           <th>작성자</th>
-          <td><%=boardDto.getUserNo()%></td>
+          <td>${boardDto.nickname}</td>
         </tr>
       </table>
 
@@ -75,7 +75,7 @@
         onclick="location.href='<%=request.getContextPath()%>/board/reviewboard/edit?contentNo=<%=boardDto.getContentNo()%>'">수정</button>
       <!-- 게시글 삭제 버튼 추가 -->
       <button
-        onclick="location.href='<%=request.getContextPath()%>/board/reviewboard/delete?contentNo=<%=boardDto.getContentNo()%>'">게시글
+        onclick="confirmDeletePost(<%=boardDto.getContentNo()%>)">게시글
         삭제</button>
 
       <h3>댓글 달기</h3>
@@ -87,27 +87,34 @@
         <!-- 게시판 유형 value필수설정-->
         <textarea name="commentContent" rows="4" cols="50"
           placeholder="댓글을 입력하세요"></textarea>
-        <br> <input type="submit" value="댓글 추가">
+        <br> 
+        <input type="submit" value="댓글 추가">
       </form>
       <h3>댓글</h3>
       <ul class="comments">
         <c:forEach var="comment" items="${commentList}">
           <li class="comment">
-            <p>
-              <strong>댓글 번호:</strong>
-              <c:out value="${comment.commentNo}" />
+           <p>
+                <strong>닉네임:</strong> <c:out value="${comment.nickname}" />
+                &nbsp;&nbsp;&nbsp;&nbsp; <!-- 간격을 위해 공백 추가 -->
+                <strong>작성일:</strong> <c:out value="${comment.commentCreDate}" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <strong>번호:</strong> <c:out value="${comment.commentNo}" />
             </p>
-            <p>
-              <strong>내용:</strong>
-              <c:out value="${comment.contentComment}" />
+            <p id="commentContent-${comment.commentNo}">
+               <br>
+                <span class="comment-content"><c:out value="${comment.contentComment}" /></span>
             </p>
-            <p>
-              <strong>작성일:</strong>
-              <c:out value="${comment.commentCreDate}" />
-            </p> <!-- 게시판 유형 필수설정-->
-            <button
-              onclick="confirmDelete(${comment.commentNo}, <%= boardDto.getContentNo() %>, 'reviewboard')">삭제</button>
-            <button onclick="openEditForm(${comment.commentNo})">수정</button>
+            
+            <!-- 게시판 유형 필수설정-->
+            <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+			<c:if test="${sessionScope.userDto.userNo == comment.userNo}">
+				<!--버튼2개-->
+				<div class="comment-buttons">
+					<button class="deleteButton" onclick="confirmDelete(${comment.commentNo}, ${boardDto.getContentNo()} , 'reviewboard')">삭제</button>
+					<button class="editButton" onclick="openEditForm(${comment.commentNo})">수정</button>
+           		 </div>
+           </c:if>
             <!-- 수정 폼 -->
             <div id="editForm-${comment.commentNo}" class="edit-form">
               <form action="<%=request.getContextPath()%>/editComment"
@@ -116,15 +123,16 @@
                   value="${comment.commentNo}"> <input
                   type="hidden" name="boardType" value="reviewboard">
                 <!-- 게시판 유형 value필수설정-->
-                <input type="hidden" name="contentNo"
-                  value="<%=boardDto.getContentNo()%>">
+                <input type="hidden" name="contentNo" value="<%=boardDto.getContentNo()%>">
                 <textarea name="commentContent" rows="3">${comment.contentComment}</textarea>
                 <input type="submit" value="수정 완료">
               </form>
-            </div>
+            </div>      
+    
           </li>
         </c:forEach>
       </ul>
+     
       <%
       }
       %>

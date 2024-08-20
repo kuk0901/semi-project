@@ -14,12 +14,12 @@
 
 	<context-param>
 		<param-name>user</param-name>
-		<param-value>gudispring</param-value>
+		<param-value>edu</param-value>
 	</context-param>
 
 	<context-param>
 		<param-name>password</param-name>
-		<param-value>1234</param-value>
+		<param-value>edu12</param-value>
 	</context-param>
   
   <!-- 첫 번째 필터 -->

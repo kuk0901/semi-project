@@ -166,12 +166,7 @@ public class EditReviewBoardController extends HttpServlet {
 				}
 			}
 
-			// 디버그 로그 추가
-			System.out.println("Content No: " + contentNo);
-			System.out.println("Subject: " + contentSubject);
-			System.out.println("Text: " + contentText);
-			System.out.println("File Path: " + filePaths);
-
+			
 			if (contentSubject == null || contentSubject.isEmpty()) {
 				throw new ServletException("Subject is missing or empty.");
 			}

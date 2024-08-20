@@ -73,11 +73,7 @@
     </div>
 
     <div class="button-container">
-      <button onclick="goToNotice()">임시공지사항</button>
-
-      <button
-        onclick="location.href='${pageContext.request.contextPath}/board/freeboard/list'">자유
-        게시판으로 이동</button>
+     
       <button
         onclick="location.href='${pageContext.request.contextPath}/board/reviewboard/add'">새
         글 작성</button>

@@ -27,6 +27,7 @@ public class ReviewDeleteFileController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(req, resp);
+		
 	}
 	@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -51,8 +52,6 @@ public class ReviewDeleteFileController extends HttpServlet {
             String basePath = "D:/GudiSpring/img/";
             String filePath = basePath + fileName; // fileName에 이미 reviewboard/가 포함됨 왜지?            
             
-//         // 디버그 로그 추가
-//            System.out.println("Attempting to delete file: " + filePath);
 
             File file = new File(filePath);
             if (file.exists() && file.isFile()) {
