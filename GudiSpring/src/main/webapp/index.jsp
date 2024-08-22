@@ -35,7 +35,7 @@
   <!-- main -->
   <div id="main-container">
     <div class="main-container__content">
-      <img alt="" src="././img/main/banner.png">
+      <img alt="" src="./img/main/banner.png" style="width: 100%; height: 300px;">
     </div>
     <div class="main-container__content">
       <div class="swiper">

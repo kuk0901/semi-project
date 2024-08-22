@@ -119,6 +119,8 @@ ul li {
 	font-weight: bold;
 	color: white;
 	text-shadow: 2px 2px 2px #ef6666;
+	border: none;
+	width: 75px;
 }
 
 #header .btn--auth:hover {
@@ -128,6 +130,7 @@ ul li {
 
 #header .auth-container {
 	display: flex;
+	margin: 0 30px 0 0;
 }
 
 #header .auth-container--btn {
@@ -302,4 +305,5 @@ ul li {
   right: 800px;
   top: 10px;
   opacity: 1;
+  z-index: 15;
 }

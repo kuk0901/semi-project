@@ -1,6 +1,7 @@
 package gudiSpring.user.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 
 import gudiSpring.user.dao.UserDao;
@@ -47,10 +48,10 @@ public class UserSigninController extends HttpServlet {
 
 			userDto = userDao.userLogin(id, password);
 
-			if (userDto == null) {
-
-			} else {
-				System.out.println("성공");
+			if(userDto == null) {
+				req.setAttribute("msg", "일치하는 계정이 없습니다.");
+				doGet(req, res);
+				return; 
 			}
 
 			HttpSession session = req.getSession();

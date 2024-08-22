@@ -12,6 +12,7 @@
   href="${pageContext.request.contextPath}/css/common/common.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/auth/signin.css" />
+<script defer src="${pageContext.request.contextPath}/js/common/common.js"></script>
 <script defer
   src="${pageContext.request.contextPath}/js/movePage/movePageFncs.js"></script>
 <script defer
@@ -19,6 +20,11 @@
 </head>
 <body>
   <jsp:include page="/jsp/common/header.jsp" />
+
+	<!-- toast container -->
+  <c:if test="${not empty msg}">
+    <div id="toast" class="toast" data-message="${msg}"></div>
+  </c:if>
 
   <div id="main-container">
 		<div class="main_signIn">

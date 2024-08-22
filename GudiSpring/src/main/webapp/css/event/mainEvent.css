@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
 #main-container{
-	margin-top: 90px;
+	margin-top: 110px;
 	height: 1500px;
 }
 
 .main-container__content{
 	margin-top: 30px;
-	height: 300px
 }
 
 .main-container__content event{

@@ -19,7 +19,6 @@ function signInCheckAndSubmit() {
 	}
 
 	document.getElementById("loginForm").submit();
-
-
+	
 }
 
