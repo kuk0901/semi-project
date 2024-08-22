@@ -22,7 +22,7 @@
 				<c:forEach var="areaDto" items="${areaList}">
 					<li class="area-list-box__li">
 						<a href="${pageContext.request.contextPath}/area/place/restaurant?areaNo=${areaDto.areaNo}" class="area--list">
-						<img src="${pageContext.request.contextPath}/imgEx/2.jpg" alt="이미지 준비중" class="area--img" /> 
+						<img src="${pageContext.request.contextPath}/img/area/${areaDto.areaName}식당.png" alt="이미지 준비중" class="area--img" style="width: 330px; height:250px;"/> 
 						<span class="area--title"> ${areaDto.areaName}</span> 
 						</a>
 					</li>
