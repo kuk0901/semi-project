@@ -40,34 +40,34 @@
     <div class="main-container__content">
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="${pageContext.request.contextPath}/area/place/recommendcafe"> <img
-              src="${pageContext.request.contextPath}/img/place/1.jpg"
-              alt="이미지 준비중" class="area--img" />
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="${pageContext.request.contextPath}/area/place/recommendpension"> <img
-              src="${pageContext.request.contextPath}/img/place/2.jpg"
-              alt="이미지 준비중" class="area--img" />
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="${pageContext.request.contextPath}/area/place/recommendrestaurant"> <img
-              src="${pageContext.request.contextPath}/img/place/더바움.jpg"
-              alt="이미지 준비중" class="area--img" />
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <img src="${pageContext.request.contextPath}/img/place/카페더킹.jpg"
-              alt="이미지 준비중" class="area--img" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="${pageContext.request.contextPath}/img/place/카페이루아.jpg"
-              alt="이미지 준비중" class="area--img" />
-          </div>
-        </div>
+					<c:forEach var="placeDto" items="${randomPlaceList}">
+						<div class="swiper-slide">
+							<c:if test="${placeDto.category eq '펜션'}">
+								<a
+									href="${pageContext.request.contextPath}/place/pension/infomation?placeNo=${placeDto.placeNo}">
+									<img src="/img/place/${placeDto.placeImgPath}"
+									alt="${placeDto.placeName}" />
+								</a>
+							</c:if>
+
+							<c:if test="${placeDto.category eq '식당'}">
+								<a
+									href="${pageContext.request.contextPath}/place/restaurant/infomation?placeNo=${placeDto.placeNo}">
+									<img src="/img/place/${placeDto.placeImgPath}"
+									alt="${placeDto.placeName}" />
+								</a>
+							</c:if>
+
+							<c:if test="${placeDto.category eq '카페'}">
+								<a
+									href="${pageContext.request.contextPath}/place/cafe/infomation?placeNo=${placeDto.placeNo}">
+									<img src="/img/place/${placeDto.placeImgPath}"
+									alt="${placeDto.placeName}" />
+								</a>
+							</c:if>
+						</div>
+					</c:forEach>
+				</div>
 
         <div class="swiper-pagination"></div>
 

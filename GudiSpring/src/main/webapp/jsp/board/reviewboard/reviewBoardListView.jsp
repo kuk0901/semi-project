@@ -41,7 +41,7 @@
             <c:forEach var="board" items="${boardList}">
                 <tr>
                     <td><c:out value="${board.contentNo}" /></td>
-                    <td><a href="/test/board/reviewboard/detail?contentNo=${board.contentNo}">
+                    <td><a href="${pageContext.request.contextPath}/board/reviewboard/detail?contentNo=${board.contentNo}">
                         <c:out value="${board.contentSubject}" /></a>
                     </td>
                      <td>

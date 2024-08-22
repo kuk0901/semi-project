@@ -12,7 +12,7 @@
 	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common/common.css">
 	
 	    <!-- Custom CSS for the Review Board -->
-	    <link rel="stylesheet" type="text/css" href="/test/css/board/reviewboard/newReviewBoard.css">
+	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/board/reviewboard/newReviewBoard.css">
 	
 	    <!-- contextPath를 JavaScript 변수로 설정 -->
 	    <script type="text/javascript">

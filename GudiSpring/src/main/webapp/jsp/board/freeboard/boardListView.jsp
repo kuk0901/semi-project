@@ -46,7 +46,7 @@
             <td class="table-cell"><c:out
                 value="${board.contentNo}" /></td>
             <td class="table-cell"><a
-              href="/test/board/freeboard/detail?contentNo=${board.contentNo}"
+              href="${pageContext.request.contextPath}/board/freeboard/detail?contentNo=${board.contentNo}"
               class="table-link"> <c:out
                   value="${board.contentSubject}" />
             </a></td>

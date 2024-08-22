@@ -32,16 +32,15 @@ public class PlaceDao {
 			sql += " WHERE PLACE_NO = ?";
 
 			pstmt = connection.prepareStatement(sql);
-
-			pstmt = connection.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-
+			
 			for (int i = 0; i < randomPlaceNos.length; i++) {
 				pstmt.setInt(1, randomPlaceNos[i]);
 				rs = pstmt.executeQuery();
-
+				
 				while (rs.next()) {
-					placeDto = new PlaceDto(rs.getInt("PLACE_NO"), rs.getString("PLACE_NAME"), rs.getString("CATEGORY"),
+					placeDto = new PlaceDto(rs.getInt("PLACE_NO"), 
+							rs.getString("PLACE_NAME"), 
+							rs.getString("CATEGORY"),
 							rs.getString("PLACE_IMG_PATH"));
 					randomPlaceList.add(placeDto);
 				}
