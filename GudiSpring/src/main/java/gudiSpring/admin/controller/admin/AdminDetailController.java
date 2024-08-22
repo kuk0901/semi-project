@@ -120,9 +120,6 @@ public class AdminDetailController extends HttpServlet {
 				System.out.println();
 				break;
 			}
-
-			
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

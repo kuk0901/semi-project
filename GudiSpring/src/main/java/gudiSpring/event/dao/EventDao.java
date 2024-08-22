@@ -78,7 +78,7 @@ public class EventDao {
 	}
 	
 	// Admin Event 전체 조회
-	public List<EventDto> selectEventList() {
+	public List<EventDto> selectEventList(int start, int pageSize) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -150,8 +150,8 @@ public class EventDao {
 
 		try {
 			String sql = "";
-			sql += "SELECT COUNT(FROM EVENT_NO)";
-			sql += " FROM FROM EVENT";
+			sql += "SELECT COUNT(EVENT_NO)";
+			sql += " FROM EVENT";
 
 			pstmt = connection.prepareStatement(sql);
 
@@ -180,7 +180,7 @@ public class EventDao {
 	}
 
 	// Event search
-	public List<EventDto> searchEventList(String param) {
+	public List<EventDto> searchEventList(String param, int start, int pageSize) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -242,6 +242,47 @@ public class EventDao {
 		return eventList;
 	}
 
+	// search event count
+	public int searchEventTotalCount(String param) {
+		int totalCount = 0;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "";
+			sql += "SELECT COUNT(EVENT_NO)";
+			sql += " FROM EVENT";
+			sql += " WHERE EVENT_NAME LIKE UPPER(?)";
+
+			pstmt = connection.prepareStatement(sql);
+
+			pstmt.setString(1, param);
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				totalCount = rs.getInt(1); // 첫 번째 칼럼
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally 종료
+
+		return totalCount;
+	}
+	
 	public HashMap<String, String> adminPlaceDetailSelect(int eventNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

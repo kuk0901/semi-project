@@ -24,7 +24,6 @@ public class AdminDao {
 		ResultSet rs = null;
 
 		try {
-
 			String sql = "";
 			sql += "SELECT USER_NO, ID, PASSWORD, AUTHORITY";
 			sql += " FROM USER_INFO";

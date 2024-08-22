@@ -88,7 +88,7 @@
   text-align: center;
   line-height: 400px;
   cursor: pointer;
-  background-color: #fddada;
+  background-color: #E6E6FA;
 }
 
 #main-container .main-container__event .event__personality-quiz {
@@ -101,6 +101,6 @@
   font-size: 25px;
   text-align: center;
   line-height: 400px;
-  background-color: #fddada;
+  background-color: #F0FFF0;
   cursor: pointer;
 }

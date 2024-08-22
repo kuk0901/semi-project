@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dog With You Admin</title>
+<title>DWY Admin</title>
 <link
   href="
   https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
@@ -54,7 +54,7 @@
             <span>이벤트 당첨자의 닉네임을 변경해야 합니다.</span>
           </li>
           <li class="page-guidelines__list--content">
-            <span>이벤트 당첨자의 아이디, 이름은 변경이 불가능 합니다.</span>
+            <span>당첨자의 닉네임 변경 후 수정 버튼을 클릭할 경우 이름, 아이디, 전화번호는 자동으로 수정됩니다.</span>
           </li>
         </ul>
       </div>

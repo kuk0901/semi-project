@@ -92,3 +92,8 @@ function moveNoticeAddFnc(path) {
 function moveEventListPageFnc(path) {
 	location.href = `${path}/event/list`;
 }
+
+// survey
+function movePlaceMbtiTestPageFnc(path) {
+	location.href = `${path}/survey/placeMbtiTest`;
+}

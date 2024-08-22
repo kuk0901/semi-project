@@ -83,12 +83,12 @@
 
     <div class="main-container__event">
       <div class="event__main">
-        <div class="event__main-box" onclick="moveEventListPageFnc('${pageContext.request.contextPath}')">
+        <div class="event__main-box" onclick="moveEventListPageFnc('${pageContext.request.contextPath}');">
           EVENT 당첨자 확인!
         </div>
       </div>
       <div class="event__personality-quiz">
-        <div class="event__personality-quiz--fir" onclick="">
+        <div class="event__personality-quiz--fir" onclick="movePlaceMbtiTestPageFnc('${pageContext.request.contextPath}');">
           내 반려견과 어울리는 장소는?!
         </div>
       </div>

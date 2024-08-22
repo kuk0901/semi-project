@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dog With You Admin</title>
+<title>DWY Admin</title>
 <link
   href="
   https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
@@ -18,7 +18,8 @@
   href="${pageContext.request.contextPath}/css/admin/nav.css" />
 <link rel="stylesheet"
   href="${pageContext.request.contextPath}/css/admin/place/placeList.css" />
-<script defer src="${pageContext.request.contextPath}/js/common/common.js"></script>
+<script defer
+  src="${pageContext.request.contextPath}/js/common/common.js"></script>
 <script defer type="text/javascript"
   src="${pageContext.request.contextPath}/js/movePage/movePageFncs.js"></script>
 </head>
@@ -44,7 +45,7 @@
           <input type="hidden" name="formName" value="searchPlaceForm" />
           <label for="place__search" class="place__select--title">장소
             검색</label> <input id="place__search" name="search"
-            placeholder="장소의 이름을 작성해주세요" value="${searchKeyword}"/>
+            placeholder="장소의 이름을 작성해주세요" value="${searchKeyword}" />
           <button type="submit" class="btn" name="action"
             value="searchPlaceForm">검색</button>
         </form>
@@ -81,7 +82,8 @@
 
       <!-- place list -->
       <div class="place__list">
-        <form action="./list" method="post" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+        <form action="./list" method="post"
+          onsubmit="return confirm('정말 삭제하시겠습니까?');">
           <div class="place__list--btn">
             <input type="hidden" name="formName"
               value="removePlacesForm" />
@@ -137,26 +139,33 @@
       <!-- pagination -->
       <div class="pagination">
         <c:if test="${currentPage > 1}">
-            <a href="?page=${currentPage - 1}&search=${searchKeyword}" class="pagination-prev">이전</a>
+          <a
+            href="?page=${currentPage-1}&formName=${currentFormName}&search=${searchKeyword}"
+            class="pagination-prev">이전</a>
         </c:if>
-    
+
         <c:forEach begin="${startPage}" end="${endPage}" var="i">
-            <c:choose>
-                <c:when test="${currentPage eq i}">
-                    <strong class="pagination--cur-page">${i}</strong>
-                </c:when>
-                <c:otherwise>
-                    <a href="?page=${i}&search=${searchKeyword}" class="pagination--page">${i}</a>
-                </c:otherwise>
-            </c:choose>
+          <c:choose>
+            <c:when test="${currentPage eq i}">
+              <strong class="pagination--cur-page">${i}</strong>
+            </c:when>
+            <c:otherwise>
+              <a
+                href="?page=${i}&formName=${currentFormName}&search=${searchKeyword}"
+                class="pagination--page">${i}</a>
+            </c:otherwise>
+          </c:choose>
         </c:forEach>
-    
+
         <c:if test="${currentPage < totalPages}">
-            <a href="?page=${currentPage + 1}&search=${searchKeyword}" class="pagination--next">다음</a>
+          <a
+            href="?page=${currentPage+1}&formName=${currentFormName}&search=${searchKeyword}"
+            class="pagination--next">다음</a>
         </c:if>
       </div>
 
-    </div> <!-- main-container__content -->
+    </div>
+    <!-- main-container__content -->
   </div>
   <!-- main-container -->
 </body>

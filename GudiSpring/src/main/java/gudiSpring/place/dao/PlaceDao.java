@@ -9,7 +9,7 @@ import java.util.List;
 
 import gudiSpring.place.dto.PlaceDto;
 
-public class PlaceDao  {
+public class PlaceDao {
 
 	private Connection connection;
 
@@ -17,13 +17,73 @@ public class PlaceDao  {
 		this.connection = connection;
 	}
 
-	// 사용자 ui용 place list
+	// user placeMbtiTest list
+	public List<PlaceDto> placeMbtiTestResultList(ArrayList<Integer> placeNoList) {
+		List<PlaceDto> resultList = new ArrayList<>();
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT PLACE_NO, AREA_NO, PLACE_NAME, PL_ADDRESS, PLACE_IMG_PATH FROM PLACE WHERE PLACE_NO IN (");
+
+			// PLACE_NO 개수만큼 ? 추가
+			for (int i = 0; i < placeNoList.size(); i++) {
+				sql.append("?");
+				if (i < placeNoList.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")"); // sql문 in 괄호 닫기
+
+			pstmt = connection.prepareStatement(sql.toString());
+
+			// PreparedStatement에 값 설정
+			for (int i = 0; i < placeNoList.size(); i++) {
+				pstmt.setInt(i + 1, placeNoList.get(i));
+			}
+
+			// 쿼리 실행
+			rs = pstmt.executeQuery();
+
+			// 결과 처리
+			while (rs.next()) {
+				PlaceDto place = new PlaceDto();
+				place.setPlaceNo(rs.getInt("PLACE_NO"));
+				place.setAreaNo(rs.getInt("AREA_NO"));
+				place.setPlaceName(rs.getString("PLACE_NAME"));
+				place.setPlAddress(rs.getString("PL_ADDRESS"));
+				place.setPlaceImgPath(rs.getString("PLACE_IMG_PATH"));
+				
+				resultList.add(place);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally 종료
+
+		return resultList;
+	}
+
+	// admin place list
 	public List<PlaceDto> selectPlaceList(int start, int pageSize) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<PlaceDto> placeList = new ArrayList<>();
-		
-		try {			
+
+		try {
 			String sql = "";
 			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
 			sql += " , GEN_RESERVATION, RECO_RESERVATION";
@@ -35,27 +95,20 @@ public class PlaceDao  {
 			sql += " WHERE rnum > ?";
 
 			pstmt = connection.prepareStatement(sql);
-      pstmt.setInt(1, start + pageSize); // 시작 인덱스 + 페이지 크기
-      pstmt.setInt(2, start); // 시작 인덱스
+			pstmt.setInt(1, start + pageSize); // 시작 인덱스 + 페이지 크기
+			pstmt.setInt(2, start); // 시작 인덱스
 
-      rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
 			PlaceDto placeDto = null;
 
 			while (rs.next()) {
-         placeDto = new PlaceDto(
-            rs.getInt("PLACE_NO"),
-            rs.getString("CATEGORY"),
-            rs.getString("PLACE_NAME"),
-            rs.getString("PL_ADDRESS"),
-            rs.getString("PL_PHONE"),
-            rs.getString("PL_WEBSITE"),
-            rs.getInt("GEN_RESERVATION"),
-            rs.getInt("RECO_RESERVATION")
-        );
-        
-        placeList.add(placeDto);
-    }
+				placeDto = new PlaceDto(rs.getInt("PLACE_NO"), rs.getString("CATEGORY"), rs.getString("PLACE_NAME"),
+				    rs.getString("PL_ADDRESS"), rs.getString("PL_PHONE"), rs.getString("PL_WEBSITE"),
+				    rs.getInt("GEN_RESERVATION"), rs.getInt("RECO_RESERVATION"));
+
+				placeList.add(placeDto);
+			}
 
 			return placeList;
 
@@ -103,18 +156,10 @@ public class PlaceDao  {
 
 			while (rs.next()) {
 
-				placeDto = new PlaceDto(
-						rs.getInt("PLACE_NO"), 
-						rs.getString("CATEGORY"), 
-						rs.getString("PLACE_NAME"), 
-						rs.getString("PL_ADDRESS"), 
-						rs.getString("PL_PHONE"), 
-						rs.getString("PL_WEBSITE"),
-						rs.getInt("GEN_RESERVATION"),
-						rs.getInt("RECO_RESERVATION"),
-						rs.getString("PLACE_IMG_PATH"),
-						rs.getString("AREA_NAME")
-					);
+				placeDto = new PlaceDto(rs.getInt("PLACE_NO"), rs.getString("CATEGORY"), rs.getString("PLACE_NAME"),
+				    rs.getString("PL_ADDRESS"), rs.getString("PL_PHONE"), rs.getString("PL_WEBSITE"),
+				    rs.getInt("GEN_RESERVATION"), rs.getInt("RECO_RESERVATION"), rs.getString("PLACE_IMG_PATH"),
+				    rs.getString("AREA_NAME"));
 			}
 
 		} catch (Exception e) {
@@ -127,17 +172,13 @@ public class PlaceDao  {
 
 	// admin placeList select
 	public List<PlaceDto> searchPlaceList(String placeName, int start, int pageSize) {
+		ArrayList<PlaceDto> placeList = new ArrayList<>();
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		
-		ArrayList<PlaceDto> placeList = new ArrayList<>();
-
 		try {
-
 			String sql = "";
-
 			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, GEN_RESERVATION, RECO_RESERVATION";
 			sql += " FROM (SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, GEN_RESERVATION, RECO_RESERVATION, ROWNUM rnum";
 			sql += " FROM PLACE";
@@ -146,26 +187,20 @@ public class PlaceDao  {
 			sql += "  WHERE rnum > ?";
 
 			pstmt = connection.prepareStatement(sql);
-			
-      pstmt.setString(1, "%" + placeName + "%"); // 검색어 설정
-      pstmt.setInt(2, start + pageSize); // start + pageSize로 전체 개수를 가져옴
-      pstmt.setInt(3, start); // 시작 인덱스 설정
 
-      rs = pstmt.executeQuery();
+			pstmt.setString(1, "%" + placeName + "%"); // 검색어 설정
+			pstmt.setInt(2, start + pageSize); // start + pageSize로 전체 개수를 가져옴
+			pstmt.setInt(3, start); // 시작 인덱스 설정
 
-      PlaceDto placeDto = null;
-      
+			rs = pstmt.executeQuery();
+
+			PlaceDto placeDto = null;
+
 			while (rs.next()) {
 
-				placeDto = new PlaceDto(
-		        rs.getInt("PLACE_NO"),
-		        rs.getString("CATEGORY"),
-		        rs.getString("PLACE_NAME"),
-		        rs.getString("PL_ADDRESS"),
-		        rs.getString("PL_PHONE"),
-		        rs.getInt("GEN_RESERVATION"),
-		        rs.getInt("RECO_RESERVATION")
-		    );
+				placeDto = new PlaceDto(rs.getInt("PLACE_NO"), rs.getString("CATEGORY"), rs.getString("PLACE_NAME"),
+				    rs.getString("PL_ADDRESS"), rs.getString("PL_PHONE"), rs.getInt("GEN_RESERVATION"),
+				    rs.getInt("RECO_RESERVATION"));
 
 				placeList.add(placeDto);
 			}
@@ -194,18 +229,18 @@ public class PlaceDao  {
 	// place count
 	public int placeTotalCount() {
 		int totalCount = 0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		try {
 			String sql = "SELECT COUNT(*) FROM PLACE";
-      pstmt = connection.prepareStatement(sql);
-      rs = pstmt.executeQuery();
+			pstmt = connection.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 
-      if (rs.next()) {
-      	totalCount = rs.getInt(1); // 첫 번째 칼럼
-      }
+			if (rs.next()) {
+				totalCount = rs.getInt(1); // 첫 번째 칼럼
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -221,42 +256,50 @@ public class PlaceDao  {
 				e.printStackTrace();
 			}
 		} // finally 종료
-		
+
 		return totalCount;
 	}
-	
+
 	public int searchTotalCount(String placeName) {
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "";
+			sql += "SELECT COUNT(RC.RESERVATION_NO)";
+			sql += " FROM RESERVATION RC";
+			sql += " JOIN (SELECT R.PLACE_NO";
+			sql += " FROM RESERVATION R";
+			sql += " JOIN PLACE P ON R.PLACE_NO = P.PLACE_NO";
+			sql += " WHERE UPPER(P.PLACE_NAME) LIKE UPPER(?)) RE";
+			sql += " ON RC.PLACE_NO = RE.PLACE_NO";
 
-    try {
-        String sql = "SELECT COUNT(*) FROM PLACE WHERE PLACE_NAME LIKE ?";
-        pstmt = connection.prepareStatement(sql);
-        pstmt.setString(1, "%" + placeName + "%"); // 검색어 설정
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, "%" + placeName + "%"); // 검색어 설정
 
-        rs = pstmt.executeQuery();
-        if (rs.next()) {
-            return rs.getInt(1); // 첫 번째 칼럼의 값을 반환
-        }
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1); // 첫 번째 칼럼의 값을 반환
+			}
 
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-            if (pstmt != null) {
-                pstmt.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 
-    return 0; // 기본값
+		return 0; // 기본값
 	}
-	
+
 	// admin insert place
 	public int placeInsert(PlaceDto placeDto) {
 		int result = 0;
@@ -312,7 +355,6 @@ public class PlaceDao  {
 		PreparedStatement pstmt = null;
 
 		try {
-
 			String sql = "";
 			sql += "UPDATE PLACE";
 			sql += " SET PLACE_NAME = ?, PL_ADDRESS = ?, PL_PHONE = ?, PL_WEBSITE = ?, PLACE_IMG_PATH = ?";
@@ -351,16 +393,15 @@ public class PlaceDao  {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "DELETE FROM PLACE WHERE PLACE_NO = ?";
-
 		try {
+			String sql = "DELETE FROM PLACE WHERE PLACE_NO = ?";
 
 			pstmt = connection.prepareStatement(sql);
 
-      for (Integer placeNo : removePlaceNoList) {
-          pstmt.setInt(1, placeNo);
-          result += pstmt.executeUpdate();
-      }
+			for (Integer placeNo : removePlaceNoList) {
+				pstmt.setInt(1, placeNo);
+				result += pstmt.executeUpdate();
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

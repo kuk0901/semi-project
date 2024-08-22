@@ -61,12 +61,6 @@ public class EventDetailController extends HttpServlet {
 			String closeDate = req.getParameter("closeDate");
 			String userNickname = req.getParameter("nickname");
 			
-			System.out.println("eventNo" + eventNo);
-			System.out.println("eventName" + eventName);
-			System.out.println("openDate" + openDate);
-			System.out.println("closeDate" + closeDate);
-			System.out.println("userNickname" + userNickname);
-			
 			conn = (Connection) sc.getAttribute("conn");
 			
 			EventDto eventDto = new EventDto(eventNo, eventName, openDate, closeDate, userNickname);

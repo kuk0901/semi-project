@@ -259,23 +259,29 @@ public class PensionDao {
 		}
 	}
 
-	// admin
-	public List<PensionDto> selectPensionList() {
+	// admin pension list
+	public List<PensionDto> selectPensionList(int start, int pageSize) {
+		ArrayList<PensionDto> pensionList = new ArrayList<>();
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "";
-
-		sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
-		sql += " FROM PLACE";
-		sql += " WHERE CATEGORY = '펜션'";
-
-		ArrayList<PensionDto> pensionList = new ArrayList<>();
-
 		try {
-
+			String sql = "";
+			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
+			sql += " , GEN_RESERVATION, RECO_RESERVATION";
+			sql += " FROM (SELECT p.*, ROWNUM rnum";
+			sql += " FROM (SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
+			sql += " FROM PLACE";
+			sql += " WHERE CATEGORY = '펜션'";
+			sql += " ORDER BY PLACE_NO) p";
+			sql += " WHERE ROWNUM <= ?)";
+			sql += " WHERE rnum > ?";
+			
 			pstmt = connection.prepareStatement(sql);
-
+			pstmt.setInt(1, start + pageSize); // 시작 인덱스 + 페이지 크기
+      pstmt.setInt(2, start); // 시작 인덱스
+			
 			rs = pstmt.executeQuery();
 
 			int placeNo = 0;

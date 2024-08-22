@@ -5,18 +5,18 @@ body {
 }
 
 /* event__select */
-#main-container .main-container__content .event__select {
+#main-container .main-container__content .reservation__select {
   height: 45px;
   margin: 45px 15px 35px;
 }
 
-#main-container .main-container__content .event__select form {
+#main-container .main-container__content .reservation__select form {
   margin-left: 10px;
   display: flex;
   justify-content: flex-start;
 }
 
-#main-container .main-container__content .event__select form .event__select--title
+#main-container .main-container__content .reservation__select form .reservation__select--title
   {
   height: 45px;
   font-size: 20px;
@@ -24,7 +24,7 @@ body {
   line-height: 45px;
 }
 
-#main-container .main-container__content .event__select form input {
+#main-container .main-container__content .reservation__select form input {
   height: 45px;
   display: inline-block;
   width: 450px;
@@ -35,7 +35,7 @@ body {
   color: #000;
 }
 
-#main-container .main-container__content .event__select form .btn,
+#main-container .main-container__content .reservation__select form .btn,
   #main-container .main-container__content .btn-container .btn {
   height: 45px;
   display: inline-block;
@@ -47,7 +47,7 @@ body {
   transition: .2s;
 }
 
-#main-container .main-container__content .event__select form .btn:hover,
+#main-container .main-container__content .reservation__select form .btn:hover,
   #main-container .main-container__content .btn-container .btn:hover {
   text-decoration: none;
   box-shadow: inset 0 0 8.5px #778899;
@@ -64,17 +64,17 @@ body {
 }
 
 /* event__list */
-#main-container .main-container__content .event__list {
+#main-container .main-container__content .reservation__list {
   display: flex;
   flex-direction: column;
 }
 
-#main-container .main-container__content .event__list .event__list--btn
+#main-container .main-container__content .reservation__list .reservation__list--btn
   {
   position: relative;
 }
 
-#main-container .main-container__content .event__list .event__list--btn .btn--remove
+#main-container .main-container__content .reservation__list .reservation__list--btn .btn--remove
   {
   width: 85px;
   position: absolute;
@@ -82,13 +82,13 @@ body {
   bottom: 10px;
 }
 
-#main-container .main-container__content .event__list ul li {
+#main-container .main-container__content .reservation__list ul li {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#main-container .main-container__content .event__list ul li div {
+#main-container .main-container__content .reservation__list ul li div {
   background-color: #fff;
   width: 150px;
   height: 60px;
@@ -99,11 +99,11 @@ body {
   border-bottom: 1px solid lightgray;
 }
 
-#main-container .main-container__content .event__list ul li .event__list--col {
+#main-container .main-container__content .reservation__list ul li .reservation__list--col {
   color: #838383;
 }
 
-#main-container .main-container__content .event__list ul li.event__list--error
+#main-container .main-container__content .reservation__list ul li.reservation__list--error
   {
   margin: 0 10px 0;
   height: 60px;
@@ -113,38 +113,54 @@ body {
   line-height: 60px;
 }
 
-#main-container .main-container__content .event__list ul li .text--black
+#main-container .main-container__content .reservation__list ul li .text--black
   {
   color: #000;
 }
 
-#main-container .main-container__content .event__list ul li .text--black input
+#main-container .main-container__content .reservation__list ul li .text--black input
   {
   width: 20px;
   height: 20px;
 }
 
-#main-container .main-container__content .event__list ul li .user__list--col
+#main-container .main-container__content .reservation__list ul li .user__list--col
   {
   color: #838383;
 }
 
-#main-container .main-container__content .event__list ul li .width--md {
+#main-container .main-container__content .reservation__list ul li .width--s {
+  width: 100px;
+}
+
+#main-container .main-container__content .reservation__list ul li .width--sm {
+  width: 150px;
+}
+
+#main-container .main-container__content .reservation__list ul li .width--m {
+  width: 180px;
+}
+
+#main-container .main-container__content .reservation__list ul li .width--md {
   width: 200px;
 }
 
-#main-container .main-container__content .event__list ul li .width--lg {
+#main-container .main-container__content .reservation__list ul li .width--l {
+  width: 320px;
+}
+
+#main-container .main-container__content .reservation__list ul li .width--lg {
   width: 350px;
 }
 
-#main-container .main-container__content .event__list .Event__add--btn {
+#main-container .main-container__content .reservation__list .reservation__add--btn {
   width: 85px;
   position: absolute;
   top: 137.5px;
   right: 155px;
 }
 
-#main-container .main-container__content .event__list .Event__add--btn .btn
+#main-container .main-container__content .reservation__list .reservation__add--btn .btn
   {
   width: 85px;
 }

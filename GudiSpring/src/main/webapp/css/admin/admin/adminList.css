@@ -17,7 +17,8 @@ body {
   justify-content: flex-start;
 }
 
-#main-container .main-container__content .admin__select form .admin__select--title {
+#main-container .main-container__content .admin__select form .admin__select--title
+  {
   height: 45px;
   font-size: 20px;
   color: #000;
@@ -36,7 +37,7 @@ body {
 }
 
 #main-container .main-container__content .admin__select form .btn,
-#main-container .main-container__content .btn-container .btn {
+  #main-container .main-container__content .btn-container .btn {
   height: 45px;
   display: inline-block;
   color: #fff;
@@ -48,12 +49,12 @@ body {
 }
 
 #main-container .main-container__content .admin__select form .btn:hover,
-#main-container .main-container__content .btn-container .btn:hover {
+  #main-container .main-container__content .btn-container .btn:hover {
   text-decoration: none;
   box-shadow: inset 0 0 8.5px #778899;
 }
 
-/* btn-container */ 
+/* btn-container */
 #main-container .main-container__content .btn-container {
   width: 300px;
   margin: 15px 151px;
@@ -69,15 +70,17 @@ body {
   flex-direction: column;
 }
 
-#main-container .main-container__content .admin__list .admin__list--btn {
+#main-container .main-container__content .admin__list .admin__list--btn
+  {
   position: relative;
 }
 
-#main-container .main-container__content .admin__list .admin__list--btn .btn--remove {
+#main-container .main-container__content .admin__list .admin__list--btn .btn--remove
+  {
   width: 85px;
   position: absolute;
   right: 52px;
-  bottom: 10px; 
+  bottom: 10px;
 }
 
 #main-container .main-container__content .admin__list ul li {
@@ -86,7 +89,8 @@ body {
   align-items: center;
 }
 
-#main-container .main-container__content .admin__list ul li.admin__list--error {
+#main-container .main-container__content .admin__list ul li.admin__list--error
+  {
   margin: 0 10px 0;
   height: 60px;
   text-align: cneter;
@@ -95,7 +99,8 @@ body {
   line-height: 60px;
 }
 
-#main-container .main-container__content .admin__list ul li .text--black {
+#main-container .main-container__content .admin__list ul li .text--black
+  {
   background-color: #fff;
   width: 150px;
   height: 60px;
@@ -107,20 +112,24 @@ body {
   border-bottom: 1px solid lightgray;
 }
 
-#main-container .main-container__content .admin__list ul li .text--black input {
+#main-container .main-container__content .admin__list ul li .text--black input
+  {
   width: 20px;
   height: 20px;
 }
 
-#main-container .main-container__content .admin__list ul li .admin__list--col {
+#main-container .main-container__content .admin__list ul li .admin__list--col
+  {
   color: #838383;
 }
 
-#main-container .main-container__content .admin__list ul li .text--point {
+#main-container .main-container__content .admin__list ul li .text--point
+  {
   cursor: pointer;
 }
 
-#main-container .main-container__content .admin__list ul li .text--point:hover {
+#main-container .main-container__content .admin__list ul li .text--point:hover
+  {
   text-decoration: underline;
   color: #7b7bff;
 }
@@ -152,9 +161,10 @@ body {
 }
 
 #main-container .main-container__content .pagination .pagination-prev,
-#main-container .main-container__content .pagination .pagination--cur-page,
-#main-container .main-container__content .pagination .pagination--page,
-#main-container .main-container__content .pagination .pagination--next {
+  #main-container .main-container__content .pagination .pagination--cur-page,
+  #main-container .main-container__content .pagination .pagination--page,
+  #main-container .main-container__content .pagination .pagination--next
+  {
   display: block;
   height: 30px;
   margin: 10px;
@@ -164,17 +174,20 @@ body {
 }
 
 #main-container .main-container__content .pagination .pagination-prev,
-#main-container .main-container__content .pagination .pagination--next {
+  #main-container .main-container__content .pagination .pagination--next
+  {
   width: 70px;
   color: black;
 }
 
 #main-container .main-container__content .pagination .pagination--page,
-#main-container .main-container__content .pagination .pagination--cur-page {
+  #main-container .main-container__content .pagination .pagination--cur-page
+  {
   width: 22px;
 }
 
-#main-container .main-container__content .pagination .pagination--cur-page {
+#main-container .main-container__content .pagination .pagination--cur-page
+  {
   color: green;
 }
 
@@ -182,6 +195,7 @@ body {
   color: blue;
 }
 
+/* admin check form */
 #main-container #adminCheckForm {
   width: 500px;
   height: 300px;
@@ -216,8 +230,8 @@ body {
 }
 
 #main-container #adminCheckForm #adminPasswordInput {
- height: 30px;
- margin: 20px auto; 
+  height: 30px;
+  margin: 20px auto;
 }
 
 #main-container #adminCheckForm  #adminPasswordInput input {

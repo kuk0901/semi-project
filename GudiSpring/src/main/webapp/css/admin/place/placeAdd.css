@@ -7,6 +7,29 @@
 }
 
 
+#main-container .main-container__content .btn-container {
+  width: 87px;
+  margin-left: 190px;
+}
+
+#main-container .main-container__content .btn-container .btn {
+  width: 87px;
+  height: 45px;
+  display: inline-block;
+  color: #fff;
+  background-color: #212c40;
+  border: 1px solid #212c40;
+  margin-left: 10px;
+  transition: .2s;
+  margin: 60px auto 0;
+}
+
+#main-container .main-container__content .btn-container .btn:hover {
+  text-decoration: none;
+  box-shadow: inset 0 0 8.5px #778899;
+}
+
+/* place-form */
 #main-container .main-container__content .place-form {
   width: 63vw;
   border: 1px solid black;

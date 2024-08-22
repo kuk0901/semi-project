@@ -34,7 +34,7 @@
 }
 
 #main-container .main-container__content .event__select .btn,
-#main-container .main-container__content .event__all-select .btn {
+  #main-container .main-container__content .event__all-select .btn {
   width: 55px;
   height: 40px;
   font-size: 16px;
@@ -48,7 +48,7 @@
 #main-container .main-container__content .event__all-select {
   width: 52px;
   position: absolute;
-  top: 150px;
+  top: 130px;
   right: 360px;
 }
 
@@ -98,15 +98,62 @@
   width: 405px;
 }
 
-#main-container .main-container__content .event__list .event__list--content {
+#main-container .main-container__content .event__list .event__list--content
+  {
   display: flex;
 }
 
-#main-container .main-container__content .event__list ul li.event__list--error {
+#main-container .main-container__content .event__list ul li.event__list--error
+  {
   margin: 0 10px 0;
   height: 60px;
   text-align: center;
   color: #000;
   font-size: 20px;
   line-height: 60px;
+}
+
+/* pagination */
+#main-container .main-container__content .pagination {
+  width: 500px;
+  margin: 20px auto;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container .main-container__content .pagination .pagination-prev,
+  #main-container .main-container__content .pagination .pagination--cur-page,
+  #main-container .main-container__content .pagination .pagination--page,
+  #main-container .main-container__content .pagination .pagination--next
+  {
+  display: block;
+  height: 30px;
+  margin: 10px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+#main-container .main-container__content .pagination .pagination-prev,
+  #main-container .main-container__content .pagination .pagination--next
+  {
+  width: 70px;
+  color: black;
+}
+
+#main-container .main-container__content .pagination .pagination--page,
+  #main-container .main-container__content .pagination .pagination--cur-page
+  {
+  width: 22px;
+}
+
+#main-container .main-container__content .pagination .pagination--cur-page
+  {
+  color: green;
+}
+
+#main-container .main-container__content .pagination .pagination--page {
+  color: blue;
 }

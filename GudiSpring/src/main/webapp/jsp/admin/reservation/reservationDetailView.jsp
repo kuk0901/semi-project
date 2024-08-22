@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dog With You Admin</title>
+<title>DWY Admin</title>
 <link
   href="
   https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"

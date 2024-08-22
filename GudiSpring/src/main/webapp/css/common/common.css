@@ -43,6 +43,18 @@ ul li {
   width: 84px;
 }
 
+.btn-gray {
+  background-color: #f2f4f6;
+  box-shadow: 0 14px 0 #dfe1e2;
+  color: #444;
+  border: none;
+}
+
+.btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .btn--primary:hover {
 	text-decoration: none;
 	cursor: pointer;
@@ -50,9 +62,14 @@ ul li {
 	text-shadow: 2px 2px 2px white;
 }
 
-.btn:hover {
-  text-decoration: underline;
-  cursor: pointer;
+.btn-gray:hover {
+  text-decoration: none;
+}
+
+.btn-gray:active {
+  box-shadow: 0 4px 0 #dfe1e2;
+  transform: translateY(10px);
+  text-decoration: none;
 }
 
 /* header */
@@ -172,7 +189,7 @@ ul li {
 /* footer */
 #footer {
   margin-top: 20px;
-  height: 350px;
+  height: 370px;
   background-color: #9dccdf8a;
 }
 
@@ -183,7 +200,8 @@ ul li {
 
 #footer .site-guidelines .site-guidelines--title {
   font-size: 25px;
-  margin: 20px auto;
+  margin: auto;
+  padding: 15px;
 }
 
 #footer .site-guidelines .site-guidelines__list {
@@ -261,9 +279,10 @@ ul li {
 /* toast */
 .toast {
   visibility: hidden;
-  min-width: 250px;
+  min-width: 350px;
+  min-height: 60px;
   margin: 20px;
-  border: 1px solid blue;
+  border: 2px solid blue;
   background-color: #fff;
   color: blue;
   text-align: center;
@@ -271,15 +290,16 @@ ul li {
   padding: 16px;
   position: fixed;
   z-index: 8;
-  right: -30px;
+  right: 10px;
   top: 40px;
-  font-size: 16px;
+  font-size: 17px;
+  line-height: 60px;
   transition: opacity 0.5s, bottom 0.5s;
 }
 
 .toast.show {
   visibility: visible;
-  right: 10px;
+  right: 800px;
   top: 10px;
   opacity: 1;
 }

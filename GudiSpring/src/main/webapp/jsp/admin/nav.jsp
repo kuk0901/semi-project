@@ -15,7 +15,7 @@
     <ul>
       <li><a href="${pageContext.request.contextPath}/admin/main" class="nav-focus">회원 관리</a></li>
       <li><a href="${pageContext.request.contextPath}/admin/place/list" class="nav-focus">장소 관리</a></li>
-      <li><a href="#" class="nav-focus">예약 현황</a></li>
+      <li><a href="${pageContext.request.contextPath}/admin/reservation/list" class="nav-focus">예약 현황</a></li>
       <li><a href="${pageContext.request.contextPath}/admin/event/list" class="nav-focus">이벤트 현황</a></li>
     </ul>
   </div>

@@ -260,20 +260,27 @@ public class RestaurantDao {
 	}
 
 	// admin
-	public List<RestaurantDto> selectRestaurantList() {
+	public List<RestaurantDto> selectRestaurantList(int start, int pageSize) {
+		ArrayList<RestaurantDto> restaurantList = new ArrayList<>();
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		ArrayList<RestaurantDto> restaurantList = new ArrayList<>();
-
 		try {
-
 			String sql = "";
-			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
+			sql += "SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
+			sql += " , GEN_RESERVATION, RECO_RESERVATION";
+			sql += " FROM (SELECT p.*, ROWNUM rnum";
+			sql += " FROM (SELECT PLACE_NO, CATEGORY, PLACE_NAME, PL_ADDRESS, PL_PHONE, PL_WEBSITE, GEN_RESERVATION, RECO_RESERVATION";
 			sql += " FROM PLACE";
 			sql += " WHERE CATEGORY = '식당'";
-
+			sql += " ORDER BY PLACE_NO) p";
+			sql += " WHERE ROWNUM <= ?)";
+			sql += " WHERE rnum > ?";
+			
 			pstmt = connection.prepareStatement(sql);
+			pstmt.setInt(1, start + pageSize); // 시작 인덱스 + 페이지 크기
+      pstmt.setInt(2, start); // 시작 인덱스
 
 			rs = pstmt.executeQuery();
 

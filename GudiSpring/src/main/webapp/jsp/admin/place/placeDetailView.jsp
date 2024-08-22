@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dog With You Admin</title>
+<title>DWY Admin</title>
 <link
   href="
   https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
@@ -53,7 +53,7 @@
       </div>
       
       <div class="place-info">
-        <form action="./update?placeNo=${placeDto.placeNo}"
+        <form action="./detail?placeNo=${placeDto.placeNo}"
           method="post" enctype="multipart/form-data" onsubmit="return confirm('정말 수정하시겠습니까?');">
           <div class="place-info__update">
             <input type="submit" value="수정" class="btn" />

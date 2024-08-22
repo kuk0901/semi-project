@@ -65,6 +65,27 @@
           </c:if>
         </ul>
       </div> <!-- event__list -->
+      
+      <div class="pagination">
+        <c:if test="${currentPage > 1}">
+            <a href="?page=${currentPage - 1}&search=${searchKeyword}" class="pagination-prev">이전</a>
+        </c:if>
+    
+        <c:forEach begin="${startPage}" end="${endPage}" var="i">
+            <c:choose>
+                <c:when test="${currentPage eq i}">
+                    <strong class="pagination--cur-page">${i}</strong>
+                </c:when>
+                <c:otherwise>
+                    <a href="?page=${i}&search=${searchKeyword}" class="pagination--page">${i}</a>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+    
+        <c:if test="${currentPage < totalPages}">
+            <a href="?page=${currentPage + 1}&search=${searchKeyword}" class="pagination--next">다음</a>
+        </c:if>
+      </div>
     </div> <!-- main-container__content -->
   </div> <!-- main-container -->
 
