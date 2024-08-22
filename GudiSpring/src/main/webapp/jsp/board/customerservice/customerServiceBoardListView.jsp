@@ -41,7 +41,7 @@
             <c:forEach var="board" items="${boardList}">
                 <tr>
                     <td><c:out value="${board.contentNo}" /></td>
-                    <td><a href="${pageContext.request.contextPath}/board/customerserviceboard/detail?contentNo=${board.contentNo}">
+                    <td><a href="${pageContext.request.contextPath}/board/customerserviceboard/detail?contentNo=${board.contentNo}" class="boardMove">
                         <c:out value="${board.contentSubject}" /></a>
                     </td>
                      <td>
@@ -66,7 +66,7 @@
                 <strong id="page-${i}" class="pagination-link active">${i}</strong>
             </c:when>
             <c:otherwise>
-                <a href="${pageContext.request.contextPath}/board/customerservice/list?page=${i}" id="page-${i}" class="pagination-link">${i}</a>
+                <a href="${pageContext.request.contextPath}/board/customerservice/list?page=${i}" id="page-${i}" class="pagination-link" class="boardMove">${i}</a>
             </c:otherwise>
         </c:choose>
     </c:forEach>

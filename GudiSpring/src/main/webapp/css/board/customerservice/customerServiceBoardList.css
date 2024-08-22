@@ -26,12 +26,12 @@
     border-bottom: 1px solid #ccc;
 }
 
-a {
+.boardMove {
     color: #5c6bc0;
     text-decoration: none;
 }
 
-a:hover {
+.boardMove:hover {
     text-decoration: underline;
 }
 

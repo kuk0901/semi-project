@@ -48,7 +48,7 @@
             </tr>
         </table>
         <div id="buttons" class="buttons">
-            <a href="${pageContext.request.contextPath}/board/notice/list" class="btn btn-back">목록으로 돌아가기</a>
+            <a href="${pageContext.request.contextPath}/board/notice/list" class="btn-back">목록으로 돌아가기</a>
         </div>
     </div>
     <jsp:include page="/jsp/common/footer.jsp"/>
