@@ -36,40 +36,64 @@
 					<th class="boardHeader">작성일</th>
 					<th class="boardHeader">수정일</th>
 					<th class="boardHeader">삭제</th>
+					<th class="boardHeader">수정</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="board" items="${totalBoardList}">
-				
-						<tr>
-						<tr>
-							<td class="boardCell">${board.boardInfoName}</td>
-							<!-- 게시판 이름 -->
-							<td class="boardCell"><a
-								href="${pageContext.request.contextPath}/admin/board/detail?contentNo=${board.contentNo}">
-									${board.contentSubject} </a></td>
-							<td class="boardCell">${board.nickname}</td>
-							<td class="boardCell">${board.contentCreDate}</td>
-							<td class="boardCell">${board.contentUpdateDate}</td>
-							<td class="boardCell">
-								<form
-									action="${pageContext.request.contextPath}/admin/board/delete"
-									method="post">
-									<input type="hidden" name="contentNo"
-										value="${board.contentNo}">
-									<button name="sumbit" type="submit"
-										onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</button>
-								</form> <c:if test="${board.boardInfoName == '공지게시판'}">
-									<td>
-										<!-- 수정 버튼 --> <a
-										href="${pageContext.request.contextPath}/admin/notice/edit?contentNo=${board.contentNo}"
-										class="abtn">수정</a>
 
-									</td>
-								</c:if>
-							</td>
-						</tr>
-					
+					<tr>
+					<tr>
+						<td class="boardCell">${board.boardInfoName}</td>
+						<!-- 게시판 이름 -->
+						<td class="boardCell"><a
+							href="${pageContext.request.contextPath}/admin/board/detail?contentNo=${board.contentNo}">
+								${board.contentSubject} </a></td>
+						<td class="boardCell">${board.nickname}</td>
+						<td class="boardCell">${board.contentCreDate}</td>
+						<td class="boardCell">${board.contentUpdateDate}</td>
+						<td class="boardCell">
+							<form
+								action="${pageContext.request.contextPath}/admin/board/delete"
+								method="post">
+								<input type="hidden" name="contentNo" value="${board.contentNo}">
+								<button name="sumbit" type="submit"
+									onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</button>
+							</form> <c:if test="${board.boardInfoName == '공지게시판'}">
+								<td>
+									<!-- 수정 버튼 --> <a
+									href="${pageContext.request.contextPath}/admin/notice/edit?contentNo=${board.contentNo}"
+									class="abtn">수정</a>
+
+								</td>
+							</c:if>
+							<c:if test="${board.boardInfoName == '자유게시판'}">
+								<td>
+									<!-- 수정 버튼 --> <a
+									href="${pageContext.request.contextPath}/board/freeboard/edit?contentNo=${board.contentNo}"
+									class="abtn">수정</a>
+
+								</td>
+							</c:if>
+							<c:if test="${board.boardInfoName == '리뷰게시판'}">
+								<td>
+									<!-- 수정 버튼 --> <a
+									href="${pageContext.request.contextPath}/board/reviewboard/edit?contentNo=${board.contentNo}"
+									class="abtn">수정</a>
+
+								</td>
+							</c:if>
+							<c:if test="${board.boardInfoName == '고객게시판'}">
+								<td>
+									<!-- 수정 버튼 --> <a
+									href="${pageContext.request.contextPath}/board/customerserviceboard/edit?contentNo=${board.contentNo}"
+									class="abtn">수정</a>
+
+								</td>
+							</c:if>
+						</td>
+					</tr>
+
 				</c:forEach>
 			</tbody>
 		</table>

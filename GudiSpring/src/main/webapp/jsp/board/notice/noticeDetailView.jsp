@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>공지사항 상세보기</title>
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" type="text/css" 
     href="${pageContext.request.contextPath}/css/board/noticeboard/noticeBoardDetail.css">
        <link rel="stylesheet" type="text/css" 

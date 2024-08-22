@@ -66,7 +66,7 @@
     text-align: right; /* 버튼을 오른쪽으로 정렬 */
 }
 
-button {
+.jspbtn {
     background-color: #5c6bc0;
     color: white;
     padding: 10px 20px;
@@ -78,7 +78,7 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
+.jspbtn :hover {
     background-color: #3949ab;
 }
 

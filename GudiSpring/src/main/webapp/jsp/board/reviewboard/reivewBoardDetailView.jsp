@@ -72,10 +72,12 @@
       <!-- 게시글 수정 버튼 추가 -->
 <%--       <c:if test="${sessionScope.userDto.userNo == comment.userNo}"> --%>
       <button
-        onclick="location.href='<%=request.getContextPath()%>/board/reviewboard/edit?contentNo=<%=boardDto.getContentNo()%>'">수정</button>
+        onclick="location.href='<%=request.getContextPath()%>/board/reviewboard/edit?contentNo=<%=boardDto.getContentNo()%>'"
+        class="jspbtn">수정</button>
       <!-- 게시글 삭제 버튼 추가 -->
       <button
-        onclick="confirmDeletePost(<%=boardDto.getContentNo()%>)">게시글
+        onclick="confirmDeletePost(<%=boardDto.getContentNo()%>)"
+        class="jspbtn">게시글
         삭제</button>
 <%-- 		</c:if> --%>
       <h3>댓글 달기</h3>

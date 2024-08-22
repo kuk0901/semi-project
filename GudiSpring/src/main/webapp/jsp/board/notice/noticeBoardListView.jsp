@@ -5,7 +5,8 @@
 <head>
     <meta charset="EUC-KR">
     <title>공지사항 게시판</title>
-   
+ 	  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
        <link rel="stylesheet" type="text/css" 
     href="${pageContext.request.contextPath}/css/common/common.css"> 
      <link rel="stylesheet" type="text/css" 

@@ -4,8 +4,8 @@
 
 #main-container {
 	padding: 20px; /* 페이지 양옆 여백 */
-	box-sizing: border-box;
-	height: auto;
+	
+	
 	margin-top: 150px;
 }
 
@@ -57,9 +57,7 @@
     border-bottom: none;
 }
 
-.abtn {
-    text-align: left;
-}
+
 
 .content-link {
     color: #007bff;
