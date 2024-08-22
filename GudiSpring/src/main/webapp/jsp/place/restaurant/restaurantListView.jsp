@@ -60,7 +60,7 @@
             </c:choose>
         </c:forEach>
         <c:if test="${currentPage < totalPages}">
-            <a class="pagination-letter" href="${pageContext.request.contextPath}/area/place/cafe?page=${currentPage + 1}&areaNo=${param.areaNo}">다음</a>
+            <a class="pagination-letter" href="${pageContext.request.contextPath}/area/place/restaurant?page=${currentPage + 1}&areaNo=${param.areaNo}">다음</a>
         </c:if>
     </div>
 	<jsp:include page="/jsp/common/footer.jsp" />

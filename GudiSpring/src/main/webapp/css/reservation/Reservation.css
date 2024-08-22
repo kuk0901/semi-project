@@ -61,6 +61,28 @@ ul, li {
 	color: white;
 }
 
+/* 예약 완료 */
+#main-container .main-container__content .reservation__finish .main__move{
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	padding: 16px 32px;	
+	cursor: pointer;
+	background-color: white; 
+ 	color: black;
+	border: 1px solid rgb(255, 128, 128);
+	transition-duration: 0.4s;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+#main-container .main-container__content .reservation__finish .main__move:hover{
+	background-color: rgb(255, 128, 128);
+	color: white;
+}
+
 
 
 

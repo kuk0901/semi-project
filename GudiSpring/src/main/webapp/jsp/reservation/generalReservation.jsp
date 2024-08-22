@@ -56,7 +56,7 @@
 					</div>
 
 					<div class="reservation-maincontainer__content__element__submit">
-						<input type="submit" class="reserv__btn" value="예약하기"/>
+						<input type="submit" class="reserv__btn" value="예약하기" onclick="location.href='${pageContext.request.contextPath}/jsp/reservation/reservationFinish.jsp'"/>
 					</div>
 				</form>
 			</div>
