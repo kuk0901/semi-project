@@ -121,15 +121,20 @@
         
         <div class="main-container_myPost--items">
           <c:forEach var="board" items="${myPageBoardList}">
-            <li class="myPost--li"><label>게시물번호</label> <input
-              type="text" value="${board.contentNo}" name="contentNo"
-              readonly> <label>게시물제목</label> <input type="text"
-              value="${board.contentSubject}" name="contentSubject"
-              readonly> <label>게시물작성일</label> <input type="text"
-              value="${board.contentCreDate}" name="contentCreDate"
-              readonly> <input type="hidden"
-              value="${board.userNo}"></li>
+          <ul>
+            <li class="myPost--li">
+            	<label>게시물번호</label> 
+            	<input type="text" value="${board.contentNo}" name="contentNo" readonly> 
+            	<label>게시물제목</label> 
+            	<input type="text" value="${board.contentSubject}" name="contentSubject" readonly> 
+            	<label>게시물작성일</label> 
+            	<input type="text" value="${board.contentCreDate}" name="contentCreDate" readonly> 
+            	<input type="hidden" value="${board.userNo}">
+            	<button onclick="moveUserPostDetailPageFnc('${pageContext.request.contextPath}','${board.contentNo}');">게시글수정</button>
+            </li>
+           </ul>
           </c:forEach>
+          
         </div>
       </div> <!-- main-container_myPost -->
 

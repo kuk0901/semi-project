@@ -63,6 +63,8 @@ public class UserSigninController extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/error/e500.jsp");
+	         dispatcher.forward(req, res);
 		}
 	}
 

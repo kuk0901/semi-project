@@ -49,10 +49,8 @@ public class UserUpdatetController extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			req.setAttribute("error", e);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("./Error.jsp");
-
-			dispatcher.forward(req, res);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/error/e500.jsp");
+	         dispatcher.forward(req, res);
 		}
 	}
 

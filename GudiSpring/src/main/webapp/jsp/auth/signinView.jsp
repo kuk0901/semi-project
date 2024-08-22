@@ -23,7 +23,14 @@
   <div id="main-container">
 		<div class="main_signIn">
 			<div class="main_signIn--title">
-				<h1>SIGN IN</h1>
+				<h1>
+					<span>S</span>
+					<span>I</span>
+					<span>G</span>
+					<span>N</span>
+					<span>I</span>
+					<span>N</span>
+				</h1>
 			</div>
 			<div class="main_signIn_content_form">
 				<form id="loginForm" action="signin" method="post" class="main_signIn_content">

@@ -45,6 +45,11 @@ function moveUserDetailPageFnc(path, userNo){
 	location.href = `${path}/user/detail?userNo=` + userNo;
 }
 
+function moveUserPostDetailPageFnc(path, contentNo){
+	location.href = `${path}/board/freeboard/detail?contentNo=` + contentNo;
+}
+
+
 // category
 function movePensionAreaPageFnc(path) {
 	location.href = `${path}/area/pension`;
