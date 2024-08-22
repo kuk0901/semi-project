@@ -63,12 +63,8 @@
                 </c:choose>
                 
                 <div class="signUp_content_element--textBox">
-                  <input type="text" value="${userDto.nickname}"
-                    name="nickname" id="userNickname"
-                    class="userInfo--check"> <input
-                    type="button" value="중복확인"
-                    onclick="myPageNicknameCheckAndSubmit();"
-                    class="main-container--checkSubmitBtn" />
+                  <input type="text" value="${userDto.nickname}" name="nickname" id="userNickname" class="userInfo--check"> 
+                  <input type="button" value="중복확인" onclick="myPageNicknameCheckAndSubmit();" class="main-container--checkSubmitBtn" />
                 </div>
               </div>
 
@@ -138,19 +134,15 @@
         </div>
       </div> <!-- main-container_myPost -->
 
-      <form id="duplicateNicknameForm" action="./signup" method="get">
-        <input type="hidden" name="checkFrm" value="myPageNickname"
-          id="checkNickname"> <input type="hidden"
-          name="checkNickname" value="userNickname"
-          id="checkNicknameForNn"> <input type="hidden"
-          name="checkUserName" value="userName" id="checkUserNameForNn">
-        <input type="hidden" name="checkId" value="userId"
-          id="checkUserIdForNn"> <input type="hidden"
-          name="checkUserPhone" value="userPhone"
-          id="checkUserPhoneForNn">
+      <form id="duplicateNicknameForm" action="${pageContext.request.contextPath}/auth/signup" method="get">
+        <input type="hidden" name="checkFrm" value="myPageNickname" id="checkNickname"> 
+        <input type="hidden" name="checkNickname" value="userNickname" id="checkNicknameForNn"> 
+        <input type="hidden" name="checkUserName" value="userName" id="checkUserNameForNn">
+        <input type="hidden" name="checkId" value="userId" id="checkUserIdForNn"> 
+        <input type="hidden" name="checkUserPhone" value="userPhone" id="checkUserPhoneForNn">
       </form>
 
-      <form id="duplicateIdForm" action="./signup" method="get">
+      <form id="duplicateIdForm" action="${pageContext.request.contextPath}/auth/signup" method="get">
         <input type="hidden" name="checkFrm" value="myPageId"
           id="checkUserId"> <input type="hidden" name="checkId"
           id="checkUserIdForId"> <input type="hidden"

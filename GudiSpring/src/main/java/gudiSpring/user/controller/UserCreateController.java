@@ -74,6 +74,32 @@ public class UserCreateController extends HttpServlet {
 
 				return;
 			}
+			
+			case "myPageNickname": {
+
+				int nickResult = userDao.checkNickname(nickname);
+
+				req.setAttribute("userDto", userDto);
+				req.setAttribute("nickResult", nickResult);
+
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/user/myPageView.jsp");
+				dispatcher.forward(req, res);
+
+				return;
+			}
+			
+			case "myPageId": {
+
+				int idResult = userDao.checkId(id);
+
+				req.setAttribute("userDto", userDto);
+				req.setAttribute("idResult", idResult);
+
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/user/myPageView.jsp");
+				dispatcher.forward(req, res);
+
+				return;
+			}
 
 			default:
 				System.out.println();
@@ -82,7 +108,7 @@ public class UserCreateController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/error/e500.jsp");
-	         dispatcher.forward(req, res);
+	        dispatcher.forward(req, res);
 		}
 	}
 

@@ -36,6 +36,59 @@ function nicknameCheckAndSubmit() {
 
 }
 
+/*마이페이지 닉네임 유효성 검사*/
+function myPageNicknameCheckAndSubmit(){
+	const userNameEl = document.getElementById("userName");
+	const userNicknameEl = document.getElementById("userNickname");
+	const userIdEl = document.getElementById("userId");
+	const userPhoneEl = document.getElementById("phone");
+	
+	const checkuserNameEl = document.getElementById("checkUserNameForNn");
+	const checkUserNicknameEl = document.getElementById("checkNicknameForNn");
+	const checkUserIdEl = document.getElementById("checkUserIdForNn");
+	const checkUserPhoneEl = document.getElementById("checkUserPhoneForNn");
+	
+	if(userNicknameEl.value == ""){
+		alert("닉네임을 입력해주세요");
+		return;
+	}
+	
+	checkuserNameEl.value = userNameEl.value;
+	checkUserNicknameEl.value = userNicknameEl.value;
+	checkUserIdEl.value = userIdEl.value;
+	checkUserPhoneEl.value = userPhoneEl.value;
+	
+	
+	document.getElementById("duplicateNicknameForm").submit();
+
+}
+
+/*마이페이지 아이디 중복검사*/
+function myPageIdCheckAndSubmit(){
+	const userNameEl = document.getElementById("userName");
+	const userIdEl = document.getElementById("userId");
+	const userNicknameEl = document.getElementById("userNickname");
+	const userPhoneEl = document.getElementById("phone");
+	
+	const checkuserNameEl = document.getElementById("checkUserNameForId");
+	const checkUserIdEl = document.getElementById("checkUserIdForId");
+	const checkUserNicknameEl = document.getElementById("checkNicknameForId");
+	const checkUserPhoneEl = document.getElementById("checkUserPhoneForId");
+	
+	if(userIdEl.value == ""){
+		alert("아이디를 입력해주세요");
+		return;
+	}
+	
+	checkuserNameEl.value = userNameEl.value;
+	checkUserIdEl.value = userIdEl.value;
+	checkUserNicknameEl.value = userNicknameEl.value;
+	checkUserPhoneEl.value = userPhoneEl.value;
+	
+	document.getElementById("duplicateIdForm").submit();
+
+}
+
 /*아이디 서버로 보내서 중복체크*/
 function idCheckAndSubmit() {
 	const userNameEl = document.getElementById("userName");
