@@ -106,6 +106,21 @@ public class PlaceDto implements Place {
 		this.placeImgPath = placeImgPath;
 		this.areaName = areaName;
 	}
+	
+	// user 전용
+	
+	public PlaceDto(int placeNo) {
+		super();
+		this.placeNo = placeNo;
+	}
+	
+	public PlaceDto(int placeNo, String placeName, String category, String placeImgPath) {
+		super();
+		this.placeNo = placeNo;
+		this.placeName = placeName;
+		this.category = category;
+		this.placeImgPath = placeImgPath;
+	}
 
 	public int getPlaceNo() {
 		return placeNo;
@@ -194,6 +209,7 @@ public class PlaceDto implements Place {
 	public void setAreaName(String areaName) {
 		this.areaName = areaName;
 	}
+	
 
 	@Override
 	public String toString() {

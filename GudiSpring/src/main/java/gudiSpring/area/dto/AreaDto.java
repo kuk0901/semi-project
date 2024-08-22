@@ -9,6 +9,11 @@ public class AreaDto {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public AreaDto(int areaNo) {
+		super();
+		this.areaNo = areaNo;
+	}
 
 	public AreaDto(int areaNo, String areaName) {
 		super();

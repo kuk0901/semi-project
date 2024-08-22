@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -14,49 +14,55 @@
 <link rel="stylesheet"
   href="${pageContext.request.contextPath}/css/place/place.css"
   type="text/css" />
-<script defer src="${pageContext.request.contextPath}/js/movePage/movePageFncs.js"></script>
+<script defer src="${pageContext.request.contextPath}/js/movePage.js"></script>
+
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
-  <jsp:include page="/jsp/common/header.jsp" />
+	<jsp:include page="/jsp/common/header.jsp" />
 
-  <!-- restaurant List  -->
-  <div class="main-container">
-    <div class="main-container__content">
-      <ul class="list-box">
-        <c:forEach var="restaurantDto" items="${restaurantList}">
-          <li class="list-box__li"><a
-            href="${pageContext.request.contextPath}/place/restaurant/infomation?placeNo=${restaurantDto.placeNo}"
-            class="place--list"> <img
-              src="/img/place/${restaurantDto.plImgPath}" alt="이미지 준비중"
-              class="place--img" /> <span class="place--title">${restaurantDto.placeName}</span>
-          </a></li>
+	<!-- restaurant List  -->
+	<div class="main-container">
+		<div class="main-container__content">
+			<ul class="list-box">
+				<c:forEach var="restaurantDto" items="${restaurantList}">
+					<li class="list-box__li">
+						<a
+						href="${pageContext.request.contextPath}/place/restaurant/infomation?placeNo=${restaurantDto.placeNo}"
+						class="place--list"> 
+							<img src="/img/place/${restaurantDto.plImgPath}" alt="이미지 준비중" class="place--img" />
+							<span class="place--title">${restaurantDto.placeName}</span>
+						</a>
+					</li>
+				</c:forEach>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 페이징 네비게이션 -->
+    <div class="pagination">
+        <c:if test="${currentPage > 1}">
+            <a class="pagination-letter" href="${pageContext.request.contextPath}/area/place/restaurant?page=${currentPage - 1}&areaNo=${param.areaNo}">이전</a>
+        </c:if>
+        <c:forEach var="i" begin="1" end="${totalPages}">
+            <c:choose>
+                <c:when test="${i == currentPage}">
+                    <strong class="pagination-nowpage">${i}</strong>
+                </c:when>
+                <c:otherwise>
+                    <a class="pagination-number" href="${pageContext.request.contextPath}/area/place/restaurant?page=${i}&areaNo=${param.areaNo}">${i}</a>
+                </c:otherwise>
+            </c:choose>
         </c:forEach>
-      </ul>
+        <c:if test="${currentPage < totalPages}">
+            <a class="pagination-letter" href="${pageContext.request.contextPath}/area/place/cafe?page=${currentPage + 1}&areaNo=${param.areaNo}">다음</a>
+        </c:if>
     </div>
-  </div>
-
-  <!-- 페이징 네비게이션 -->
-  <div class="pagination">
-    <c:if test="${currentPage > 1}">
-      <a class="pagination-letter"
-        href="${pageContext.request.contextPath}/area/place/cafe?page=${currentPage - 1}&areaNo=${param.areaNo}">이전</a>
-    </c:if>
-    <c:forEach var="i" begin="1" end="${totalPages}">
-      <c:choose>
-        <c:when test="${i == currentPage}">
-          <strong class="pagination-nowpage">${i}</strong>
-        </c:when>
-        <c:otherwise>
-          <a class="pagination-number"
-            href="${pageContext.request.contextPath}/area/place/cafe?page=${i}&areaNo=${param.areaNo}">${i}</a>
-        </c:otherwise>
-      </c:choose>
-    </c:forEach>
-    <c:if test="${currentPage < totalPages}">
-      <a class="pagination-letter"
-        href="${pageContext.request.contextPath}/area/place/cafe?page=${currentPage + 1}&areaNo=${param.areaNo}">다음</a>
-    </c:if>
-  </div>
-  <jsp:include page="/jsp/common/footer.jsp" />
+	<jsp:include page="/jsp/common/footer.jsp" />
 </body>
 </html>
