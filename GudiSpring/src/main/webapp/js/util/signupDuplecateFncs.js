@@ -142,6 +142,25 @@ function signupCheckAndSubmit() {
 
 }
 
+function updateCheckAndSubmit(){
+	const userPhoneEl = document.getElementById("phone");
+	
+	var regPhone =  /^[0-9]*$/;
+	
+	if(userPhoneEl.value == ""){
+		alert("휴대폰번호를 입력하세요.")
+		userPhoneEl.focus();
+		return ;
+	}else if(!regPhone.test(userPhoneEl.value)){
+		alert("휴대폰번호는 숫자만 입력해주세요.")
+		userPhoneEl.focus();
+		return ;
+	}
+	
+	document.getElementById("updateForm").submit();
+	
+}
+
 /*패스워드 일치 검사*/
 function passWordRetypeFnc() {
 	const userPassWordEl = document.getElementById("userPassword");

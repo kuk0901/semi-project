@@ -347,9 +347,10 @@ public class BoardDao {
 		ResultSet rs = null;
 
 		String sql = "";
-		sql += "SELECT CONTENT_NO,CONTENT_SUBJECT,CONTENT_CRE_DATE,USER_NO";
+		sql += "SELECT CONTENT_NO,CONTENT_SUBJECT,CONTENT_BOARD_INFO_NO,CONTENT_CRE_DATE,USER_NO";
 		sql += " FROM BOARD_CONTENT";
-		sql += " WHERE USER_NO = ?";
+		sql += " WHERE USER_NO = ? ";
+		sql += " AND CONTENT_BOARD_INFO_NO = 2";
 
 		ArrayList<BoardDto> myPageBoardList = new ArrayList<BoardDto>();
 		try {
@@ -362,10 +363,11 @@ public class BoardDao {
 			while (rs.next()) {
 				int contentNo = rs.getInt("CONTENT_NO");
 				String contentSubject = rs.getString("CONTENT_SUBJECT");
+				int contentBoardInfoNo = rs.getInt("CONTENT_BOARD_INFO_NO");
 				Date contentCreDate = rs.getDate("CONTENT_CRE_DATE");
 
 				// DTO 객체 생성 및 데이터 설정
-				BoardDto boardDto = new BoardDto(contentNo, contentSubject, contentCreDate, userNo);
+				BoardDto boardDto = new BoardDto(contentNo, contentSubject,contentBoardInfoNo, contentCreDate, userNo);
 				myPageBoardList.add(boardDto);
 			}
 

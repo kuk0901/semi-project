@@ -17,10 +17,11 @@ public class BoardDto {
 		super();
 	}
 
-	public BoardDto(int contentNo, String contentSubject, Date contentCreDate, int userNo) {
+	public BoardDto(int contentNo, String contentSubject,int contentBoardInfoNo, Date contentCreDate, int userNo) {
 		super();
 		this.contentNo = contentNo;
 		this.contentSubject = contentSubject;
+		this.contentBoardInfoNo = contentBoardInfoNo;
 		this.contentCreDate = contentCreDate;
 		this.userNo = userNo;
 	}

@@ -116,6 +116,9 @@
         </div>
         
         <div class="main-container_myPost--items">
+        <div>
+        	<span>자유게시판</span>
+        </div>
           <c:forEach var="board" items="${myPageBoardList}">
           <ul>
             <li class="myPost--li">
@@ -130,7 +133,9 @@
             </li>
            </ul>
           </c:forEach>
-          
+        </div>
+        <div>
+        	<span>리뷰게시판</span>
         </div>
       </div> <!-- main-container_myPost -->
 
@@ -143,14 +148,11 @@
       </form>
 
       <form id="duplicateIdForm" action="${pageContext.request.contextPath}/auth/signup" method="get">
-        <input type="hidden" name="checkFrm" value="myPageId"
-          id="checkUserId"> <input type="hidden" name="checkId"
-          id="checkUserIdForId"> <input type="hidden"
-          name="checkUserName" value="username" id="checkUserNameForId">
-        <input type="hidden" name="checkNickname" value="nickname"
-          id="checkNicknameForId"> <input type="hidden"
-          name="checkUserPhone" value="userphone"
-          id="checkUserPhoneForId">
+        <input type="hidden" name="checkFrm" value="myPageId" id="checkUserId"> 
+        <input type="hidden" name="checkId" id="checkUserIdForId"> 
+        <input type="hidden" name="checkUserName" value="username" id="checkUserNameForId">
+        <input type="hidden" name="checkNickname" value="nickname" id="checkNicknameForId"> 
+        <input type="hidden" name="checkUserPhone" value="userphone" id="checkUserPhoneForId">
       </form>
     </div>
   </div>
