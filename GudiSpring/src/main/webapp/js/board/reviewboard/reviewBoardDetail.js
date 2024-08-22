@@ -20,6 +20,6 @@
         }
         function confirmDeletePost(contentNo) {
             if (confirm("정말로 이 게시글을 삭제하시겠습니까?")) {
-                window.location.href = contextPath+'/review/deletePost?contentNo=' + contentNo;
+                window.location.href = contextPath+'/board/reviewboard/delete?contentNo=' + contentNo;
             }
         }

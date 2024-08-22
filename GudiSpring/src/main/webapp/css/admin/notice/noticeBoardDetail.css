@@ -1,0 +1,119 @@
+@charset
+"UTF-8"
+; /* noticeDetail.css */
+#main-container {
+	
+	width: 63vw;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	color:black;
+	margin-left: 500px; /* 네비게이션 바의 너비 + 패딩만큼 왼쪽 여백 설정 */
+	flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+}
+
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 24px;
+	color: #333;
+}
+
+.notice-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	color:black;
+	border: 1px solid #ddd; /* 테이블 전체에 경계선 추가 */
+	
+}
+
+.notice-table .info-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+.notice-table .label {
+	font-weight: bold;
+	text-align: right;
+	padding: 8px;
+	width: 12%;
+	background-color: #f2f2f2; /* 라벨 부분 배경색 */
+		color: #333;
+}
+.notice-table th.label {
+    width: 150px; /* 너비 조정 */
+    font-weight: bold;
+    text-align: right;
+    background-color: #f2f2f2;
+    padding: 10px;
+    vertical-align: top; /* 내용이 위쪽 정렬되도록 설정 */
+}
+.notice-table .value {
+	padding: 8px;
+	text-align: left;
+	width: 15%;
+		color: #333;
+}
+
+.notice-table #contentText {
+	padding: 20px;
+	font-size: 16px;
+	line-height: 1.6;
+	background-color: #f4f4f4;
+	height: 200px; /* 높이 조정 */
+	overflow-y: auto; /* 내용이 많을 경우 스크롤 표시 */
+	border: 1px solid #ddd; /* 내용 부분의 경계선 추가 */
+	text-align: left; /* 내용 텍스트를 왼쪽 정렬 */
+}
+#contentText-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    	color: #333;
+}
+#contentText-table .value {
+	color: #333;
+}
+#contentText-table td {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.buttons {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.buttons a {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 5px;
+	color: #fff;
+	background-color: #007bff;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+}
+
+.buttons a:hover {
+	background-color: #0056b3;
+}
+
+.buttons a.delete-btn {
+	background-color: #dc3545;
+}
+
+.buttons a.delete-btn:hover {
+	background-color: #c82333;
+}

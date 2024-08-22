@@ -71,13 +71,14 @@
 
 
       <!-- 게시글 수정 버튼 추가 -->
+<%--       <c:if test="${sessionScope.userDto.userNo == comment.userNo}"> --%>
       <button
         onclick="location.href='<%=request.getContextPath()%>/board/reviewboard/edit?contentNo=<%=boardDto.getContentNo()%>'">수정</button>
       <!-- 게시글 삭제 버튼 추가 -->
       <button
         onclick="confirmDeletePost(<%=boardDto.getContentNo()%>)">게시글
         삭제</button>
-
+<%-- 		</c:if> --%>
       <h3>댓글 달기</h3>
       <form action="<%=request.getContextPath()%>/addComment"
         method="post" onsubmit="return validateForm(this);">
@@ -105,7 +106,6 @@
                <br>
                 <span class="comment-content"><c:out value="${comment.contentComment}" /></span>
             </p>
-            
             <!-- 게시판 유형 필수설정-->
             <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 			<c:if test="${sessionScope.userDto.userNo == comment.userNo}">

@@ -1,0 +1,230 @@
+@charset "UTF-8";
+
+/* body에 적용된 스타일을 수정하여 전체 높이를 100%로 맞추고, flexbox를 사용해 content와 footer를 적절히 배치 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 전체 화면 높이 */
+    margin: 0;
+    padding: 0;
+    color:black;
+}
+
+
+
+#editForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    color:black;
+}
+
+#editForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+     color:black;
+}
+
+#editForm input[type="text"], 
+#editForm textarea, 
+#editForm input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+     color:black;
+}
+#editForm .textarea-field {
+	
+	color:black;
+}
+#editForm input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editForm input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.file-list {
+    margin-top: 10px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.file-item button {
+    background-color: #f44336;
+    color: white;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.file-item button:hover {
+    background-color: #d32f2f;
+}
+
+.back-link {
+    color: #5c6bc0;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* 이미지 미리보기 스타일 */
+.image-preview {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.image-preview img {
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.image-preview input[type="checkbox"] {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.image-preview button {
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image-preview button:hover {
+    background-color: #45a049;
+}
+
+/* 콘텐츠 텍스트 스타일 */
+#contentText {
+    max-width: 800px;         /* 최대 너비를 600px로 설정 */
+   
+    padding: 10px;           /* 내부 여백 */
+    border: 1px solid #ccc;  /* 테두리 설정 */
+    box-sizing: border-box;  /* 패딩과 테두리를 포함하여 너비와 높이 계산 */
+   overflow: hidden;      /* 넘치는 콘텐츠가 보이도록 설정 */
+    min-height: 200px;       /* 최소 높이를 200px로 설정 */
+    height: auto;            /* 콘텐츠에 따라 높이 자동 조절 */
+    width: 100%;             /* 부모 요소의 너비를 100% 차지하도록 설정 */
+}
+/* main-container의 높이를 auto로 조정하고 flex-grow로 나머지 공간을 차지하도록 설정 */
+#main-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    height:auto;
+}
+
+/* footer의 위치를 페이지 하단에 고정 */
+#footer {
+    position: relative; /* 또는 absolute */
+    bottom: 0;
+    width: 100%;
+ 
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100px; /* footer의 높이 */
+    margin-top: auto; /* main-container가 위쪽 공간을 채우도록 설정 */
+}
+#contentText img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* 이미지 아래에 여백 추가 */
+}
+
+   .delete-form {
+        display: inline-block;
+        margin: 0;
+    }
+
+    .delete-button {
+        background-color: #f44336; /* Red */
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .delete-button:hover {
+        background-color: #d32f2f; /* Darker red on hover */
+    }
+
+    .delete-form-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .file-name {
+        flex-grow: 1;
+        margin-right: 16px;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    /* 버튼을 감싸는 컨테이너 */
+.button-container {
+    display: flex;
+  	float:right; /* 버튼을 오른쪽으로 정렬 */
+    margin-top: 5px; /* 파일 선택 버튼과의 간격 조정 */
+    padding-top: 5px;
+    color:black;
+    
+}
+.submit-button{
+	color:black;
+    
+}
+
+

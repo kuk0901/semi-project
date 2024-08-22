@@ -1,0 +1,82 @@
+  #bodystyle {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9;
+}
+body.bodystyle #main-container {
+     flex: 1; /* 남은 공간을 차지하도록 설정 */
+    padding: 20px; /* 페이지 양옆 여백 */
+    box-sizing: border-box;
+     height: auto; /* 800삭제 */
+  
+    
+}
+#title {
+    color: #333;
+    margin-bottom: 20px;
+}
+/* boardListTable의 스타일 */
+#boardListTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f8f8f8;
+}
+
+#boardListTable th, #boardListTable td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+a {
+    color: #5c6bc0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 15px;
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button-container button:hover {
+    background-color: #3949ab;
+}
+
+/*        얘네가 페이징버튼 */
+        .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.pagination-link {
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination-link.active {
+    background-color: #81C784; /* 강조를 줄이기 위해 밝은 녹색으로 변경 */
+    color: white;
+    border: 1px solid #81C784;
+}
+
+.pagination-link:hover {
+    background-color: #f0f0f0; /* 강조를 줄이기 위해 hover 색상을 연한 회색으로 변경 */
+}

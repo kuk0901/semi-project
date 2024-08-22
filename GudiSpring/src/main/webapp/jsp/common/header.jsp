@@ -90,12 +90,12 @@
 					<span>게시판</span>
 				</button>
 				<ul>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/notice/list">공지사항</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/board/freeboard/list">자유게시판</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/board/reviewboard/list">리뷰게시판</a></li>
-					<li><a href="#">고객센터</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/customerserviceboard/list">고객센터</a></li>
 				</ul>
 			</li>
 		</ul>

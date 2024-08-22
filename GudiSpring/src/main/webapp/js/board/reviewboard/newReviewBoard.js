@@ -13,14 +13,14 @@ document.getElementById('file').addEventListener('change', handleFileSelect);
 //URL.createObjectURL or filereader 중 filereader선택->작은거에좋다
 function handleFileSelect(event) {
     const files = Array.from(event.target.files); // 선택된 파일을 배열로 변환
-    // 선택된 파일 출력
+     console.log('Selected files:', files); // 선택된 파일 출력
 
     files.forEach((file) => {
 		 // filesArray에 새로운 파일 추가
 		 
 		  const currentIndex = filesArray.length; //현재 filesArray의 길이로 인덱스 설정
         filesArray.push(file); // 새로운 파일을 filesArray에 추가
-          
+          console.log('Stored file at index', currentIndex, ':', file);
         const fileItem = document.createElement('div');
         fileItem.className = 'image-preview';
 
@@ -54,7 +54,8 @@ function handleFileSelect(event) {
 // 파일 삽입 로직을 별도의 함수로 분리
 function insertSelectedFiles() {
     const checkboxes = document.querySelectorAll('input[name="selectedFiles"]:checked');
-
+	insertedFilesArray = []; // 기존 선택 목록 초기화
+	
     checkboxes.forEach(checkbox => {
         const fileIndex = parseInt(checkbox.value);
         const file = filesArray[fileIndex];
@@ -69,13 +70,23 @@ function insertSelectedFiles() {
 }
 
 // 폼 제출 시 호출되는 로직
-document.querySelector('form').addEventListener('submit', function(event) {
-    insertSelectedFiles(); // 선택된 파일을 본문에 삽입
-
+ document.getElementById('completeButton').addEventListener('click', function(event) {
+   
+	
     const subjectElement = document.getElementById('subject');
     const contentTextElement = document.getElementById('contentText');
     const hiddenContentTextInput = document.getElementById('hiddenContentText');
-
+	const fileInputElement = document.getElementById('file');
+	
+            const images = contentTextElement.querySelectorAll('img');
+	// 1. 폼 제출 전에 data URL을 사용하는 이미지를 삭제
+            images.forEach(img => {
+                if (img.src.startsWith('data:image')) {
+                    img.remove(); // DOM에서 이미지 요소 제거
+                }
+            });
+	
+	
     // 제목이 비어 있는지 확인
     if (!subjectElement.value.trim()) {
         alert('제목을 입력해주세요.');
@@ -90,9 +101,21 @@ document.querySelector('form').addEventListener('submit', function(event) {
         return;
     }
 
+  
 
     // 내용이 사라지지 않도록 hidden 필드에 설정
     hiddenContentTextInput.value = contentTextElement.innerHTML;
+    
+         // 5. 파일 입력 요소의 파일 목록을 업데이트
+    const dataTransfer = new DataTransfer();
+
+    insertedFilesArray.forEach(file => {
+        dataTransfer.items.add(file);
+    });
+
+    // 기존 파일 입력 요소의 파일 목록을 본문에 삽입된 파일들로 대체
+    fileInputElement.files = dataTransfer.files;
+      // 최종적으로 폼 제출 전에 파일 목록을 콘솔에 출력
 });
 
 
@@ -102,14 +125,14 @@ document.querySelector('form').addEventListener('submit', function(event) {
 // 본문에 선택된 이미지를 삽입하는 함수1checkbox에 해당하는 이미지를 본문에 삽입하는 역할을 합니다.
 function insertImageFromInput() {
     const selectedCheckboxes = document.querySelectorAll('input[name="selectedFiles"]:checked');
-    
+     console.log('Selected checkboxes:', selectedCheckboxes);  // 디버깅용 로그
      
     if (selectedCheckboxes.length > 0) {
         selectedCheckboxes.forEach((checkbox) => {
             const selectedIndex = checkbox.value;
-             // 선택된 인덱스 출력
+             console.log('Selected index:', selectedIndex); // 선택된 인덱스 출력
             const file = filesArray[selectedIndex];
-              // 선택된 파일 객체 확인
+              console.log('Selected file:', file); // 선택된 파일 객체 확인
 			
 			 
 			 
@@ -151,27 +174,12 @@ function insertImageToContent(previewSrc, filePath) {
     img.style.height = 'auto';
     img.style.marginBottom = '10px';
 
-    // 새로운 단락 생성
-    const p = document.createElement('p');
-    p.innerHTML = '<br>';
+    
 
     // 이미지와 단락을 contentDiv에 추가
     contentDiv.appendChild(img);
-    contentDiv.appendChild(p);
+
     
     
 }
-  // 작성 완료 버튼 클릭 시 이미지 URL 삭제
-        document.getElementById('completeButton').addEventListener('click', function() {
-            const contentDiv = document.getElementById('contentText');
-            const images = contentDiv.querySelectorAll('img');
-
-            images.forEach(img => {
-                if (img.src.startsWith('data:image')) {
-                    img.remove(); // DOM에서 이미지 요소 제거
-                }
-            });
-
-           
-        });
-
+  

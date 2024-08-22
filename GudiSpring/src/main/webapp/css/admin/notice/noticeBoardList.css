@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #f4f4f9;
+	margin: 0;
+	padding: 20px;
+	color:black;  
+}
+#main-container {
+    margin-left: 240px; /* 네비게이션 바의 너비 + 패딩만큼 왼쪽 여백 설정 */
+    padding: 20px; /* 메인 컨테이너 내부 패딩 */
+    background-color: #f4f4f4; /* 메인 컨테이너 배경색 */
+    flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+}
+.abtn{
+	color:blue;
+	
+}
+h1 {
+	text-align: center;
+	color: #5c6bc0;
+}
+
+table {
+	width: 80%;
+	margin: 20px auto;
+	border-collapse: collapse;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+	padding: 12px;
+	border: 1px solid #ddd;
+	text-align: center;
+	color:black; 
+}
+
+th {
+	background-color: #3949ab;
+	color: #fff;
+}
+
+tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+tr:hover {
+	background-color: #e8eaf6;
+}
+
+
+.buttons {
+	margin-bottom: 20px;
+	text-align: right;
+}
+
+.buttons a {
+	padding: 10px 15px;
+	margin-right: 10px;
+	background-color: #007bff;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	
+}
+
+.buttons a.btn-write {
+	background-color: #28a745;
+}
+
+.buttons a.btn-edit {
+	background-color: #ffc107;
+	border: 1px black solid;
+}
+
+.buttons a.btn-delete {
+	background-color: #dc3545;
+	border: 1px black solid;
+}
+
+.buttons a:hover {
+	background-color: #0056b3;
+}
+
+.buttons a.btn-write:hover {
+	background-color: #218838;
+}
+
+.buttons a.btn-edit:hover {
+	background-color: #e0a800;
+}
+
+.buttons a.btn-delete:hover {
+	background-color: #c82333;
+}
