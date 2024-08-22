@@ -46,10 +46,7 @@
         <th class="table-header">내용</th>
         <td class="table-cell"><%=boardDto.getContentText()%></td>
       </tr>
-      <tr>
-        <th class="table-header">파일</th>
-        <td class="table-cell"><%=boardDto.getContentFile()%></td>
-      </tr>
+     
       <tr>
         <th class="table-header">작성일</th>
         <td class="table-cell"><%=boardDto.getContentCreDate()%></td>

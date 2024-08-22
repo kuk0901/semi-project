@@ -24,7 +24,7 @@
 <body id="bodystyle">
 <jsp:include page="/jsp/common/header.jsp"  />
 <div id="main-container">
-    <h1 id="title">게시판 목록</h1>
+    <h1 id="title">고객문의</h1>
     <table id="boardListTable">
         <thead>
             <tr>

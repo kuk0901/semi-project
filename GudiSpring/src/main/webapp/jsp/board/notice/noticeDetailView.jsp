@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>공지사항 상세보기</title>
     <link rel="stylesheet" type="text/css" 
-    href="${pageContext.request.contextPath}/css/board/noticeboard/noticeBoardList.css">
+    href="${pageContext.request.contextPath}/css/board/noticeboard/noticeBoardDetail.css">
        <link rel="stylesheet" type="text/css" 
     href="${pageContext.request.contextPath}/css/common/common.css"> 
     <script defer
@@ -17,9 +17,10 @@
 </head>
 <body>
  <jsp:include page="/jsp/common/header.jsp"/>
- <div id="main-container">
-    <h1>공지사항 상세보기</h1>
-    <table class="notice-table">
+
+    <div id="main-container">
+        <h1 id="page-title">공지사항 상세보기</h1>
+        <table id="notice-table" class="table notice-table">
             <!-- 제목, 번호, 작성일, 수정일, 작성자를 한 줄에 배치 -->
             <tr class="info-row">
                 <th class="label">제목</th>
@@ -39,14 +40,14 @@
             </tr>
 
             <!-- 내용은 별도의 행으로 크게 표시 -->
-            <tr>
+            <tr class="content-row">
                 <th class="label">내용</th>
-                <td class="value" id="contentText" colspan="7">${noticeDto.contentText}</td>
+                <td class="value content-text" id="contentText">${noticeDto.contentText}</td>
             </tr>
         </table>
-    <div class="buttons">
-        <a href="${pageContext.request.contextPath}/board/notice/list">목록으로 돌아가기</a>
-    </div>
+        <div id="buttons" class="buttons">
+            <a href="${pageContext.request.contextPath}/board/notice/list" class="btn btn-back">목록으로 돌아가기</a>
+        </div>
     </div>
     <jsp:include page="/jsp/common/footer.jsp"/>
 </body>

@@ -84,11 +84,7 @@ public class ReviewAddBoardController extends HttpServlet {
         HttpSession session = req.getSession();
         UserDto userDto = (UserDto) session.getAttribute("userDto");
      
-        if (userDto == null ) {
-            res.sendRedirect(req.getContextPath() + "/auth/signin");
-            return;
-        }
-      
+       
         int userNo = userDto.getUserNo();  
 
         Connection conn = null;

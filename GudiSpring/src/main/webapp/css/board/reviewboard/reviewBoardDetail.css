@@ -6,9 +6,11 @@
     width: 100%; /* 페이지 전체 너비를 차지하도록 설정합니다. */
 }
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
+#main-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-top:150px;
 }
 
 .board-info-table {
@@ -136,11 +138,6 @@ button:hover {
     flex-direction: column;
 }
 
-#main-container {
-    flex: 1;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
 footer {
     width: 100%;
     background-color: #f1f1f1;

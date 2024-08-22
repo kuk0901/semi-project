@@ -1,15 +1,8 @@
 @charset "UTF-8";
 
 
-#header-spacer {
-     height: 50px; /* 헤더와 본문 사이에 50px의 간격을 줍니다. */
-    width: 100%; /* 페이지 전체 너비를 차지하도록 설정합니다. */
-}
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
+
 
 .board-info-table {
     width: 100%;
@@ -140,10 +133,7 @@ button:hover {
     flex: 1;
     padding: 20px;
     background-color: #f9f9f9;
-}
-footer {
-    width: 100%;
-    background-color: #f1f1f1;
-    padding: 20px 0;
-    
+	margin-top:150px;
+	
+
 }

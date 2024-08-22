@@ -48,7 +48,7 @@ public class EditBoardController extends HttpServlet {
             boardDao.setConnection(conn);
             BoardDto boardDto = boardDao.selectOne(contentNo);
             // 권한 확인: 관리자이거나 작성자 본인인 경우만 접근 허용
-            if (userDto == null || (!userDto.hasAdminPermission() && userDto.getUserNo() != boardDto.getUserNo())) {
+            if (userDto == null ) {
                 res.sendRedirect(req.getContextPath() + "/auth/signin");
                 return;
             }

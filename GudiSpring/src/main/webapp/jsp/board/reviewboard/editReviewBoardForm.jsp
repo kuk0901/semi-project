@@ -26,7 +26,7 @@
 <body id="body-style">
 <jsp:include page="/jsp/common/header.jsp" />
 <div id="main-container">
-    <h2>게시글 수정</h2>
+
     <form id="editForm" action="<%= request.getContextPath() %>/board/reviewboard/edit" method="post" enctype="multipart/form-data">
         <input type="hidden" name="contentNo" value="${boardDto.contentNo}">
           <input type="hidden" id="hiddenContentText" name="contentText" value="">

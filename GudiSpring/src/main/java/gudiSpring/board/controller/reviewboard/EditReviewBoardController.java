@@ -54,7 +54,7 @@ public class EditReviewBoardController extends HttpServlet {
 			boardDao.setConnection(conn);
 			ReviewBoardDto boardDto = boardDao.selectOne(contentNo);
 			 // 권한 확인: 관리자이거나 작성자 본인인 경우만 접근 허용
-            if (userDto == null || (!userDto.hasAdminPermission() && userDto.getUserNo() != boardDto.getUserNo())) {
+            if (userDto == null ) {
                 res.sendRedirect(req.getContextPath() + "/auth/signin");
                 return;
             }
@@ -97,10 +97,7 @@ public class EditReviewBoardController extends HttpServlet {
 		HttpSession session = req.getSession();
 		UserDto userDto = (UserDto) session.getAttribute("userDto");
 		  // 권한 확인
-        if (userDto == null ) {
-            res.sendRedirect(req.getContextPath() + "/auth/signin");
-            return;
-        }
+        
 
 		int userNo = userDto.getUserNo();
 		try {

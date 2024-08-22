@@ -79,11 +79,7 @@ public class AddBoardController extends HttpServlet {
         String filePath = DEFAULT_FILE; // 기본 파일 경로 설정
         HttpSession session = req.getSession();
         UserDto userDto = (UserDto) session.getAttribute("userDto");
-        if (userDto == null) {
-            // 로그인이 안된 상태이므로 로그인 페이지로 리다이렉트
-            res.sendRedirect(req.getContextPath() + "/auth/signin");
-            return; // 이후 코드를 실행하지 않도록 return
-        }
+      
 
         int userNo = userDto.getUserNo();  
 

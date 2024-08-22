@@ -13,8 +13,6 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/admin/board/adminBoardList.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/common/admin.css" />
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin/nav.css" />
 <script defer type="text/javascript"
 	src="${pageContext.request.contextPath}/js/movePage/movePageFncs.js"></script>

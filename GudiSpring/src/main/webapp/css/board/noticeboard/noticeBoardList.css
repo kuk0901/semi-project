@@ -1,70 +1,75 @@
 @charset "UTF-8";
 
-       
-  body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-        
-            color: #333;
-        }
 
-        h1 {
-            text-align: center;
-            color: #5c6bc0;
-        }
 
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+#main-container {
+	padding: 20px; /* 페이지 양옆 여백 */
+	box-sizing: border-box;
+	height: auto;
+	margin-top: 150px;
+}
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
 
-        th {
-            background-color: #3949ab;
-            color: #fff;
-        }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+#page-title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
 
-        tr:hover {
-            background-color: #e8eaf6;
-        }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-        a {
-            text-decoration: none;
-            color: #3949ab;
-            font-weight: bold;
-        }
+.table-header {
+    background-color: #495057;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+.table-header-item {
+    padding: 12px 15px;
+    text-align: center;
+}
 
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 16px;
-        }
+.table-row:nth-child(even) {
+    background-color: #f1f3f5;
+}
 
-        .back-link a {
-            color: #3949ab;
-            padding: 10px 20px;
-            border: 1px solid #3949ab;
-            border-radius: 4px;
-            background-color: #fff;
-        }
+.table-item {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #212529;
+    border-bottom: 1px solid #dee2e6;
+}
 
-        .back-link a:hover {
-            background-color: #3949ab;
-            color: #fff;
-        }
+.table-item:last-child {
+    border-bottom: none;
+}
+
+.abtn {
+    text-align: left;
+}
+
+.content-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.content-link:hover {
+    color: #0056b3;
+}
+
+ 

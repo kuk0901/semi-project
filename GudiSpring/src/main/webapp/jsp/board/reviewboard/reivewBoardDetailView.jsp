@@ -28,11 +28,10 @@
   <div id="wrapper">
     <jsp:include page="/jsp/common/header.jsp" />
 
-    <!-- 헤더와 본문 사이에 구분을 주기 위한 div -->
-    <div id="header-spacer"></div>
+  
 
     <div id="main-container">
-      <h2>게시글 상세 조회</h2>
+   
       <!-- 게시글 정보 출력 -->
 
       <%

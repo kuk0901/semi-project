@@ -1,8 +1,4 @@
-  #bodystyle {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f9;
-}
+
  #main-container {
      flex: 1; /* 남은 공간을 차지하도록 설정 */
     padding: 20px; /* 페이지 양옆 여백 */
@@ -26,15 +22,6 @@
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ccc;
-}
-
-a {
-    color: #5c6bc0;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .button-container {

@@ -1,16 +1,14 @@
-  #bodystyle {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f9;
-}
-body.bodystyle #main-container {
-     flex: 1; /* 남은 공간을 차지하도록 설정 */
+
+ #main-container {
+    
     padding: 20px; /* 페이지 양옆 여백 */
     box-sizing: border-box;
-     height: auto; /* 800삭제 */
+   	height: auto;
+    margin-top: 100px;
   
     
 }
+
 #title {
     color: #333;
     margin-bottom: 20px;
@@ -80,3 +78,5 @@ a:hover {
 .pagination-link:hover {
     background-color: #f0f0f0; /* 강조를 줄이기 위해 hover 색상을 연한 회색으로 변경 */
 }
+
+ 
