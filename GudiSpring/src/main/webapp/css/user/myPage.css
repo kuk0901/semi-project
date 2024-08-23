@@ -26,6 +26,7 @@
     text-align: center;
     font-family: "Black Han Sans", sans-serif;
     font-size: 37px;
+    
 }
 
 .errorMessage{
@@ -97,6 +98,19 @@
 	text-align: center;
 	font-size: 37px;
 	background-color: #bfdaf1;
+	height: 100px;
+    line-height: 100px;
+    font-family: "Black Han Sans", sans-serif;
+}
+
+.main-container_myPost--titleH1{
+	color: white;
+	text-shadow: 2px 2px 2px #284c5d;
+}
+
+.myPost--li.title{
+	color: white;
+	text-shadow: 2px 2px 2px #284c5d;
 }
 
 .main-container_myPost--items{
@@ -104,13 +118,50 @@
 	
 }
 
-.main-container_myPost--items li{
-	 list-style-type: none;
-	 display: flex;
-	 border-bottom: 1px solid;
+.myPost--li {
+	background-color: beige;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid white;
 }
 
-.myPost--li{
-	border-top: 1px solid;
-	border-collapse: collapse;
+.myPost--li:last-child {
+	border-bottom: none;
+}
+
+.myPost--li div {
+	height: 40px;
+	font-size: 22px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.myPost--li .size-s {
+	width: 80px;
+}
+
+.myPost--li .size-sm {
+	width: 140px;
+}
+
+.myPost--li .size-m {
+	width: 200px;
+}
+
+.myPost--li .size-l {
+	width: 450px;
+}
+
+.postUpdateBtn{
+	display: block;
+	width: 70px;
+	height: 30px;
+	margin: 5px auto;
+}
+
+.main-container_myPost--itemsTitle{
+	text-align: center;
+	font-size: 36px;
+	margin-bottom: 30px;
 }

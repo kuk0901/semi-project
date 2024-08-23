@@ -112,30 +112,40 @@
       
       <div class="main-container_myPost">
         <div class="main-container_myPost--title">
-          <h1>내가쓴게시물</h1>
+          <h1 class="main-container_myPost--titleH1">MYPOST</h1>
         </div>
         
         <div class="main-container_myPost--items">
-        <div>
+        <div class="main-container_myPost--itemsTitle">
         	<span>자유게시판</span>
         </div>
-          <c:forEach var="board" items="${myPageBoardList}">
+          
           <ul>
+          	<li class="myPost--li title">
+          		<div class="size-s">번호</div>
+          		<div class="size-l">제목</div>
+          		<div class="size-m">작성일</div>
+          		<div class="size-sm">수정 버튼</div>
+          	</li>
+          
+          <c:forEach var="board" items="${myPageBoardList}">
             <li class="myPost--li">
-            	<label>게시물번호</label> 
-            	<input type="text" value="${board.contentNo}" name="contentNo" readonly> 
-            	<label>게시물제목</label> 
-            	<input type="text" value="${board.contentSubject}" name="contentSubject" readonly> 
-            	<label>게시물작성일</label> 
-            	<input type="text" value="${board.contentCreDate}" name="contentCreDate" readonly> 
-            	<input type="hidden" value="${board.userNo}">
-            	<button onclick="moveUserPostDetailPageFnc('${pageContext.request.contextPath}','${board.contentNo}');">게시글수정</button>
+            	<div class="size-s">
+            		${board.contentNo}
+            	</div>
+            	<div class="size-l">
+            		${board.contentSubject}
+            	</div>
+            	<div class="size-m">
+            		${board.contentCreDate}
+            	</div>
+            	<div class="size-sm">
+            		<button onclick="moveUserPostDetailPageFnc('${pageContext.request.contextPath}','${board.contentNo}');" class="postUpdateBtn ">수정</button>
+            	</div>
+            	
             </li>
+           </c:forEach>
            </ul>
-          </c:forEach>
-        </div>
-        <div>
-        	<span>리뷰게시판</span>
         </div>
       </div> <!-- main-container_myPost -->
 
