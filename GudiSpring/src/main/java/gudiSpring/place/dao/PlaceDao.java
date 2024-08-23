@@ -17,6 +17,57 @@ public class PlaceDao {
 		this.connection = connection;
 	}
 	
+	public PlaceDto selectPlace(int placeNo) {
+		PlaceDto placeDto = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "";
+			sql += "SELECT PLACE_NO, PLACE_NAME, PLACE_IMG_PATH, PL_ADDRESS, PL_PHONE, PL_WEBSITE";
+			sql += " FROM PLACE";
+			sql += " WHERE PLACE_NO = ?";
+
+			pstmt = connection.prepareStatement(sql);
+			pstmt.setInt(1, placeNo);
+
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				
+				placeDto = new PlaceDto();
+				
+				placeDto.setPlaceNo(rs.getInt("PLACE_NO"));
+				placeDto.setPlaceImgPath(rs.getString("PLACE_IMG_PATH"));
+				placeDto.setPlaceName(rs.getString("PLACE_NAME"));
+				placeDto.setPlAddress(rs.getString("PL_ADDRESS"));
+				placeDto.setPlPhone(rs.getString("PL_PHONE"));
+				placeDto.setPlWebsite(rs.getString("PL_WEBSITE"));
+			}
+
+			return placeDto;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} // finally 종료
+
+		return null;
+	}
+	
 	// user randomPlace list	
 	public List<PlaceDto> getRandomPlace(int[] randomPlaceNos) {		
 
@@ -27,7 +78,7 @@ public class PlaceDao {
 
 		try {
 			String sql = "";
-			sql += "SELECT PLACE_NO, PLACE_NAME, CATEGORY, PLACE_IMG_PATH";
+			sql += "SELECT PLACE_NO, AREA_NO, PLACE_NAME, CATEGORY, PLACE_IMG_PATH";
 			sql += " FROM PLACE";
 			sql += " WHERE PLACE_NO = ?";
 
@@ -39,6 +90,7 @@ public class PlaceDao {
 				
 				while (rs.next()) {
 					placeDto = new PlaceDto(rs.getInt("PLACE_NO"), 
+							rs.getInt("AREA_NO"),
 							rs.getString("PLACE_NAME"), 
 							rs.getString("CATEGORY"),
 							rs.getString("PLACE_IMG_PATH"));

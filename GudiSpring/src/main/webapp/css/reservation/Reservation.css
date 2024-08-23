@@ -15,6 +15,29 @@ ul, li {
     margin-top: 200px;
 }
 
+#main-container .sub-container__content .place__info .place__info--img {
+	width: 480px;
+	height: 300px;
+	margin: auto;
+}
+
+#main-container .sub-container__content .place__info .place__info--img img {
+	width: 480px;
+	height: 300px;
+}
+
+#main-container .sub-container__content .place__info--text .place__info--text--box li {
+	font-size: 18.5px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#main-container .sub-container__content .place__info--text .place__info--text--box li .place--webSite:hover {
+	text-decoration: underline;
+}
+
+
+#main-container .sub-container__content,
 #main-container .main-container__content {
 	width: 500px;
  	 height: 620px;
@@ -23,6 +46,7 @@ ul, li {
  	 display: flex;
 	 align-items: center;
 	 justify-content: center;
+	 margin: auto 10px;
 }
 
 #main-container label{

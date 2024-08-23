@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(value = "/reservation/general")
-public class ReservationController extends HttpServlet {
+public class GeneReservationController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -63,7 +63,7 @@ public class ReservationController extends HttpServlet {
 			ArrayList<PlaceDto> reservationPlace = (ArrayList<PlaceDto>) placeDao.reservationPlace();
 			req.setAttribute("reservationPlace", reservationPlace);
 			
-			RequestDispatcher rd = req.getRequestDispatcher("/jsp/reservation/generalReservation.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/jsp/reservation/generalReservationView.jsp");
 			rd.forward(req, res);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,6 +79,10 @@ public class ReservationController extends HttpServlet {
 			
 			String visitDate = req.getParameter("visitDate");
 			String visitorNum = req.getParameter("visitorNum");			
+			
+			RequestDispatcher dispathcer = req.getRequestDispatcher("/jsp/reservation/reservationFinishView.jsp");
+			
+			dispathcer.forward(req, res);
 			
 			
 		} catch (Exception e) {

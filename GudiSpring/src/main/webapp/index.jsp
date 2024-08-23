@@ -44,7 +44,7 @@
 						<div class="swiper-slide">
 							<c:if test="${placeDto.category eq '펜션'}">
 								<a
-									href="${pageContext.request.contextPath}/place/pension/infomation?placeNo=${placeDto.placeNo}">
+									href="${pageContext.request.contextPath}/reservation/recommend?area=${placeDto.areaNo}&place=${placeDto.placeNo}&user=${sessionScope.userDto.userNo}">
 									<img src="/img/place/${placeDto.placeImgPath}"
 									alt="${placeDto.placeName}" />
 								</a>
@@ -52,7 +52,7 @@
 
 							<c:if test="${placeDto.category eq '식당'}">
 								<a
-									href="${pageContext.request.contextPath}/place/restaurant/infomation?placeNo=${placeDto.placeNo}">
+									href="${pageContext.request.contextPath}/reservation/recommend?area=${placeDto.areaNo}&place=${placeDto.placeNo}&user=${sessionScope.userDto.userNo}">
 									<img src="/img/place/${placeDto.placeImgPath}"
 									alt="${placeDto.placeName}" />
 								</a>
@@ -60,7 +60,7 @@
 
 							<c:if test="${placeDto.category eq '카페'}">
 								<a
-									href="${pageContext.request.contextPath}/place/cafe/infomation?placeNo=${placeDto.placeNo}">
+									href="${pageContext.request.contextPath}/reservation/recommend?area=${placeDto.areaNo}&place=${placeDto.placeNo}&user=${sessionScope.userDto.userNo}">
 									<img src="/img/place/${placeDto.placeImgPath}"
 									alt="${placeDto.placeName}" />
 								</a>

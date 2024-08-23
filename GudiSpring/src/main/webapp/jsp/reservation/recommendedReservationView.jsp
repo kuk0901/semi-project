@@ -26,15 +26,30 @@
 
 	<div id="main-container">
 
-		<div class="main-container__content">
-			<!--예약할 장소 -->
-			<h1 class="reservation-maincontainer__placename">
-				<c:forEach var="placeDto" items="${cafeList}">${cafeDto.placeName}</c:forEach>
-			</h1>
+		<div class="sub-container__content">
+			<div class="place__info">
+	        	<div class="place__info--img">
+	         		<img src="/img/place/${placeDto.placeImgPath}" alt="이미지 준비중" class="place--img" />
+	        	</div>
+	        
+		        <div class="place__info--text">
+		          <ul class="place__info--text--box">
+		            <li class="placeName">${placeDto.placeName}</li>
+		            <li class="info">Address : ${placeDto.plAddress}</li>
+		            <li class="info">Phone : ${placeDto.plPhone}</li>
+		            <li class="info"><a href="${placeDto.plWebsite}"
+		              target="_blank" class="place--webSite">Web :
+		                ${placeDto.plWebsite}</a></li>
+		          </ul>
+		        </div>
+	      	</div>
+		</div>
 
+		<div class="main-container__content">
+			
 			<!--정보 입력 -->
 			<div class="reservation-maincontainer__content">
-				<form class="" action="./general" method="post" onsubmit="return confirm('정말 예약하시겠습니까?');">
+				<form class="" action="./recommend" method="post" onsubmit="return confirm('정말 예약하시겠습니까?');">
 					<div class="reservation-maincontainer__content__element">
 						<div class="visit-date">
 							<label for="visitDate">방문일</label>
@@ -56,7 +71,7 @@
 					</div>
 
 					<div class="reservation-maincontainer__content__element__submit">
-						<input type="submit" class="reserv__btn" value="예약하기" onclick="location.href='${pageContext.request.contextPath}/jsp/reservation/reservationFinish.jsp'"/>
+						<input type="submit" class="reserv__btn" value="예약하기" />
 					</div>
 				</form>
 			</div>

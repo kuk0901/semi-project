@@ -114,13 +114,15 @@ public class PlaceDto implements Place {
 		this.placeNo = placeNo;
 	}
 	
-	public PlaceDto(int placeNo, String placeName, String category, String placeImgPath) {
+	public PlaceDto(int placeNo, int areaNo, String placeName, String category, String placeImgPath) {
 		super();
 		this.placeNo = placeNo;
+		this.areaNo = areaNo;
 		this.placeName = placeName;
 		this.category = category;
 		this.placeImgPath = placeImgPath;
 	}
+
 
 	public int getPlaceNo() {
 		return placeNo;
