@@ -73,9 +73,7 @@
 </div>
     
     <div class="button-container">
-        <button onclick="goToNotice()">임시공지사항</button>
-       
-		<button onclick="location.href='<%=request.getContextPath()%>/board/freeboard/list'">자유 게시판으로 이동</button>
+        
         <button onclick="location.href='<%=request.getContextPath()%>/board/reviewboard/add'">새 글 작성</button>
     </div>
     <jsp:include page="/jsp/common/footer.jsp"/>

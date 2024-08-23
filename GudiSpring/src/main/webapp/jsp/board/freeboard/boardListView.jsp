@@ -83,9 +83,7 @@
     </div>
 
     <div class="button-container">
-      <button onclick="goToNotice('${pageContext.request.contextPath}')" class="action-button">임시공지사항</button>
-      <button onclick="goToReviewBoard('${pageContext.request.contextPath}')" class="action-button">리뷰
-        게시판으로 이동</button>
+     
       <button
         onclick="location.href='<%=request.getContextPath()%>/board/freeboard/add'"
         class="action-button">새 글 작성</button>
