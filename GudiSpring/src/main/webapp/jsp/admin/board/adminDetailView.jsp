@@ -45,7 +45,7 @@
         <tr>
             <th class="detailHeader">수정일</th>
             <td class="detailCell">${boardDetail.contentUpdateDate}</td>
-        </tr>
+        </tr>	
         <tr>
             <th class="detailHeader">내용</th>
             <td class="detailCell">${boardDetail.contentText}</td>
@@ -65,7 +65,7 @@
                 <form action="${pageContext.request.contextPath}/comment/delete" method="post">
                     <input type="hidden" name="commentNo" value="${comment.commentNo}">
                     <input type="hidden" name="contentNo" value="${boardDetail.contentNo}">
-                    <button type="submit" class="btn delete-btn" onclick="return confirm('정말로 이 댓글을 삭제하시겠습니까?')">댓글 삭제</button>
+                    <button type="submit" class="comment-delete-btn" onclick="return confirm('정말로 이 댓글을 삭제하시겠습니까?')">댓글 삭제</button>
                 </form>
             </li>
         </c:forEach>

@@ -46,8 +46,8 @@ public class NoticeListController extends HttpServlet {
                 // 이미지 태그를 <사진>으로 대체
                 String contentText = notice.getContentText();
                 if (contentText != null) {
-                    contentText = contentText.replaceAll("<img[^>]*>", "<사진>");
-                    contentText = contentText.replaceAll("<p>|</p>|<br\\s*/?>", " ");
+                	// 모든 HTML 태그 제거
+                    contentText = contentText.replaceAll("<[^>]*>", " ");
                     notice.setContentText(contentText);
                 }
 
