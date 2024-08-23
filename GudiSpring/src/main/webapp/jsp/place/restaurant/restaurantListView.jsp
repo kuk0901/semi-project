@@ -14,7 +14,7 @@
 <link rel="stylesheet"
   href="${pageContext.request.contextPath}/css/place/place.css"
   type="text/css" />
-<script defer src="${pageContext.request.contextPath}/js/movePage.js"></script>
+<script defer src="${pageContext.request.contextPath}/js/movePage/movePageFncs.js"></script>
 
 <style type="text/css">
 

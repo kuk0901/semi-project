@@ -86,11 +86,18 @@ public class UserUpdatetController extends HttpServlet {
 			int result = userDao.userUpdate(userDto);
 
 			if (result == 0) {
-				System.out.println("회원 정보 조회가 실패하였습니다.");
+				req.setAttribute("msg", "회원 정보를 수정하지 못했습니다.");
+				
+				doGet(req, res);
+				return;
 			}
 
-			res.sendRedirect(req.getContextPath());
+			req.setAttribute("msg", "회원 정보를 수정했습니다.");
+			
+			RequestDispatcher dispathcer = req.getRequestDispatcher("/jsp/user/myPageView.jsp");
 
+			dispathcer.forward(req, res);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("error", e);

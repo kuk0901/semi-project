@@ -142,11 +142,19 @@ public class UserCreateController extends HttpServlet {
 			result = userDao.userInsert(userDto);
 
 			if (result == 0) {
-				System.out.println("회원가입실패");
+				req.setAttribute("msg", "회원가입에 실패했습니다.");
+				
+				doGet(req, res);
+				
+				return;
+			} else if (result > 0) {
+
+				req.setAttribute("msg", "회원가입에 성공했습니다.");
+			
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/auth/signinView.jsp");
+				dispatcher.forward(req, res);
 			}
-
-			res.sendRedirect(req.getContextPath());
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
