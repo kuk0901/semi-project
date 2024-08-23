@@ -115,28 +115,51 @@ function idCheckAndSubmit() {
 
 /*최종 DB로 보낼 회원가입 데이터*/
 function signupCheckAndSubmit() {
-	const userIdEl = document.getElementById("userName");
-	const userNicknameEl = document.getElementById("userNickname");
+	const userNameEl = document.getElementById("userName");
+	const userIdEl = document.getElementById("userId");
 	const userPasswordEl = document.getElementById("userPassword");
-	const userPasswordRetypeEl = document.getElementById("userPassword-retype");
 	const phoneEl = document.getElementById("phone");
+	
+        // 이름
+    var regIdPw = /^[a-zA-Z0-9]{4,12}$/;
+    var regName = /^[가-힣a-zA-Z]{2,15}$/;
+   	var regPhone =  /^[0-9]*$/;
 
-	if (userIdEl.value == "") {
+	//이름 유효성검사
+	if(userNameEl.value == ""){
 		alert("이름을 입력해주세요");
 		return;
-	} else if (userNicknameEl.value == "") {
-		alert("닉네임을 입력해주세요");
-		return;
-	} else if (userPasswordEl.value == "") {
-		alert("패스워드를 입력해주세요");
-		return;
-	} else if (userPasswordRetypeEl.value == "") {
-		alert("패스워드확인을 입력해주세요");
-		return;
-	} else if (phoneEl.value == "") {
-		alert("휴대폰번호를 입력해주세요");
-		return;
+	}else if(!regName.test(userNameEl.value)){
+		alert("이름은 최소 2글자 이상, 한글과 영어만 입력하세요.")
+		userNameEl.focus();
+		return false;
 	}
+	
+	//비밀번호 유효성검사
+	if(userPasswordEl.value == ""){
+		alert("비밀번호를 입력하세요.")
+		userPasswordEl.focus();
+		return ;
+	}else if(!regIdPw.test(userPasswordEl.value)){
+		alert("비밀번호는 4~12자 영문 대소문자, 숫자만 입력하세요.")
+		userPasswordEl.focus();
+		return ;
+	}else if(userPasswordEl.value == userIdEl.value){
+        alert("아이디와 동일한 비밀번호를 사용할 수 없습니다.")
+        userPasswordEl.focus();
+        return;
+    }
+    
+    if(phoneEl.value == ""){
+		alert("휴대폰번호를 입력하세요.")
+		phoneEl.focus();
+		return ;
+	}else if(!regPhone.test(phoneEl.value)){
+		alert("휴대폰번호는 숫자만 입력해주세요.")
+		phoneEl.focus();
+		return ;
+	}
+
 
 	document.getElementById("mainSignupForm").submit();
 
