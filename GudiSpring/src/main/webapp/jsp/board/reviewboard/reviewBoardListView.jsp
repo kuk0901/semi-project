@@ -31,7 +31,7 @@
                 <th>번호</th>
                 <th>제목</th>
                 <th>내용</th>
-                <th>게시판이름</th>
+              
                 <th>작성일</th>
                 <th>수정일</th>
                 <th>닉네임</th>
@@ -47,7 +47,7 @@
                      <td>
                       <c:out value="${board.contentText}" />      
                      </td>
-                    <td><c:out value="${board.boardInfoName}" /></td>
+                   
 
                     <td><c:out value="${board.contentCreDate}" /></td>
                     <td><c:out value="${board.contentUpdateDate}" /></td>

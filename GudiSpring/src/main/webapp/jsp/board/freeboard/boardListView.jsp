@@ -34,7 +34,7 @@
           <th class="table-header">제목</th>
           <th class="table-header">내용</th>
        
-          <th class="table-header">게시판 정보 번호</th>
+       
           <th class="table-header">작성일</th>
           <th class="table-header">수정일</th>
           <th class="table-header">사용자 번호</th>
@@ -53,8 +53,7 @@
             <td class="table-cell"><c:out
                 value="${board.contentText}" /></td>
            
-            <td class="table-cell"><c:out
-                value="${board.contentBoardInfoNo}" /></td>
+           
             <td class="table-cell"><c:out
                 value="${board.contentCreDate}" /></td>
             <td class="table-cell"><c:out

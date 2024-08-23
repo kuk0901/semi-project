@@ -83,7 +83,7 @@
 
 								</td>
 							</c:if>
-							<c:if test="${board.boardInfoName == '고객게시판'}">
+							<c:if test="${board.boardInfoName == '고객센터'}">
 								<td>
 									<!-- 수정 버튼 --> <a
 									href="${pageContext.request.contextPath}/board/customerserviceboard/edit?contentNo=${board.contentNo}"
